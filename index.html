@@ -1174,97 +1174,182 @@ const scholars = [
   {id:"brianchesky",name:"Brian Chesky",org:"Airbnb",title:"Airbnb CEO · 工业设计师 / RISD",field:["industrial","ux"],bio:"美国工业设计师 + CEO。RISD 工业设计 BFA(2004),冰球队队长。Chesky 把设计驱动文化深植 Airbnb 产品/社区/品牌。2024 与 Jony Ive 的 LoveFrom 启动多年期合作,联合设计 Airbnb 产品改版。是少数把 RISD 设计教育延续到运营整个公司的 CEO 案例。",papers:[{y:"2008",t:"联合创立 Airbnb"},{y:"2024",t:"与 Jony Ive LoveFrom 战略合作"}]},
   {id:"mikematas",name:"Mike Matas",org:"独立 / Microsoft",title:"前苹果 iPhone/iPad UI 设计师 · Push Pop Press 创办人",field:["ux"],bio:"美国 UI 设计师。19 岁加入苹果 Human Interface 团队,参与原版 iPhone 设计:相机、相册、地图、设置。设计 iPad Photos app、Mac Time Machine、Photo Booth。后参与 Nest 智能恒温器设计。2010 创办 Push Pop Press(被 Facebook 收购)。Facebook Paper 主创。后创办 Lobe.ai(2018 被微软收购)。",papers:[{y:"2007",t:"原版 iPhone UI"},{y:"2014",t:"Facebook Paper"},{y:"2018",t:"Lobe.ai 卖给 Microsoft"}]},
   {id:"soleio",name:"Soleio Cuervo",org:"Combine VC",title:"前 Facebook 早期设计师 → Dropbox VP Design → Combine VC",field:["ux"],bio:"美国设计师 + 投资人。第 14 号 Facebook 员工,设计 Like 按钮、News Feed 早期版本。后任 Dropbox VP of Design。2017 创办 Combine VC,投资 Linear / Roam / Vercel / Loom 等设计驱动型公司。代表「Facebook 设计黑帮」以投资人身份在硅谷设计创业生态的重要节点。",papers:[{y:"2005",t:"Facebook 第 14 号员工"},{y:"2014",t:"Dropbox VP Design"},{y:"2017",t:"创办 Combine VC"}]},
-  {id:"raunofreiberg",name:"Rauno Freiberg",org:"Vercel",title:"Vercel 高级 Design Engineer · 「设计 + 工程」代表",field:["ux"],bio:"爱沙尼亚设计师 + 前端工程师。Vercel Senior Design Engineer。在 X (@raunofreiberg) 上以高质量微交互/动效演示获 100K+ 关注,被视为 design engineering 这一新兴角色的标志人物。Vercel 官网首页那些丝滑动效大多出自他手。代表「设计师必须懂代码」的 AI native 时代趋势。",papers:[{y:"2022",t:"加入 Vercel"},{y:"2023",t:"Design Engineering 概念普及"}]}
+  {id:"raunofreiberg",name:"Rauno Freiberg",org:"Vercel",title:"Vercel 高级 Design Engineer · 「设计 + 工程」代表",field:["ux"],bio:"爱沙尼亚设计师 + 前端工程师。Vercel Senior Design Engineer。在 X (@raunofreiberg) 上以高质量微交互/动效演示获 100K+ 关注,被视为 design engineering 这一新兴角色的标志人物。Vercel 官网首页那些丝滑动效大多出自他手。代表「设计师必须懂代码」的 AI native 时代趋势。",papers:[{y:"2022",t:"加入 Vercel"},{y:"2023",t:"Design Engineering 概念普及"}]},
+  // ===== Apple Internal Team =====
+  {id:"bashording",name:"Bas Ording",org:"Apple alum",title:"前苹果 UI 设计师 · iPhone 橡皮筋滚动发明者",field:["ux"],bio:"荷兰交互设计师。1998 年 Eindhoven 工业设计学院毕业后被 Steve Jobs 亲自招入苹果。15 年苹果生涯,主导 Mac OS X 的 Dock 放大效果、Exposé,以及 iPhone 最具标志性的「橡皮筋」滚动 (rubber band scrolling) + 惯性滚动 + 滑动解锁。这条「rubber band」演示在 2005 年点燃了 Steve Jobs 的「这就是手机」灵光一现。其滚动专利后被 Steve Jobs 用以起诉三星。后期离开苹果加入 Tesla(2013-)。",papers:[{y:"2005",t:"iPhone 橡皮筋滚动 demo"},{y:"2007",t:"iPhone 惯性滚动 / 滑动解锁"}]},
+  {id:"imranchaudhri",name:"Imran Chaudhri",org:"Humane (ex-Apple)",title:"前苹果 HI 设计师 22 年 · Humane 联创",field:["ux"],bio:"出生于伦敦巴基斯坦裔。1995-2017 年在苹果担任 HI 设计师 22 年。原版 iPhone 软件 UI 团队核心成员之一,拥有 50+ 项苹果 UI 专利,涉及 iPad、Apple Watch、Vision Pro 早期概念。2017 与妻子 Bethany Bongiorno 离开苹果创立 Humane,2023 推出 AI Pin(失败),2024 卖给 HP。代表苹果设计黄金时代 HI 团队的灵魂人物之一。",papers:[{y:"2007",t:"原版 iPhone HI"},{y:"2015",t:"Apple Watch HI"},{y:"2023",t:"Humane AI Pin"}]},
+  {id:"gregchristie",name:"Greg Christie",org:"Apple alum",title:"前苹果 HI 副总裁(2002-2014)",field:["ux"],bio:"美国 UI 设计师。1996 加入苹果,2002-2014 担任 Human Interface Group 副总裁。主导 Newton OS、Mac OS X、iPhone、iPad UI 设计。「Slide to Unlock」专利的合作发明人。在 Steve Jobs 时代直接对 Jobs 汇报,管理苹果整个 UI 设计团队。2014 离开苹果。",papers:[{y:"1990s",t:"Newton OS"},{y:"2007",t:"iPhone HI(VP 主管)"},{y:"2010",t:"iPad HI"}]},
+  {id:"chrisstringer",name:"Christopher Stringer",org:"Apple alum",title:"前苹果 ID 团队核心(1995-2017)",field:["industrial"],bio:"英国工业设计师。1995 加入苹果工业设计团队,与 Jony Ive 共事 22 年。原版 iPhone、iPad、Apple Watch、AirPods 工业设计核心成员。在三星专利诉讼中作为苹果证人出庭,首次公开苹果设计部内部会议方式。2017 离开苹果。",papers:[{y:"2007",t:"原版 iPhone ID"},{y:"2010",t:"iPad ID"},{y:"2015",t:"Apple Watch ID"}]},
+  {id:"bartandre",name:"Bart Andre",org:"Apple",title:"苹果 ID 团队元老(1992-)",field:["industrial"],bio:"加拿大工业设计师。1992 加入苹果工业设计团队,迄今 30+ 年,是 Apple ID 团队最长资历的成员之一。与 Jony Ive 共事整个黄金时代。Apple Watch 主要设计师之一。500+ 苹果硬件专利。Ive 离开后仍留在苹果 ID 团队,延续设计血脉。",papers:[{y:"1998",t:"iMac G3(团队成员)"},{y:"2015",t:"Apple Watch(主设计师)"}]},
+  {id:"alandye",name:"Alan Dye",org:"Meta (ex-Apple)",title:"前苹果 HI 副总裁 · Liquid Glass 主导者 → Meta CDO",field:["ux","graphic"],bio:"美国设计师。Kate Spade 创意总监出身,2006 加入苹果做营销创意,2015 升任 Apple HI 副总裁(接 Jony Ive 设计大权 UI 部分)。主导 Apple Watch UI、iPhone X、Vision Pro UI,以及 2025 年发布的 Liquid Glass(iOS 26 全面视觉重构,材质化半透明界面语言,从 visionOS 演化而来)。2025 年 12 月被 Meta 以 Chief Design Officer 头衔挖走加入 Reality Labs,负责 Meta 全部硬件 + AI 产品设计。",papers:[{y:"2015",t:"任苹果 HI VP"},{y:"2017",t:"iPhone X UI"},{y:"2025",t:"Liquid Glass(iOS 26)"},{y:"2025",t:"加入 Meta 任 CDO"}]},
+  {id:"billatkinson",name:"Bill Atkinson",org:"Apple alum",title:"原版 Mac 灵魂工程-设计师 · MacPaint / HyperCard",field:["ux"],bio:"1951 生,2025 去世。原版 Macintosh 团队核心成员。开发 QuickDraw 图形系统(让 Mac 能在像素级精确绘图)、MacPaint(1984,首个商业化绘图软件)、HyperCard(1987,被视为 Web 链接的前身)。在 Mac 工程团队是少数兼具技术深度 + 设计直觉的灵魂人物。与 Susan Kare、Andy Hertzfeld 同期。",papers:[{y:"1984",t:"MacPaint + QuickDraw"},{y:"1987",t:"HyperCard"}]},
+
+  // ===== Braun(Rams 之外)=====
+  {id:"fritzeichler",name:"Fritz Eichler",org:"Braun (1953-)",title:"博朗创意总监 · 招聘 Rams 的人",field:["industrial"],bio:"1911 生于卢森堡 Differdange,德国艺术史学家、画家、戏剧导演、产品设计师。1953 加入博朗最初为做广告片导演,迅速升任创意总监,定义博朗 1950s-60s 的整体设计哲学。是把 Hans Gugelot、Otl Aicher、Dieter Rams 等设计师招入博朗的关键人物。与 HfG Ulm 建立合作关系,把包豪斯传统通过 Ulm 学派带入博朗。",papers:[{y:"1953",t:"加入博朗任创意总监"},{y:"1955",t:"招聘 Dieter Rams"}]},
+  {id:"hansgugelot",name:"Hans Gugelot",org:"HfG Ulm + Braun",title:"HfG Ulm 教授 · 与 Rams 合作 SK 4",field:["industrial"],bio:"1920 生于印尼,1965 早逝。德国-荷兰工业设计师。HfG Ulm(乌尔姆造型学院)关键人物。与 Dieter Rams 合作设计 1956 年的博朗 SK 4 唱机收音机(被昵称「白雪公主之棺」,MoMA 永久馆藏)。开创了德国战后理性主义工业设计语言,通过 Ulm 学派把包豪斯传统延续到战后德国。",papers:[{y:"1956",t:"Braun SK 4(与 Rams 合作)"},{y:"1958",t:"HfG Ulm 教授"}]},
+  {id:"reinholdweiss",name:"Reinhold Weiss",org:"Braun (1959-1967)",title:"博朗设计师 · 与 Rams 同期",field:["industrial"],bio:"德国工业设计师。HfG Ulm 毕业。1959-1967 在博朗设计部门与 Dieter Rams、Hans Gugelot 共事。设计博朗多款厨房电器经典作品(吐司机 HT 2 等),首次为博朗引入「黑+银」配色组合(后成为博朗品牌标识)。1967 离开博朗自创工作室,后赴美芝加哥发展。",papers:[{y:"1961",t:"Braun HT 2 Toaster"}]},
+
+  // ===== Visual Identity / Brand 大公司创始人 =====
+  {id:"ivanchermayeff",name:"Ivan Chermayeff",org:"Chermayeff & Geismar",title:"美国企业识别设计先驱(1932-2017)",field:["graphic"],bio:"1932 伦敦生,2017 NYC 去世。Harvard、Yale 艺术学院。父亲是建筑师 Serge Chermayeff。1957 与 Tom Geismar 联创 Chermayeff & Geismar(后改名 Chermayeff & Geismar & Haviv)。设计美国最经典企业 logo:NBC 孔雀(1986)、Mobil 飞马(1965)、PBS 人脸(1971)、Smithsonian、National Geographic、Pan Am、Chase 银行八边形(1961)。开创美国 mid-century 现代主义企业识别。AIGA 奖章 1979。",papers:[{y:"1957",t:"创办 Chermayeff & Geismar"},{y:"1961",t:"Chase 银行八边形 logo"},{y:"1986",t:"NBC 孔雀"}]},
+  {id:"tomgeismar",name:"Tom Geismar",org:"Chermayeff & Geismar & Haviv",title:"Chermayeff & Geismar 联创(1957-)",field:["graphic"],bio:"1931 生,美国平面设计师。Brown 大学 + Yale 艺术学院。1957 与 Ivan Chermayeff 联创 Chermayeff & Geismar,职业生涯 65+ 年,设计 100+ 个全球企业 logo:Mobil(1964)、Chase(1961)、Burlington Industries、Best Products、Library of Congress 等。AIGA 奖章 1979。Smithsonian Cooper Hewitt 终身成就奖 2014。",papers:[{y:"1957",t:"联创 Chermayeff & Geismar"},{y:"1964",t:"Mobil 飞马 logo"}]},
+  {id:"saghaviv",name:"Sagi Haviv",org:"Chermayeff & Geismar & Haviv",title:"C&G&H 现任合伙人 · 第三代",field:["graphic"],bio:"1974 以色列出生,在美国受教育。Cooper Union 平面设计 BFA。2003 加入 Chermayeff & Geismar,2006 升任合伙人(最年轻的合伙人),公司随后改名 Chermayeff & Geismar & Haviv。设计 Conservation International 三角 logo(2008)、Library of Congress、Harvard University Press、US Open 网球公开赛。AIGA 系列演讲常驻嘉宾。代表 C&G 60+ 年血脉的当代延续。",papers:[{y:"2008",t:"Conservation International logo"},{y:"2014",t:"US Open Tennis logo"}]},
+  {id:"wallyolins",name:"Wally Olins",org:"Wolff Olins (cofounder)",title:"现代品牌咨询之父(1930-2014)",field:["graphic"],bio:"1930 伦敦生,2014 去世。St Anne's College Oxford。1965 与设计师 Michael Wolff 联创 Wolff Olins,定义了「企业识别」(corporate identity)作为咨询行业。设计英国电信 BT(1991)、Tate(2000)、奥运 + 奥姆勒姆 2012、Beats by Dre、Royal Mail。著作《Corporate Identity》(1989)、《On Brand》(2003)被视为品牌咨询圣经。CBE 1999。",papers:[{y:"1965",t:"联创 Wolff Olins"},{y:"1989",t:"Corporate Identity(book)"},{y:"2000",t:"Tate identity"}]},
+  {id:"walterlandor",name:"Walter Landor",org:"Landor Associates",title:"美国包装设计先驱(1913-1995)",field:["graphic"],bio:"1913 慕尼黑生,1995 SF 去世。Goldsmiths College London。1941 移民美国,1941 创立 Landor Associates(SF)。开创现代消费品包装与品牌设计:Coca-Cola 经典曲线、Levi Strauss、Marlboro 红盒、FedEx(1994)、3M、Westinghouse。把消费者品牌咨询从单次设计转为系统化方法论。AIGA 奖章 1988。Landor 1989 被 WPP 收购,至今仍是全球最大品牌咨询公司之一。",papers:[{y:"1941",t:"创办 Landor Associates"},{y:"1955",t:"可口可乐曲线包装"},{y:"1994",t:"FedEx logo"}]},
+  {id:"gertdumbar",name:"Gert Dumbar",org:"Studio Dumbar",title:"荷兰品牌设计学派 · Studio Dumbar 创始人",field:["graphic"],bio:"1940 生于印尼万隆(荷兰籍)。Royal College of Art London。1977 在海牙创立 Studio Dumbar。荷兰品牌设计学派代表:KPN(荷兰电信)、Dutch Police 警方、Dutch Postal Service、Apollo 阿波罗剧院、Royal Dutch Mint、Tate Britain。结合摄影、3D 道具与平面设计的「scenographic」方法论开创性地融合戏剧手法与企业识别。Royal Designer for Industry。",papers:[{y:"1977",t:"创立 Studio Dumbar"},{y:"1989",t:"Dutch PTT 设计系统"}]},
+
+  // ===== Teenage Engineering co-founder =====
+  {id:"davideriksson",name:"David Eriksson",org:"Teenage Engineering",title:"TE 联合创始人",field:["industrial","ux"],bio:"瑞典设计师。2005 与 Jesper Kouthoofd、Jens Rudberg、Erik Lundstedt 在斯德哥尔摩共同创立 Teenage Engineering。TE 以 OP-1 合成器(2011)、Pocket Operator、IKEA Frekvens 联名、Nothing 早期产品 Nothing CMF 合作著称。「玩具感 + 严肃合成器」美学定义了独立硬件 / 音乐设计圈的新方向。",papers:[{y:"2005",t:"联创 Teenage Engineering"},{y:"2011",t:"OP-1 合成器"}]},
+
+  // ===== Chinese Designers 扩充 =====
+  {id:"henrysteiner",name:"Henry Steiner",org:"Steiner & Co (HK)",title:"石汉瑞 · 香港平面设计之父 · Paul Rand 学生",field:["graphic","chinese"],bio:"1934 生于维也纳犹太家庭,纳粹兴起后逃往美国。Hunter College + Yale 艺术学院 MFA(师从 Paul Rand)。1961 受邀到香港任《亚洲杂志》设计总监,原计划 9 个月但定居至今。1964 创立 Steiner & Co。设计汇丰银行 HSBC 六边形 logo、渣打银行神话生物钞票、香港赛马会、香港置地、希尔顿香港。被誉为「香港平面设计之父」。AGI 资深会员。把东方符号融入西方现代主义平面设计的开创者。",papers:[{y:"1964",t:"创立 Steiner & Co"},{y:"1983",t:"汇丰银行六边形 logo"},{y:"2003",t:"渣打银行神话钞票系列"}]},
+  {id:"freemanlau",name:"Freeman Lau",org:"KL&K Design",title:"刘小康 · KL&K Design 联创 · 椅子先生",field:["graphic","industrial","chinese"],bio:"1958 生于香港。香港理工大学设计学院。1996 与靳埭强联合创立靳与刘设计 KL&K Design Consultants。「椅子戏」系列以椅子为载体的视觉艺术(2005-)走遍世界博物馆。设计中国人寿、屈臣氏蒸馏水瓶等品牌识别。香港艺术发展局视觉艺术主席多届。深圳市政府文化与设计顾问。「香港 → 中国大陆」设计跨界的代表人物之一。",papers:[{y:"1996",t:"联创 KL&K Design"},{y:"2005",t:"椅子戏系列"}]},
+  {id:"shidayu",name:"Shi Dayu",org:"Clay Architecture (Taiwan)",title:"石大宇 · 台湾设计师 · 竹工艺现代化",field:["industrial","chinese"],bio:"1964 生于纽约,在台湾长大。Parsons School of Design 工业设计 BFA。1995 创立清庭 Clay Architecture(台北)。专注东方材料(尤其竹)的当代设计:「椅琴剑」系列、「云水居」竹凳、「天工开物」家具。Compasso d'Oro 金奖入围。德国 Red Dot 至尊奖、Good Design Award。台湾 + 大陆设计圈代表把东方传统材料语言带入国际工业设计的人物。",papers:[{y:"1995",t:"创立清庭"},{y:"2010",t:"椅琴剑系列"}]},
+  {id:"lizhiqian",name:"Li Zhiqian",org:"3type (三言)",title:"厉致谦 · 3type 创始人 · 字体设计新生代",field:["typography","chinese"],bio:"独立中文字体设计师 + 字体史研究者。Type is Beautiful (TIB) 资深成员/作者。2014 创立上海 3type(三言)字体工作室,出版《西文字体的故事》《字模 1 号:汉字字体设计》等重要中文字体书籍。中国当代「字体研究 + 出版 + 实验」三位一体的代表新生代,推动汉字现代字体设计走向更专业化。",papers:[{y:"2014",t:"创立 3type"},{y:"2018",t:"《字模 1 号》"}]},
+  {id:"yingyonghui",name:"Ying Yonghui",org:"独立设计师 / TIB",title:"应永会 · 古字体研究 + 民国铅字复刻",field:["typography","chinese"],bio:"中国独立中文字体研究者 + 设计师。Type is Beautiful (TIB) 资深成员。专注复刻民国时期金属铅字、古代书法刻本字体,推出「方正民隶系列」「方正大颜楷」等复刻字体。把中国传统印刷文化与现代字库技术结合的独特路线代表。是中国字体研究领域少数能与朱志伟那一代字库元老对话的研究型设计师。",papers:[{y:"2010s",t:"民国铅字复刻系列"},{y:"2018s",t:"方正民隶字体"}]},
+  {id:"jesperkouthoofd",name:"Jesper Kouthoofd",org:"Teenage Engineering",title:"TE 联合创始人 + CEO + 创意总监",field:["industrial","ux"],bio:"瑞典设计师 + 工程师。2005 与 David Eriksson、Jens Rudberg、Erik Lundstedt 在斯德哥尔摩联创 Teenage Engineering 任 CEO + 创意总监。OP-1(2011)合成器开创独立电子乐器市场,售价 $1199 但成为乐迷信仰物。后续 Pocket Operator 系列、IKEA Frekvens 联名(2019)、Panic Playdate 黄色游戏机硬件设计、Nothing CMF 合作、Rabbit R1 工业设计(2024)。把硬件玩具感、北欧理性、合成器文化融为一体,被视为当代独立硬件设计先锋。",papers:[{y:"2005",t:"联创 Teenage Engineering"},{y:"2011",t:"OP-1 合成器"},{y:"2024",t:"Rabbit R1 工业设计"}]}
 ];
 
 const connections = [
-  // Rams 影响谱系 — 现代极简主义传承
-  {source:"dieterrams",target:"jonyive",type:"advisor",label:"Ive 公开承认 Rams 是最大设计影响"},
-  {source:"dieterrams",target:"naotofukasawa",type:"advisor",label:"Rams 极简哲学传承到 MUJI"},
-  {source:"dieterrams",target:"jaspermorrison",type:"advisor",label:"Super Normal 哲学传承"},
-  // Apple / LoveFrom 体系
+  // ====================================
+  // 真同事(同公司同期共事过)
+  // ====================================
+  // Apple ID team(Jony Ive 时代)
+  {source:"jonyive",target:"bartandre",type:"colleague",label:"Apple ID 团队 1992-2019 共事"},
+  {source:"jonyive",target:"chrisstringer",type:"colleague",label:"Apple ID 团队 1995-2017 共事"},
+  {source:"bartandre",target:"chrisstringer",type:"colleague",label:"Apple ID 团队同事"},
+  {source:"jonyive",target:"alandye",type:"colleague",label:"Apple HI 副总裁(2015-2019 共事)"},
+  // Apple HI team
+  {source:"bashording",target:"imranchaudhri",type:"colleague",label:"Apple HI 团队 iPhone 期共事"},
+  {source:"bashording",target:"gregchristie",type:"colleague",label:"Apple HI 直接汇报"},
+  {source:"imranchaudhri",target:"gregchristie",type:"colleague",label:"Apple HI 团队 2002-2014"},
+  {source:"imranchaudhri",target:"alandye",type:"colleague",label:"Apple HI 团队 2015-2017"},
+  {source:"mikematas",target:"bashording",type:"colleague",label:"Apple HI 团队 iPhone 期"},
+  {source:"mikematas",target:"imranchaudhri",type:"colleague",label:"Apple HI 团队同事"},
+  {source:"mikematas",target:"jonyive",type:"colleague",label:"Apple 设计部门 2007-2011"},
+  // Original Mac team
+  {source:"billatkinson",target:"susankare",type:"colleague",label:"原版 Macintosh 团队(1984)"},
+  // Apple ID 与 Marc Newson(2014 加入)
+  {source:"marcnewson",target:"bartandre",type:"colleague",label:"Apple ID 团队 2014-2019"},
+  {source:"marcnewson",target:"chrisstringer",type:"colleague",label:"Apple ID 团队 2014-2017"},
+
+  // Braun team
+  {source:"fritzeichler",target:"dieterrams",type:"advisor",label:"Eichler 1955 招 Rams 进博朗"},
+  {source:"hansgugelot",target:"dieterrams",type:"coauthor",label:"1956 共同设计 Braun SK 4"},
+  {source:"reinholdweiss",target:"dieterrams",type:"colleague",label:"Braun 设计部 1959-1967 共事"},
+  {source:"hansgugelot",target:"reinholdweiss",type:"colleague",label:"Braun + HfG Ulm 共事"},
+  {source:"fritzeichler",target:"hansgugelot",type:"colleague",label:"Braun + HfG Ulm 协作"},
+  {source:"hansgugelot",target:"otlaicher",type:"colleague",label:"HfG Ulm 教授同事"},
+
+  // Pentagram(已确认 Scher + Spiekermann)
+  {source:"paulascher",target:"erikspiekermann",type:"colleague",label:"Pentagram 合伙人时期"},
+
+  // Sagmeister & Walsh
+  {source:"stefansagmeister",target:"jessicawalsh",type:"cofounder",label:"Sagmeister & Walsh 联创(2012-2019)"},
+
+  // Apple LoveFrom
   {source:"jonyive",target:"marcnewson",type:"cofounder",label:"2019 共同创办 LoveFrom"},
-  {source:"hartmutesslinger",target:"jonyive",type:"advisor",label:"Esslinger 80 年代奠定 Apple 设计语言"},
-  // MUJI Advisory Board 矩阵
-  {source:"naotofukasawa",target:"jaspermorrison",type:"cofounder",label:"2007 共同 Super Normal 展览 + MUJI 顾问董事会同事"},
-  {source:"naotofukasawa",target:"kenyahara",type:"colleague",label:"MUJI Art Director / Advisor 长期同事"},
-  {source:"naotofukasawa",target:"samhecht",type:"colleague",label:"MUJI Advisory Board"},
-  {source:"jaspermorrison",target:"samhecht",type:"colleague",label:"MUJI Advisory Board + 英国设计圈"},
-  {source:"kenyahara",target:"samhecht",type:"colleague",label:"MUJI Advisory Board"},
-  // 师承
-  {source:"jaspermorrison",target:"konstantingrcic",type:"advisor",label:"Grcic 早期助理"},
-  // Sagmeister 圈
-  {source:"stefansagmeister",target:"jessicawalsh",type:"cofounder",label:"2012-2019 Sagmeister & Walsh 联创"},
-  // Pentagram 同事(Scher / Spiekermann 都曾在 Pentagram)
-  {source:"paulascher",target:"erikspiekermann",type:"colleague",label:"Pentagram partners"},
-  // Eames 夫妇
-  // (already combined into one node "eames")
-  // Vignelli + Helvetica + Swiss Style 谱系
-  {source:"josefmullerbrockmann",target:"massimovignelli",type:"advisor",label:"瑞士国际主义影响 Vignelli"},
-  {source:"jantschichold",target:"erikspiekermann",type:"advisor",label:"现代主义字体设计师承谱系"},
-  {source:"josefmullerbrockmann",target:"wolfgangweingart",type:"advisor",label:"Basel School 瑞士字体血脉"},
-  {source:"wolfgangweingart",target:"davidcarson",type:"advisor",label:"Weingart 反叛传给 Carson 的反网格"},
-  // Saul Bass / Glaser / Rand 美国 mid-century 平面设计巨擘相互影响
-  {source:"paulrand",target:"miltonglaser",type:"colleague",label:"NYC mid-century 美国设计同辈"},
-  {source:"paulrand",target:"saulbass",type:"colleague",label:"美国战后企业品牌设计同辈"},
-  {source:"miltonglaser",target:"massimovignelli",type:"colleague",label:"NYC 设计圈同辈"},
-  // M&Co / Kalman 培养 Sagmeister
-  // 跳过 Tibor Kalman 因为没加
-  // UX 黄金圈
-  {source:"donnorman",target:"jakobnielsen",type:"cofounder",label:"1998 共同创办 Nielsen Norman Group"},
-  {source:"donnorman",target:"susankare",type:"colleague",label:"Apple 1980s 同事"},
-  {source:"susankare",target:"johnmaeda",type:"colleague",label:"美国数字设计奠基者同辈"},
-  {source:"johnmaeda",target:"bretvictor",type:"colleague",label:"MIT 计算设计血脉"},
-  {source:"scottbelsky",target:"juliezhuo",type:"colleague",label:"美国科技公司设计领导者同辈"},
-  {source:"scottbelsky",target:"tobiasvanschneider",type:"colleague",label:"Adobe 生态 + Behance 早期作者"},
-  // Apple Susan Kare 谱系
-  {source:"jonyive",target:"susankare",type:"colleague",label:"Apple 设计史(Kare 80s,Ive 90s+)"},
-  // 奥运 / Olympic 设计
-  {source:"otlaicher",target:"wangmin",type:"advisor",label:"奥运设计语言传承(1972 慕尼黑 → 2008 北京)"},
-  {source:"otlaicher",target:"lincunzhen",type:"advisor",label:"奥运视觉系统延续(1972 → 2022 北京冬奥)"},
-  {source:"wangmin",target:"lincunzhen",type:"colleague",label:"中央美院 + 国家奥运视觉项目"},
-  {source:"wangmin",target:"hanjiaying",type:"colleague",label:"2008 北京奥运视觉团队"},
-  // 香港平面设计圈
-  {source:"kantaikeung",target:"alanchan",type:"colleague",label:"1980s 香港平面设计代表同辈"},
-  {source:"kantaikeung",target:"hejianping",type:"advisor",label:"靳埭强设计奖体系培养下一代"},
-  // 字体设计
-  {source:"zhuzhiwei",target:"jianghua",type:"colleague",label:"中文字体设计两代代表"},
-  {source:"zhuzhiwei",target:"lincunzhen",type:"colleague",label:"方正悠黑合作"},
-  // 深圳品牌设计圈
-  {source:"hanjiaying",target:"heiyiyang",type:"colleague",label:"深圳品牌设计两代代表"},
-  // 中国当代家具
-  {source:"yangmingjie",target:"zhouchenchen",type:"colleague",label:"中国 70 后/80 后工业设计代表"},
-  {source:"jiawei",target:"yangmingjie",type:"colleague",label:"中国本土工业设计公司创始人同辈"},
-  // 出版/书籍设计
-  {source:"zhuyingchun",target:"jianghua",type:"colleague",label:"中国当代书籍/字体设计"},
-  // 跨界 Italian 老一辈
-  {source:"ettoresottsass",target:"patriciaurquiola",type:"advisor",label:"Sottsass 后米兰 Italian 设计学院"},
-  // Frog 起点
-  {source:"hartmutesslinger",target:"rosslovegrove",type:"colleague",label:"frog design 1980s 同事"},
-  // Olivetti / Italian 工业设计
-  {source:"ettoresottsass",target:"konstantingrcic",type:"colleague",label:"米兰工业设计师同辈"},
-  // Penguin / British 设计
-  {source:"jantschichold",target:"jaspermorrison",type:"advisor",label:"英国现代主义设计血脉"},
-  // Tinker Hatfield
-  {source:"tinkerhatfield",target:"yvesbehar",type:"colleague",label:"美国当代品牌产品设计师同辈"},
-  // Chinese Mobile-Era cluster
-  {source:"liude",target:"liwanqiang",type:"cofounder",label:"小米 2010 年八位联合创始人"},
-  {source:"liwanqiang",target:"tangmu",type:"colleague",label:"金山 UI 时期上下属(黎万强是唐沐 UI 主管)"},
-  {source:"yangyan",target:"luoziyong",type:"colleague",label:"中国 ROM 定制设计师同代(Flyme vs Smartisan)"},
-  {source:"yangyan",target:"geyanan",type:"colleague",label:"中国 Android 定制 ROM 设计领头人代际"},
-  {source:"liude",target:"yvesbehar",type:"colleague",label:"Art Center College of Design 校友"},
-  // AI Software Era cluster
-  {source:"joegebbia",target:"brianchesky",type:"cofounder",label:"RISD 同班同学 + Airbnb 联合创始人"},
-  {source:"brianchesky",target:"karrisaarinen",type:"colleague",label:"Karri 曾任 Airbnb Principal Designer"},
-  {source:"brianchesky",target:"jonyive",type:"cofounder",label:"2024 LoveFrom × Airbnb 战略合作"},
+
+  // frog design
+  {source:"hartmutesslinger",target:"rosslovegrove",type:"colleague",label:"frog design 1980s 共事"},
+
+  // Eames(单一节点)— 与 Herman Miller 合作
+  // Olivetti
+  // Studio Urquiola — Patricia 曾与 Castiglioni / Magistretti / Lissoni 共事(都不在图谱)— 不连
+
+  // Chermayeff & Geismar
+  {source:"ivanchermayeff",target:"tomgeismar",type:"cofounder",label:"1957 联创 Chermayeff & Geismar"},
+  {source:"tomgeismar",target:"saghaviv",type:"colleague",label:"C&G&H 合伙人(2006-)"},
+  {source:"ivanchermayeff",target:"saghaviv",type:"colleague",label:"C&G&H 合伙人三代延续"},
+
+  // Wolff Olins(Michael Wolff 不在图谱)— 单条 Wally 没有同事连
+  // Studio Dumbar — Gert 是创始人,无合伙人
+
+  // Teenage Engineering
+  {source:"davideriksson",target:"jesperkouthoofd",type:"cofounder",label:"2005 联创 Teenage Engineering"},
+
+  // RISD → Airbnb
+  {source:"joegebbia",target:"brianchesky",type:"cofounder",label:"RISD 同班同学 + Airbnb 联合创始人(2008)"},
+  {source:"brianchesky",target:"karrisaarinen",type:"colleague",label:"Karri 任 Airbnb Principal Designer 时期"},
+
+  // NN/g
+  {source:"donnorman",target:"jakobnielsen",type:"cofounder",label:"1998 联创 Nielsen Norman Group"},
+
+  // Notion
   {source:"ivanzhao",target:"ryolu",type:"colleague",label:"Notion 5 年同事(2019-2025)"},
-  {source:"karrisaarinen",target:"raunofreiberg",type:"colleague",label:"Linear ↔ Vercel · Design Engineering 圈"},
-  {source:"soleio",target:"karrisaarinen",type:"advisor",label:"Combine VC 早期投资 Linear"},
+
+  // Facebook 设计黑帮
   {source:"mikematas",target:"soleio",type:"colleague",label:"Facebook Paper / Creative Labs 设计同事"},
-  {source:"mikematas",target:"jonyive",type:"colleague",label:"苹果设计部门同事(2007-2011)"},
-  {source:"mikematas",target:"susankare",type:"colleague",label:"苹果设计师代际血脉"},
+
+  // 小米八创始人
+  {source:"liude",target:"liwanqiang",type:"cofounder",label:"小米 2010 年联合创始人"},
+
+  // 金山-腾讯-小米唐沐线
+  {source:"liwanqiang",target:"tangmu",type:"colleague",label:"金山 UI 时期上下属(黎万强是唐沐 UI 主管)"},
+
+  // 中央美院 + 北京奥运 2008 团队
+  {source:"wangmin",target:"hanjiaying",type:"colleague",label:"2008 北京奥运视觉设计团队"},
+  {source:"wangmin",target:"lincunzhen",type:"colleague",label:"中央美院教师同事"},
+
+  // KL&K Design
+  {source:"kantaikeung",target:"freemanlau",type:"cofounder",label:"1996 联创 KL&K Design 靳与刘"},
+
+  // Type is Beautiful 团队
+  {source:"jianghua",target:"lizhiqian",type:"colleague",label:"Type is Beautiful 同事"},
+  {source:"jianghua",target:"yingyonghui",type:"colleague",label:"Type is Beautiful 同事"},
+  {source:"lizhiqian",target:"yingyonghui",type:"colleague",label:"Type is Beautiful + 字体研究同事"},
+
+  // 方正字库合作
+  {source:"zhuzhiwei",target:"lincunzhen",type:"coauthor",label:"方正悠黑字体合作开发"},
+
+  // ====================================
+  // 共著(同一项目)
+  // ====================================
+  {source:"naotofukasawa",target:"jaspermorrison",type:"coauthor",label:"2007 Super Normal 联合策展 + 同期 MUJI 顾问"},
+  {source:"naotofukasawa",target:"kenyahara",type:"coauthor",label:"MUJI 视觉与产品同期 Art Director / Advisory"},
+  {source:"naotofukasawa",target:"samhecht",type:"coauthor",label:"MUJI Advisory Board 同期顾问"},
+  {source:"jaspermorrison",target:"samhecht",type:"coauthor",label:"MUJI Advisory Board 同期顾问"},
+  {source:"kenyahara",target:"samhecht",type:"coauthor",label:"MUJI Advisory Board 同期顾问"},
+  {source:"jaspermorrison",target:"kenyahara",type:"coauthor",label:"MUJI Advisory Board"},
+
+  {source:"brianchesky",target:"jonyive",type:"coauthor",label:"2024 LoveFrom × Airbnb 战略合作 / 联合设计"},
+
+  // ====================================
+  // 师承(advisor)— 直接师生 / mentor 招聘 / 哲学影响
+  // ====================================
+  // Rams 哲学血脉
+  {source:"dieterrams",target:"jonyive",type:"advisor",label:"Ive 公开承认 Rams 是最大设计影响"},
+  {source:"dieterrams",target:"naotofukasawa",type:"advisor",label:"极简哲学传承"},
+  {source:"dieterrams",target:"jaspermorrison",type:"advisor",label:"Super Normal 哲学源自 Rams 传统"},
+
+  // Apple 设计代际血脉
+  {source:"hartmutesslinger",target:"jonyive",type:"advisor",label:"Esslinger Snow White 设计语言为 Ive 时代铺路"},
+
+  // Morrison 招 Grcic 当助理
+  {source:"jaspermorrison",target:"konstantingrcic",type:"advisor",label:"Grcic 早期任 Morrison 助理"},
+
+  // Paul Rand → Henry Steiner(耶鲁导师 → 学生)
+  {source:"paulrand",target:"henrysteiner",type:"advisor",label:"Yale 艺术学院导师"},
+
+  // Tschichold 字体血脉
+  {source:"jantschichold",target:"erikspiekermann",type:"advisor",label:"现代字体设计哲学传承"},
+
+  // 瑞士 → 反叛
+  {source:"josefmullerbrockmann",target:"wolfgangweingart",type:"advisor",label:"Basel 学派师承(瑞士 → 反 Swiss Style)"},
+  {source:"wolfgangweingart",target:"davidcarson",type:"advisor",label:"Weingart 反网格哲学影响 Carson"},
+
+  // Memphis 后米兰
+  {source:"ettoresottsass",target:"patriciaurquiola",type:"advisor",label:"米兰后现代设计学派"},
+
+  // 靳埭强培养下一代
+  {source:"kantaikeung",target:"hejianping",type:"advisor",label:"靳埭强设计奖体系培养"},
+
+  // VC 投资关系
+  {source:"soleio",target:"karrisaarinen",type:"advisor",label:"Combine VC 投资 Linear"},
+
+  // Bret Victor 哲学影响
   {source:"bretvictor",target:"karrisaarinen",type:"advisor",label:"Inventing on Principle 影响 Linear 即时反馈哲学"},
   {source:"bretvictor",target:"ryolu",type:"advisor",label:"Bret Victor 实时编程理念影响 Cursor 设计哲学"}
+
 ];
 
 // ===================================================================
@@ -1708,7 +1793,30 @@ const scholarZh = {
   brianchesky: { zhName: "Brian Chesky", title: "Airbnb CEO · 工业设计师 / RISD", bio: "美国工业设计师 + CEO。RISD 工业设计 BFA(2004),冰球队队长。Chesky 把设计驱动文化深植 Airbnb 产品/社区/品牌。2024 与 Jony Ive 的 LoveFrom 启动多年期合作,联合设计 Airbnb 产品改版。是少数把 RISD 设计教育延续到运营整个公司的 CEO 案例。" },
   mikematas: { zhName: "Mike Matas", title: "前苹果 iPhone/iPad UI 设计师 · Push Pop Press 创办人", bio: "美国 UI 设计师。高中末与 Wil Shipley 创办 Delicious Monster(获 Apple Design Award)。19 岁加入苹果 Human Interface 团队,参与原版 iPhone 设计:相机、相册、地图、设置。设计 iPad Photos app、Mac Time Machine、Photo Booth。后参与 Nest 智能恒温器设计。2010 创办 Push Pop Press(被 Facebook 收购)。Facebook Paper 主创。后创办 Lobe.ai(2018 被微软收购)。" },
   soleio: { zhName: "Soleio Cuervo", title: "前 Facebook 早期设计师 → Dropbox VP Design → Combine VC", bio: "美国设计师 + 投资人。第 14 号 Facebook 员工,设计 Like 按钮、News Feed 早期版本。后任 Dropbox VP of Design。2017 创办 Combine VC,专注早期设计师创业投资。投资 Linear、Roam Research、Vercel、Loom 等设计驱动型公司。代表「Facebook 设计黑帮」以投资人身份在硅谷设计创业生态的重要节点。" },
-  raunofreiberg: { zhName: "Rauno Freiberg", title: "Vercel 高级 Design Engineer · 「设计 + 工程」代表", bio: "爱沙尼亚设计师 + 前端工程师。Vercel Senior Design Engineer。在 X (@raunofreiberg) 上以高质量微交互/动效演示获 100K+ 关注,被视为 design engineering 这一新兴角色的标志人物。Vercel 官网首页那些丝滑动效大多出自他手。代表「设计师必须懂代码」的 AI native 时代趋势。" }
+  raunofreiberg: { zhName: "Rauno Freiberg", title: "Vercel 高级 Design Engineer · 「设计 + 工程」代表", bio: "爱沙尼亚设计师 + 前端工程师。Vercel Senior Design Engineer。在 X (@raunofreiberg) 上以高质量微交互/动效演示获 100K+ 关注,被视为 design engineering 这一新兴角色的标志人物。Vercel 官网首页那些丝滑动效大多出自他手。代表「设计师必须懂代码」的 AI native 时代趋势。" },
+  bashording: { zhName: "Bas Ording", title: "前苹果 UI 设计师 · iPhone 橡皮筋滚动发明者", bio: "荷兰交互设计师。1998 年 Eindhoven 工业设计学院毕业后被 Steve Jobs 亲自招入苹果。15 年苹果生涯,主导 Mac OS X 的 Dock 放大效果、Exposé,以及 iPhone 最具标志性的「橡皮筋」滚动 + 惯性滚动 + 滑动解锁。这条「rubber band」演示在 2005 年点燃了 Steve Jobs 的「这就是手机」灵光一现。其滚动专利后被 Steve Jobs 用以起诉三星。后期离开苹果加入 Tesla(2013-)。" },
+  imranchaudhri: { zhName: "Imran Chaudhri", title: "前苹果 HI 设计师 22 年 · Humane 联创", bio: "出生于伦敦巴基斯坦裔。1995-2017 年在苹果担任 HI 设计师 22 年。原版 iPhone 软件 UI 团队核心成员之一,拥有 50+ 项苹果 UI 专利。2017 与妻子 Bethany Bongiorno 离开苹果创立 Humane,2023 推出 AI Pin(失败),2024 卖给 HP。代表苹果设计黄金时代 HI 团队的灵魂人物之一。" },
+  gregchristie: { zhName: "Greg Christie", title: "前苹果 HI 副总裁(2002-2014)", bio: "美国 UI 设计师。1996 加入苹果,2002-2014 担任 Human Interface Group 副总裁。主导 Newton OS、Mac OS X、iPhone、iPad UI 设计。「Slide to Unlock」专利的合作发明人。在 Steve Jobs 时代直接对 Jobs 汇报,管理苹果整个 UI 设计团队。2014 离开苹果。" },
+  chrisstringer: { zhName: "Christopher Stringer", title: "前苹果 ID 团队核心(1995-2017)", bio: "英国工业设计师。1995 加入苹果工业设计团队,与 Jony Ive 共事 22 年。原版 iPhone、iPad、Apple Watch、AirPods 工业设计核心成员。在三星专利诉讼中作为苹果证人出庭,首次公开苹果设计部内部会议方式。2017 离开苹果。" },
+  bartandre: { zhName: "Bart Andre", title: "苹果 ID 团队元老(1992-)", bio: "加拿大工业设计师。1992 加入苹果工业设计团队,迄今 30+ 年,是 Apple ID 团队最长资历的成员之一。与 Jony Ive 共事整个黄金时代。Apple Watch 主要设计师之一。500+ 苹果硬件专利。Ive 离开后仍留在苹果 ID 团队,延续设计血脉。" },
+  alandye: { zhName: "Alan Dye", title: "前苹果 HI 副总裁 · Liquid Glass 主导者 → Meta CDO", bio: "美国设计师。Kate Spade 创意总监出身,2006 加入苹果做营销创意,2015 升任 Apple HI 副总裁。主导 Apple Watch UI、iPhone X、Vision Pro UI,以及 2025 年发布的 Liquid Glass(iOS 26 全面视觉重构,材质化半透明界面语言,从 visionOS 演化而来)。2025 年 12 月被 Meta 以 Chief Design Officer 头衔挖走加入 Reality Labs,负责 Meta 全部硬件 + AI 产品设计。" },
+  billatkinson: { zhName: "Bill Atkinson", title: "原版 Mac 灵魂工程-设计师 · MacPaint / HyperCard", bio: "1951 生,2025 去世。原版 Macintosh 团队核心成员。开发 QuickDraw 图形系统(让 Mac 能在像素级精确绘图)、MacPaint(1984,首个商业化绘图软件)、HyperCard(1987,被视为 Web 链接的前身)。在 Mac 工程团队是少数兼具技术深度 + 设计直觉的灵魂人物。" },
+  fritzeichler: { zhName: "Fritz Eichler", title: "博朗创意总监 · 招聘 Rams 的人", bio: "1911 生于卢森堡 Differdange,德国艺术史学家、画家、戏剧导演、产品设计师。1953 加入博朗最初为做广告片导演,迅速升任创意总监,定义博朗 1950s-60s 的整体设计哲学。是把 Hans Gugelot、Otl Aicher、Dieter Rams 等设计师招入博朗的关键人物。与 HfG Ulm 建立合作关系,把包豪斯传统通过 Ulm 学派带入博朗。" },
+  hansgugelot: { zhName: "Hans Gugelot", title: "HfG Ulm 教授 · 与 Rams 合作 SK 4", bio: "1920 生于印尼,1965 早逝。德国-荷兰工业设计师。HfG Ulm(乌尔姆造型学院)关键人物。与 Dieter Rams 合作设计 1956 年的博朗 SK 4 唱机收音机(被昵称「白雪公主之棺」,MoMA 永久馆藏)。开创了德国战后理性主义工业设计语言,通过 Ulm 学派把包豪斯传统延续到战后德国。" },
+  reinholdweiss: { zhName: "Reinhold Weiss", title: "博朗设计师 · 与 Rams 同期", bio: "德国工业设计师。HfG Ulm 毕业。1959-1967 在博朗设计部门与 Dieter Rams、Hans Gugelot 共事。设计博朗多款厨房电器经典作品(吐司机 HT 2 等),首次为博朗引入「黑+银」配色组合(后成为博朗品牌标识)。1967 离开博朗自创工作室,后赴美芝加哥发展。" },
+  ivanchermayeff: { zhName: "Ivan Chermayeff", title: "美国企业识别设计先驱(1932-2017)", bio: "1932 伦敦生,2017 NYC 去世。Harvard、Yale 艺术学院。父亲是建筑师 Serge Chermayeff。1957 与 Tom Geismar 联创 Chermayeff & Geismar。设计美国最经典企业 logo:NBC 孔雀(1986)、Mobil 飞马(1965)、PBS 人脸(1971)、Smithsonian、National Geographic、Pan Am、Chase 银行八边形(1961)。开创美国 mid-century 现代主义企业识别。AIGA 奖章 1979。" },
+  tomgeismar: { zhName: "Tom Geismar", title: "Chermayeff & Geismar 联创(1957-)", bio: "1931 生,美国平面设计师。Brown 大学 + Yale 艺术学院。1957 与 Ivan Chermayeff 联创 Chermayeff & Geismar,职业生涯 65+ 年,设计 100+ 个全球企业 logo:Mobil(1964)、Chase(1961)、Burlington Industries、Best Products、Library of Congress 等。AIGA 奖章 1979。Smithsonian Cooper Hewitt 终身成就奖 2014。" },
+  saghaviv: { zhName: "Sagi Haviv", title: "C&G&H 现任合伙人 · 第三代", bio: "1974 以色列出生,在美国受教育。Cooper Union 平面设计 BFA。2003 加入 Chermayeff & Geismar,2006 升任合伙人(最年轻的合伙人),公司随后改名 Chermayeff & Geismar & Haviv。设计 Conservation International 三角 logo(2008)、Library of Congress、Harvard University Press、US Open 网球公开赛。代表 C&G 60+ 年血脉的当代延续。" },
+  wallyolins: { zhName: "Wally Olins", title: "现代品牌咨询之父(1930-2014)", bio: "1930 伦敦生,2014 去世。St Anne's College Oxford。1965 与设计师 Michael Wolff 联创 Wolff Olins,定义了「企业识别」(corporate identity)作为咨询行业。设计英国电信 BT(1991)、Tate(2000)、奥姆勒姆 2012、Beats by Dre、Royal Mail。著作《Corporate Identity》(1989)、《On Brand》(2003)被视为品牌咨询圣经。CBE 1999。" },
+  walterlandor: { zhName: "Walter Landor", title: "美国包装设计先驱(1913-1995)", bio: "1913 慕尼黑生,1995 SF 去世。Goldsmiths College London。1941 移民美国,1941 创立 Landor Associates(SF)。开创现代消费品包装与品牌设计:Coca-Cola 经典曲线、Levi Strauss、Marlboro 红盒、FedEx(1994)、3M、Westinghouse。把消费者品牌咨询从单次设计转为系统化方法论。AIGA 奖章 1988。Landor 1989 被 WPP 收购,至今仍是全球最大品牌咨询公司之一。" },
+  gertdumbar: { zhName: "Gert Dumbar", title: "荷兰品牌设计学派 · Studio Dumbar 创始人", bio: "1940 生于印尼万隆(荷兰籍)。Royal College of Art London。1977 在海牙创立 Studio Dumbar。荷兰品牌设计学派代表:KPN(荷兰电信)、Dutch Police 警方、Dutch Postal Service、Apollo 阿波罗剧院、Royal Dutch Mint、Tate Britain。结合摄影、3D 道具与平面设计的「scenographic」方法论开创性地融合戏剧手法与企业识别。Royal Designer for Industry。" },
+  davideriksson: { zhName: "David Eriksson", title: "TE 联合创始人", bio: "瑞典设计师。2005 与 Jesper Kouthoofd、Jens Rudberg、Erik Lundstedt 在斯德哥尔摩共同创立 Teenage Engineering。TE 以 OP-1 合成器(2011)、Pocket Operator、IKEA Frekvens 联名、Nothing 早期产品 Nothing CMF 合作著称。「玩具感 + 严肃合成器」美学定义了独立硬件 / 音乐设计圈的新方向。" },
+  henrysteiner: { zhName: "石汉瑞 Henry Steiner", title: "香港平面设计之父 · Paul Rand 学生", bio: "1934 生于维也纳犹太家庭,纳粹兴起后逃往美国。Hunter College + Yale 艺术学院 MFA(师从 Paul Rand)。1961 受邀到香港任《亚洲杂志》设计总监,原计划 9 个月但定居至今。1964 创立 Steiner & Co。设计汇丰银行 HSBC 六边形 logo、渣打银行神话生物钞票、香港赛马会、香港置地、希尔顿香港。被誉为「香港平面设计之父」。AGI 资深会员。把东方符号融入西方现代主义平面设计的开创者。" },
+  freemanlau: { zhName: "刘小康", title: "KL&K Design 联创 · 椅子先生", bio: "1958 生于香港。香港理工大学设计学院。1996 与靳埭强联合创立靳与刘设计 KL&K Design Consultants。「椅子戏」系列以椅子为载体的视觉艺术(2005-)走遍世界博物馆。设计中国人寿、屈臣氏蒸馏水瓶等品牌识别。香港艺术发展局视觉艺术主席多届。深圳市政府文化与设计顾问。「香港 → 中国大陆」设计跨界的代表人物之一。" },
+  shidayu: { zhName: "石大宇", title: "台湾设计师 · 竹工艺现代化", bio: "1964 生于纽约,在台湾长大。Parsons School of Design 工业设计 BFA。1995 创立清庭 Clay Architecture(台北)。专注东方材料(尤其竹)的当代设计:「椅琴剑」系列、「云水居」竹凳、「天工开物」家具。Compasso d'Oro 金奖入围。德国 Red Dot 至尊奖、Good Design Award。台湾 + 大陆设计圈代表把东方传统材料语言带入国际工业设计的人物。" },
+  lizhiqian: { zhName: "厉致谦", title: "3type(三言)创始人 · 中文字体新生代", bio: "独立中文字体设计师 + 字体史研究者。Type is Beautiful (TIB) 资深成员/作者。2014 创立上海 3type(三言)字体工作室,出版《西文字体的故事》《字模 1 号:汉字字体设计》等重要中文字体书籍。中国当代「字体研究 + 出版 + 实验」三位一体的代表新生代,推动汉字现代字体设计走向更专业化。" },
+  yingyonghui: { zhName: "应永会", title: "古字体研究 + 民国铅字复刻", bio: "中国独立中文字体研究者 + 设计师。Type is Beautiful (TIB) 资深成员。专注复刻民国时期金属铅字、古代书法刻本字体,推出「方正民隶系列」「方正大颜楷」等复刻字体。把中国传统印刷文化与现代字库技术结合的独特路线代表。是中国字体研究领域少数能与朱志伟那一代字库元老对话的研究型设计师。" },
+  jesperkouthoofd: { zhName: "Jesper Kouthoofd", title: "Teenage Engineering 联创 + CEO + 创意总监", bio: "瑞典设计师 + 工程师。2005 与 David Eriksson、Jens Rudberg、Erik Lundstedt 在斯德哥尔摩联创 Teenage Engineering 任 CEO + 创意总监。OP-1(2011)合成器开创独立电子乐器市场,售价 1199 美金但成为乐迷信仰物。后续 Pocket Operator 系列、IKEA Frekvens 联名(2019)、Panic Playdate 黄色游戏机硬件设计、Nothing CMF 合作、Rabbit R1 工业设计(2024)。把硬件玩具感、北欧理性、合成器文化融为一体。" }
 };
 
 // Chinese connection labels
