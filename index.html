@@ -1189,6 +1189,7 @@ const scholars = [
   {id:"fritzeichler",name:"Fritz Eichler",org:"Braun (1953-)",title:"博朗创意总监 · 招聘 Rams 的人",field:["industrial"],bio:"1911 生于卢森堡 Differdange,德国艺术史学家、画家、戏剧导演、产品设计师。1953 加入博朗最初为做广告片导演,迅速升任创意总监,定义博朗 1950s-60s 的整体设计哲学。是把 Hans Gugelot、Otl Aicher、Dieter Rams 等设计师招入博朗的关键人物。与 HfG Ulm 建立合作关系,把包豪斯传统通过 Ulm 学派带入博朗。",papers:[{y:"1953",t:"加入博朗任创意总监"},{y:"1955",t:"招聘 Dieter Rams"}]},
   {id:"hansgugelot",name:"Hans Gugelot",org:"HfG Ulm + Braun",title:"HfG Ulm 教授 · 与 Rams 合作 SK 4",field:["industrial"],bio:"1920 生于印尼,1965 早逝。德国-荷兰工业设计师。HfG Ulm(乌尔姆造型学院)关键人物。与 Dieter Rams 合作设计 1956 年的博朗 SK 4 唱机收音机(被昵称「白雪公主之棺」,MoMA 永久馆藏)。开创了德国战后理性主义工业设计语言,通过 Ulm 学派把包豪斯传统延续到战后德国。",papers:[{y:"1956",t:"Braun SK 4(与 Rams 合作)"},{y:"1958",t:"HfG Ulm 教授"}]},
   {id:"reinholdweiss",name:"Reinhold Weiss",org:"Braun (1959-1967)",title:"博朗设计师 · 与 Rams 同期",field:["industrial"],bio:"德国工业设计师。HfG Ulm 毕业。1959-1967 在博朗设计部门与 Dieter Rams、Hans Gugelot 共事。设计博朗多款厨房电器经典作品(吐司机 HT 2 等),首次为博朗引入「黑+银」配色组合(后成为博朗品牌标识)。1967 离开博朗自创工作室,后赴美芝加哥发展。",papers:[{y:"1961",t:"Braun HT 2 Toaster"}]},
+  {id:"achillecastiglioni",name:"Achille Castiglioni",org:"Studio Castiglioni",title:"意大利工业设计大师 · 米兰理工教授",field:["industrial"],bio:"1918 生于米兰,2002 去世。米兰理工大学建筑系。与兄弟 Pier Giacomo / Livio 共同创立 Studio Castiglioni 1944,设计 Flos 灯具(Arco 弧光灯 1962、Snoopy 灯 1967、Toio 1962)、Zanotta、Alessi 产品。Compasso d'Oro 金奖 9 次(史上最多)。米兰理工大学建筑系教授(1969-1995),指导 Patricia Urquiola 等一代意大利设计师。1988 年获意大利总统颁发的 Gran Croce 大十字勋章。被誉为意大利战后产品设计的灵魂人物。",papers:[{y:"1962",t:"Arco 弧光灯(Flos)"},{y:"1962",t:"Toio 灯具"},{y:"1967",t:"Snoopy 灯"}]},
 
   // ===== Visual Identity / Brand 大公司创始人 =====
   {id:"ivanchermayeff",name:"Ivan Chermayeff",org:"Chermayeff & Geismar",title:"美国企业识别设计先驱(1932-2017)",field:["graphic"],bio:"1932 伦敦生,2017 NYC 去世。Harvard、Yale 艺术学院。父亲是建筑师 Serge Chermayeff。1957 与 Tom Geismar 联创 Chermayeff & Geismar(后改名 Chermayeff & Geismar & Haviv)。设计美国最经典企业 logo:NBC 孔雀(1986)、Mobil 飞马(1965)、PBS 人脸(1971)、Smithsonian、National Geographic、Pan Am、Chase 银行八边形(1961)。开创美国 mid-century 现代主义企业识别。AIGA 奖章 1979。",papers:[{y:"1957",t:"创办 Chermayeff & Geismar"},{y:"1961",t:"Chase 银行八边形 logo"},{y:"1986",t:"NBC 孔雀"}]},
@@ -1430,11 +1431,9 @@ const connections = [
   {source:"jantschichold",target:"erikspiekermann",type:"advisor",label:"现代字体设计哲学传承"},
 
   // 瑞士 → 反叛
-  {source:"josefmullerbrockmann",target:"wolfgangweingart",type:"advisor",label:"Basel 学派师承(瑞士 → 反 Swiss Style)"},
   {source:"wolfgangweingart",target:"davidcarson",type:"advisor",label:"Weingart 反网格哲学影响 Carson"},
 
   // Memphis 后米兰
-  {source:"ettoresottsass",target:"patriciaurquiola",type:"advisor",label:"米兰后现代设计学派"},
 
   // 靳埭强培养下一代
   {source:"kantaikeung",target:"hejianping",type:"advisor",label:"靳埭强设计奖体系培养"},
@@ -1445,6 +1444,7 @@ const connections = [
   // Bret Victor 哲学影响
   {source:"bretvictor",target:"karrisaarinen",type:"advisor",label:"Inventing on Principle 影响 Linear 即时反馈哲学"},
   {source:"bretvictor",target:"ryolu",type:"advisor",label:"Bret Victor 实时编程理念影响 Cursor 设计哲学"},
+  {source:"achillecastiglioni",target:"patriciaurquiola",type:"advisor",label:"Castiglioni 是 Urquiola 米兰理工的真实导师 + mentor"},
   // ===== Architects 师承 / 协作 / 联创 cluster =====
   {source:"waltergropius",target:"miesvanderrohe",type:"colleague",label:"包豪斯先后任校长(Gropius 创始,Mies 末任)"},
   {source:"waltergropius",target:"impei",type:"advisor",label:"Harvard 设计学院 Pei 的导师(1946)"},
@@ -1454,17 +1454,9 @@ const connections = [
   {source:"remkoolhaas",target:"zahahadid",type:"advisor",label:"AA 学院 Zaha 的导师"},
   {source:"remkoolhaas",target:"bjarkeingels",type:"advisor",label:"Bjarke 早年在 OMA 工作"},
   {source:"zahahadid",target:"mayansong",type:"advisor",label:"马岩松早年在 Zaha 伦敦工作室任职"},
-  {source:"renzopiano",target:"normanfoster",type:"colleague",label:"Yale 建筑研究生院同期(1960s)"},
   {source:"normanfoster",target:"jonyive",type:"coauthor",label:"Apple Park 联合设计(2017)"},
   {source:"herzogdemeuron",target:"lixinggang",type:"coauthor",label:"2008 北京鸟巢联合设计"},
   {source:"aratisozaki",target:"zhupei",type:"coauthor",label:"上海喜马拉雅中心联合设计"},
-  {source:"yunghochang",target:"wangshu",type:"colleague",label:"90s 中国实验建筑运动同辈"},
-  {source:"yunghochang",target:"liujiakun",type:"colleague",label:"90s 中国实验建筑运动同辈"},
-  {source:"yunghochang",target:"mayansong",type:"advisor",label:"张永和任 MIT 建筑系主任时影响一代年轻建筑师"},
-  {source:"wangshu",target:"liujiakun",type:"colleague",label:"中国 Pritzker 双星(2012/2025)"},
-  {source:"zhupei",target:"donggong",type:"colleague",label:"清华 + 北京建筑学院当代建筑师"},
-  {source:"liuyichun",target:"wangshu",type:"colleague",label:"中国当代独立事务所建筑师同辈"},
-  {source:"liujiakun",target:"liuyichun",type:"colleague",label:"中国当代建筑师同辈"}
 
 ];
 
@@ -1922,6 +1914,7 @@ const scholarZh = {
   fritzeichler: { zhName: "Fritz Eichler", title: "博朗创意总监 · 招聘 Rams 的人", bio: "1911 生于卢森堡 Differdange,德国艺术史学家、画家、戏剧导演、产品设计师。1953 加入博朗最初为做广告片导演,迅速升任创意总监,定义博朗 1950s-60s 的整体设计哲学。是把 Hans Gugelot、Otl Aicher、Dieter Rams 等设计师招入博朗的关键人物。与 HfG Ulm 建立合作关系,把包豪斯传统通过 Ulm 学派带入博朗。" },
   hansgugelot: { zhName: "Hans Gugelot", title: "HfG Ulm 教授 · 与 Rams 合作 SK 4", bio: "1920 生于印尼,1965 早逝。德国-荷兰工业设计师。HfG Ulm(乌尔姆造型学院)关键人物。与 Dieter Rams 合作设计 1956 年的博朗 SK 4 唱机收音机(被昵称「白雪公主之棺」,MoMA 永久馆藏)。开创了德国战后理性主义工业设计语言,通过 Ulm 学派把包豪斯传统延续到战后德国。" },
   reinholdweiss: { zhName: "Reinhold Weiss", title: "博朗设计师 · 与 Rams 同期", bio: "德国工业设计师。HfG Ulm 毕业。1959-1967 在博朗设计部门与 Dieter Rams、Hans Gugelot 共事。设计博朗多款厨房电器经典作品(吐司机 HT 2 等),首次为博朗引入「黑+银」配色组合(后成为博朗品牌标识)。1967 离开博朗自创工作室,后赴美芝加哥发展。" },
+  achillecastiglioni: { zhName: "阿基·卡斯蒂格利奥尼", title: "意大利工业设计大师 · 米兰理工教授(1918-2002)", bio: "1918 生于米兰,2002 去世。米兰理工大学建筑系。与兄弟 Pier Giacomo / Livio 共同创立 Studio Castiglioni 1944,设计 Flos 灯具(Arco 弧光灯 1962、Snoopy 灯 1967、Toio 1962)、Zanotta、Alessi 产品。Compasso d'Oro 金奖 9 次(史上最多)。米兰理工大学建筑系教授(1969-1995),指导 Patricia Urquiola 等一代意大利设计师。1988 年获意大利总统颁发的 Gran Croce 大十字勋章。被誉为意大利战后产品设计的灵魂人物。" },
   ivanchermayeff: { zhName: "Ivan Chermayeff", title: "美国企业识别设计先驱(1932-2017)", bio: "1932 伦敦生,2017 NYC 去世。Harvard、Yale 艺术学院。父亲是建筑师 Serge Chermayeff。1957 与 Tom Geismar 联创 Chermayeff & Geismar。设计美国最经典企业 logo:NBC 孔雀(1986)、Mobil 飞马(1965)、PBS 人脸(1971)、Smithsonian、National Geographic、Pan Am、Chase 银行八边形(1961)。开创美国 mid-century 现代主义企业识别。AIGA 奖章 1979。" },
   tomgeismar: { zhName: "Tom Geismar", title: "Chermayeff & Geismar 联创(1957-)", bio: "1931 生,美国平面设计师。Brown 大学 + Yale 艺术学院。1957 与 Ivan Chermayeff 联创 Chermayeff & Geismar,职业生涯 65+ 年,设计 100+ 个全球企业 logo:Mobil(1964)、Chase(1961)、Burlington Industries、Best Products、Library of Congress 等。AIGA 奖章 1979。Smithsonian Cooper Hewitt 终身成就奖 2014。" },
   saghaviv: { zhName: "Sagi Haviv", title: "C&G&H 现任合伙人 · 第三代", bio: "1974 以色列出生,在美国受教育。Cooper Union 平面设计 BFA。2003 加入 Chermayeff & Geismar,2006 升任合伙人(最年轻的合伙人),公司随后改名 Chermayeff & Geismar & Haviv。设计 Conservation International 三角 logo(2008)、Library of Congress、Harvard University Press、US Open 网球公开赛。代表 C&G 60+ 年血脉的当代延续。" },
