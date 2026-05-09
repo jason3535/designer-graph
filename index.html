@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设计师图谱 · Designer Graph</title>
+<meta name="description" content="全球与中国当代设计师图谱 — 工业设计 (Dieter Rams / Jony Ive / Naoto Fukasawa)、平面 (Paul Rand / Vignelli / Sagmeister)、UX (Don Norman / Susan Kare)、华人 (靳埭强 / 杨明洁 / 林存真)。">
+<meta name="author" content="Jason Lin">
+<meta name="keywords" content="设计师, 工业设计, 平面设计, Dieter Rams, Jony Ive, Naoto Fukasawa, Paul Rand, Vignelli, 靳埭强, 杨明洁, MUJI, Pentagram">
+<link rel="canonical" href="https://design.jasonlin.tech/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://design.jasonlin.tech/">
+<meta property="og:title" content="设计师图谱 · Designer Graph">
+<meta property="og:description" content="全球与中国当代设计师关系图谱:工业设计 / 平面设计 / UX / 华人设计师。">
+<meta property="og:site_name" content="Jason's Graphs">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://design.jasonlin.tech/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://design.jasonlin.tech/">
+<meta name="twitter:title" content="设计师图谱">
+<meta name="twitter:description" content="全球与中国当代设计师关系图谱:工业设计 / 平面设计 / UX / 华人设计师。">
+<meta name="twitter:image" content="https://design.jasonlin.tech/og-image.png">
+<meta name="twitter:creator" content="@jasonlin">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "设计师图谱",
+  "alternateName": "Designer Graph",
+  "url": "https://design.jasonlin.tech/",
+  "description": "全球与中国当代设计师关系图谱:工业设计 / 平面设计 / UX / 华人设计师。",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "Jason Lin",
+    "url": "https://jasonlin.tech"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://design.jasonlin.tech/?node={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="d325eb73-0d8f-4529-aa76-f32ebfd92226"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="d325eb73-0d8f-4529-aa76-f32ebfd92226"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+/* ===== Apple Design System Foundation ===== */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('.SFNSDisplay'), local('SFProDisplay-Regular'),
+       local('Helvetica Neue'), local('Helvetica');
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text'), local('.SFNSText'), local('SFProText-Regular'),
+       local('Helvetica Neue'), local('Helvetica');
+  font-weight: 100 900;
+}
+
+:root {
+  /* Apple Colors */
+  --apple-black: #000000;
+  --apple-white: #ffffff;
+  --apple-gray-bg: #f5f5f7;
+  --apple-near-black: #1d1d1f;
+  --apple-blue: #0071e3;
+  --apple-link-blue: #0066cc;
+  --apple-link-blue-dark: #2997ff;
+  --apple-text-secondary: rgba(255, 255, 255, 0.56);
+  --apple-text-tertiary: rgba(255, 255, 255, 0.32);
+  --apple-surface-dark-1: #161617;
+  --apple-surface-dark-2: #1c1c1e;
+  --apple-surface-dark-3: #2c2c2e;
+
+  /* Organization Colors — desaturated, Apple-refined */
+  --org-deepmind: #64d2ff;
+  --org-openai: #30d158;
+  --org-anthropic: #ff6482;
+  --org-meta: #5e9eff;
+  --org-stanford: #ff9f0a;
+  --org-university: #bf5af2;
+  --org-startup: #ffd60a;
+  --org-independent: #98989d;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--apple-black);
+  color: var(--apple-white);
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Navigation — Apple Glass ===== */
+#nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 1000;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+.nav-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.374px;
+  color: var(--apple-white);
+  white-space: nowrap;
+}
+.nav-separator {
+  width: 0.5px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 0 16px;
+}
+.nav-stats {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: var(--apple-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 240px;
+}
+
+/* Search — Apple Style */
+.nav-search-wrapper {
+  margin-left: 16px;
+  position: relative;
+  flex-shrink: 1;
+  min-width: 120px;
+}
+#search-input {
+  width: 180px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: var(--apple-white);
+  padding: 0 12px 0 32px;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+#search-input::placeholder {
+  color: rgba(255, 255, 255, 0.32);
+}
+#search-input:focus {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--apple-blue);
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* Filter Pills — Apple Pill CTA */
+.filter-group {
+  display: flex;
+  gap: 6px;
+  margin-left: 16px;
+  flex-shrink: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-pill {
+  padding: 5px 14px;
+  border-radius: 980px;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  line-height: 1.33;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.56);
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+}
+.filter-pill:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.8);
+}
+.filter-pill.active {
+  background: var(--apple-blue);
+  border-color: var(--apple-blue);
+  color: var(--apple-white);
+}
+.nav-spacer { flex: 1; }
+
+/* Language Toggle — Apple Segmented Control */
+.lang-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 0;
+  margin-left: 12px;
+}
+.lang-btn {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.12px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+}
+.lang-btn:hover {
+  color: rgba(255, 255, 255, 0.64);
+}
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--apple-white);
+}
+
+/* ===== Graph Canvas ===== */
+#graph-container {
+  position: relative;
+  margin-top: 48px;
+  height: calc(100vh - 168px);
+  min-height: 480px;
+  width: 100%;
+}
+body.no-insights #graph-container {
+  height: calc(100vh - 48px);
+  min-height: unset;
+}
+#graph-container svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===== Legend — Bottom Left ===== */
+#legend {
+  position: fixed;
+  bottom: 140px;
+  left: 24px;
+  z-index: 100;
+  pointer-events: all;
+}
+.legend-card {
+  background: rgba(28, 28, 30, 0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 160px;
+}
+.legend-heading {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--apple-text-tertiary);
+  margin-bottom: 10px;
+}
+.legend-heading:not(:first-child) { margin-top: 14px; }
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  cursor: default;
+}
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-line-sample {
+  width: 16px;
+  height: 0;
+  flex-shrink: 0;
+}
+.legend-label {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+/* ===== Detail Panel — Apple Sidebar ===== */
+#detail-panel {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  width: 380px;
+  height: calc(100vh - 48px);
+  background: var(--apple-surface-dark-1);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.08);
+  z-index: 500;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#detail-panel.open {
+  transform: translateX(0);
+}
+#detail-panel::-webkit-scrollbar { width: 0; }
+
+.detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1;
+}
+.detail-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.detail-header {
+  padding: 40px 24px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.detail-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+.detail-avatar.loading {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 1.5s ease infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+.detail-avatar-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+}
+.detail-header-info {
+  flex: 1;
+  min-width: 0;
+}
+.detail-name {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.196px;
+  line-height: 1.14;
+  color: var(--apple-white);
+  margin-bottom: 6px;
+}
+.detail-title {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  line-height: 1.43;
+  color: var(--apple-text-secondary);
+}
+.detail-org-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 12px;
+  border-radius: 980px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.12px;
+}
+
+.detail-section {
+  padding: 20px 24px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+}
+.detail-section-title {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--apple-text-tertiary);
+  margin-bottom: 12px;
+}
+.detail-section p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Paper items */
+.paper-entry {
+  padding: 8px 0;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.paper-year {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  color: var(--apple-link-blue-dark);
+  flex-shrink: 0;
+  min-width: 36px;
+}
+.paper-title {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  line-height: 1.38;
+  color: rgba(255, 255, 255, 0.64);
+}
+.paper-link {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  line-height: 1.38;
+  color: var(--apple-link-blue-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.paper-link:hover {
+  color: var(--apple-white);
+  text-decoration: underline;
+}
+
+/* Connection items */
+.conn-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  transition: background 0.2s;
+}
+.conn-entry:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.conn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.conn-info {
+  flex: 1;
+  min-width: 0;
+}
+.conn-name {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  color: var(--apple-white);
+}
+.conn-relation {
+  font-size: 11px;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-tertiary);
+  margin-top: 1px;
+}
+.conn-type-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-tertiary);
+  padding: 2px 8px;
+  border-radius: 980px;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ===== SVG Styles ===== */
+
+/* Links — 4 tiers of visual weight */
+.link-line {
+  transition: stroke-opacity 0.35s ease, stroke-width 0.35s ease;
+  stroke-linecap: round;
+}
+/* Cofounder: strongest bond, solid bright green */
+.link-line.type-cofounder {
+  stroke: #30d158;
+  stroke-width: 2.5;
+  stroke-opacity: 0.5;
+}
+/* Coauthor: strong academic tie, solid blue */
+.link-line.type-coauthor {
+  stroke: #2997ff;
+  stroke-width: 1.8;
+  stroke-opacity: 0.35;
+}
+/* Advisor: mentor line, dashed cyan */
+.link-line.type-advisor {
+  stroke: #64d2ff;
+  stroke-width: 1.8;
+  stroke-opacity: 0.4;
+  stroke-dasharray: 8 5;
+}
+/* Colleague: 真同事(同公司同期共事过) */
+.link-line.type-colleague {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 0.8;
+  stroke-opacity: 0.18;
+  stroke-dasharray: 2 6;
+}
+
+.node-group {
+  transition: opacity 0.3s ease;
+}
+.node-glow {
+  transition: opacity 0.3s ease;
+}
+.node-label {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.64);
+  text-anchor: middle;
+  pointer-events: none;
+  transition: fill 0.3s, font-size 0.3s;
+}
+
+/* Dim / Highlight states */
+.node-group.dimmed { opacity: 0.06; }
+.node-group.highlighted { opacity: 1; }
+.node-group.highlighted .node-label {
+  fill: var(--apple-white);
+  font-weight: 600;
+}
+.node-group.highlighted .node-glow { opacity: 0.5; }
+
+.link-line.dimmed { stroke-opacity: 0.015 !important; }
+.link-line.highlighted.type-cofounder { stroke-opacity: 0.85 !important; stroke-width: 3.5px !important; }
+.link-line.highlighted.type-coauthor { stroke-opacity: 0.75 !important; stroke-width: 3px !important; }
+.link-line.highlighted.type-advisor { stroke-opacity: 0.7 !important; stroke-width: 2.5px !important; }
+.link-line.highlighted.type-colleague { stroke-opacity: 0.5 !important; stroke-width: 1.5px !important; stroke-dasharray: none !important; }
+
+/* ===== Tooltip ===== */
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(28, 28, 30, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 8px 12px;
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 240px;
+}
+#tooltip.visible { opacity: 1; }
+.tooltip-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  color: var(--apple-white);
+}
+.tooltip-org {
+  font-size: 11px;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-secondary);
+  margin-top: 2px;
+}
+
+/* ===== Graph switcher dropdown (replaces top quick-links bar) ===== */
+.graph-switcher { position: relative; display: flex; align-items: center; }
+.graph-switcher-trigger {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-family: inherit; color: inherit;
+  transition: all 0.15s;
+}
+.graph-switcher-trigger:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.graph-switcher.open .graph-switcher-trigger {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.graph-switcher-trigger .nav-title { margin: 0; }
+.graph-chevron {
+  width: 11px;
+  height: 7px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: transform 0.2s;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+.graph-switcher.open .graph-chevron { transform: rotate(180deg); }
+.graph-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 180px;
+  background: rgba(28, 28, 30, 0.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 1100;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  animation: graph-dropdown-fade 0.15s ease;
+}
+@keyframes graph-dropdown-fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.graph-dropdown[hidden] { display: none; }
+.graph-dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.graph-dropdown-item:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.graph-dropdown-item.active {
+  color: var(--apple-link-blue-dark);
+  background: rgba(41, 151, 255, 0.1);
+}
+.graph-dropdown-sep {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 4px 6px;
+}
+
+/* Subscribe button in nav-bar */
+.nav-subscribe-btn {
+  padding: 6px 16px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 980px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: -0.12px;
+  white-space: nowrap;
+  margin-right: 8px;
+  transition: background 0.2s;
+}
+.nav-subscribe-btn:hover { background: rgba(255, 255, 255, 0.85); }
+
+/* Hamburger (mobile only) */
+.nav-hamburger {
+  display: none;
+  width: 32px; height: 32px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-right: 6px;
+  font-family: inherit;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+.nav-hamburger:hover { background: rgba(255, 255, 255, 0.06); }
+
+/* Mobile: 已废弃 hamburger drawer,改为永远显示的 2 行布局(见下方 @media 768px 块) */
+@media (max-width: 768px) {
+  .nav-hamburger { display: none; }
+  .nav-separator, .nav-stats { display: none; }
+  .nav-subscribe-btn { padding: 0 14px; font-size: 12px; margin-right: 4px; }
+}
+
+#keyboard-hint {
+  position: fixed;
+  bottom: 140px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  gap: 12px;
+}
+.hint-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: -0.08px;
+  color: var(--apple-text-tertiary);
+}
+.hint-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===== Mobile Responsive ===== */
+/* ===== Mini Geo Map ===== */
+#geo-map {
+  position: fixed;
+  bottom: 140px;
+  right: 24px;
+  z-index: 100;
+  width: 260px;
+  pointer-events: none;
+}
+.geo-card {
+  background: rgba(28, 28, 30, 0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 12px;
+  padding: 12px 14px 8px;
+}
+.geo-heading {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--apple-text-tertiary); margin-bottom: 8px;
+}
+.geo-svg { width: 100%; display: block; }
+.geo-bubble { fill: var(--apple-blue); fill-opacity: 0.45; stroke: var(--apple-blue); stroke-width: 1; stroke-opacity: 0.7; }
+.geo-label { font-family: 'SF Pro Text', -apple-system, sans-serif; font-size: 7px; fill: rgba(255,255,255,0.55); text-anchor: middle; pointer-events: none; }
+.geo-count { font-family: 'SF Pro Text', -apple-system, sans-serif; font-size: 7px; fill: rgba(255,255,255,0.9); text-anchor: middle; font-weight: 600; pointer-events: none; }
+.geo-outline { fill: rgba(255,255,255,0.02); stroke: rgba(255,255,255,0.06); stroke-width: 0.5; }
+
+/* Medium narrow screens (tablet / narrow PC window) */
+@media (max-width: 1024px) {
+  #nav-bar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+    gap: 8px;
+    align-items: center;
+  }
+  .nav-separator { display: none; }
+  .nav-stats { display: none; }
+  .graph-switcher { order: 1; }
+  .nav-search-wrapper { order: 3; flex: 1; min-width: 140px; margin-left: 0; }
+  #search-input { width: 100%; }
+  #search-input:focus { width: 100%; }
+  .nav-subscribe-btn { order: 5; }
+  .lang-toggle { order: 6; margin-left: 0; }
+  .filter-group { order: 8; width: 100%; flex-wrap: wrap; gap: 4px; margin-left: 0; }
+  .filter-pill { flex-shrink: 0; }
+  .nav-spacer { display: none; }
+  #graph-container { top: 88px; }
+}
+
+@media (max-width: 768px) {
+  /* 单行布局:switcher + search + pills(横滑) + 订阅 + lang,订阅在 480px 以下才隐藏 */
+  #nav-bar {
+    height: 48px;
+    flex-wrap: nowrap;
+    padding: 8px 10px;
+    gap: 6px;
+    align-items: center;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+  .nav-title { font-size: 14px; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .nav-separator { display: none; }
+  .nav-stats { display: none; }
+  .graph-switcher-trigger { height: 32px; padding: 0 10px; box-sizing: border-box; flex-shrink: 0; order: 1; }
+  .nav-search-wrapper { margin-left: 0; flex: 0 1 auto; min-width: 80px; max-width: 140px; order: 3; }
+  #search-input { width: 100%; height: 32px; font-size: 13px; box-sizing: border-box; }
+  #search-input:focus { width: 100%; }
+  .filter-group {
+    order: 4;
+    flex: 1 1 0;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 4px;
+    margin-left: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-group::-webkit-scrollbar { display: none; }
+  .filter-pill { font-size: 11px; padding: 4px 10px; flex-shrink: 0; height: 24px; line-height: 16px; }
+  .nav-subscribe-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 28px; padding: 0 10px; font-size: 11px; line-height: 1;
+    flex-shrink: 0; order: 5; margin-right: 0; box-sizing: border-box;
+  }
+  .lang-toggle { order: 6; margin-left: 0; flex-shrink: 0; height: 28px; box-sizing: border-box; align-items: center; }
+  .lang-btn { padding: 3px 8px; font-size: 11px; }
+  .nav-spacer { display: none; }
+
+  /* graph-container 默认 margin-top:48px 已紧贴 nav 下方,无需额外 top 偏移 */
+
+  /* Legend: hide by default on mobile, show on tap */
+  #legend { display: none; }
+  #geo-map { display: none; }
+
+  /* Detail panel: full width on mobile */
+  #detail-panel {
+    width: 100vw;
+    top: 0;
+    height: 100vh;
+    border-left: none;
+    z-index: 9999;
+  }
+  .detail-header { padding: 24px 16px 16px; }
+  .detail-avatar, .detail-avatar-placeholder { width: 56px; height: 56px; }
+  .detail-name { font-size: 22px; }
+  .detail-section { padding: 14px 16px; }
+  .detail-close {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  /* Keyboard hints: hide on mobile */
+  #keyboard-hint { display: none; }
+
+  /* Quick links: smaller on mobile */
+  /* Mobile-specific tweaks for nav handled in 768px breakpoint above */
+
+  /* Node labels: slightly larger for touch */
+  .node-label { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  /* 屏幕太窄,订阅按钮隐藏(订阅入口在洞察 widget 内) */
+  #nav-bar { padding: 6px 8px; }
+  .nav-title { font-size: 13px; max-width: 70px; }
+  #search-input { height: 28px; font-size: 12px; }
+  .graph-switcher-trigger { height: 28px; padding: 0 8px; }
+  .nav-subscribe-btn { display: none; }
+  .lang-toggle { height: 28px; }
+  .filter-pill { font-size: 10px; padding: 3px 8px; }
+  .detail-name { font-size: 20px; }
+  .detail-avatar, .detail-avatar-placeholder { width: 48px; height: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Tooltip -->
+<div id="tooltip">
+  <div class="tooltip-name" id="tooltip-name"></div>
+  <div class="tooltip-org" id="tooltip-org"></div>
+</div>
+
+<!-- Navigation Bar — Apple Glass -->
+<nav id="nav-bar">
+  <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="菜单">≡</button>
+
+  <div class="graph-switcher">
+    <button class="graph-switcher-trigger" id="graph-switcher-trigger" type="button">
+      <span class="nav-title">设计师图谱</span>
+      <svg class="graph-chevron" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1.2L5.5 5.6L10 1.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="graph-dropdown" id="graph-dropdown" hidden></div>
+  </div>
+
+  <span class="nav-separator"></span>
+  <span class="nav-stats" id="nav-stats"></span>
+
+  <div class="nav-search-wrapper">
+    <span class="search-icon">&#x2315;</span>
+    <input type="text" id="search-input" placeholder="Search designers..." autocomplete="off" spellcheck="false">
+  </div>
+
+  <div class="filter-group">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="industrial">Industrial</button>
+    <button class="filter-pill" data-filter="graphic">Graphic</button>
+    <button class="filter-pill" data-filter="ux">UX / UI</button>
+    <button class="filter-pill" data-filter="typography">Type</button>
+    <button class="filter-pill" data-filter="chinese">Chinese</button>
+  </div>
+
+  <div class="nav-spacer"></div>
+
+  <button class="nav-subscribe-btn" id="nav-subscribe-btn" type="button">订阅</button>
+
+  <div class="lang-toggle">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn active" data-lang="zh">中文</button>
+  </div>
+</nav>
+
+<!-- Legend -->
+<div id="legend">
+  <div class="legend-card">
+    <div class="legend-heading">Organizations</div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-deepmind)"></div><span class="legend-label">Google DeepMind</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-openai)"></div><span class="legend-label">OpenAI</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-anthropic)"></div><span class="legend-label">Anthropic</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-meta)"></div><span class="legend-label">Meta AI</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-stanford)"></div><span class="legend-label">Stanford</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-university)"></div><span class="legend-label">Universities</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:var(--org-startup)"></div><span class="legend-label">Startups</span></div>
+    <div class="legend-heading">Connections</div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2.5px solid #30d158; opacity:0.7"></div><span class="legend-label">Co-founder</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px solid #2997ff; opacity:0.6"></div><span class="legend-label">Co-author</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px dashed #64d2ff; opacity:0.6"></div><span class="legend-label">Advisor / Student</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px dotted rgba(255,255,255,0.5); opacity:0.5"></div><span class="legend-label">Colleague(同事)</span></div>
+  </div>
+</div>
+
+<!-- Detail Panel -->
+<div id="detail-panel">
+  <button class="detail-close" id="detail-close">&#10005;</button>
+  <div class="detail-header">
+    <div class="detail-avatar-placeholder" id="detail-avatar"><span id="detail-avatar-initial"></span></div>
+    <div class="detail-header-info">
+      <div class="detail-name" id="detail-name"></div>
+      <div class="detail-title" id="detail-title"></div>
+      <div class="detail-org-badge" id="detail-org"></div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="detail-section-title">About</div>
+    <p id="detail-bio"></p>
+  </div>
+  <div class="detail-section" id="detail-papers-section">
+    <div class="detail-section-title">Key Contributions</div>
+    <div id="detail-papers"></div>
+  </div>
+  <div class="detail-section">
+    <div class="detail-section-title">Connections</div>
+    <div id="detail-connections"></div>
+  </div>
+</div>
+
+<!-- Keyboard Hints -->
+
+<!-- Geo Map -->
+<div id="geo-map">
+  <div class="geo-card">
+    <div class="geo-heading" id="geo-heading">Location Distribution</div>
+    <svg class="geo-svg" id="geo-svg" viewBox="0 0 280 140"></svg>
+  </div>
+</div>
+
+<!-- Graph -->
+<div id="graph-container">
+  <svg id="main-svg"></svg>
+</div>
+
+<!-- Insights Section (rendered by insights-widget.js) -->
+<section id="insights-section" data-graph="designer"></section>
+<script src="https://hardware.jasonlin.tech/insights-widget.js?v=21" defer></script>
+
+<script>
+// ===================================================================
+// DATA
+// ===================================================================
+const scholars = [
+  // ===== Industrial Design Masters =====
+  {id:"dieterrams",name:"Dieter Rams",org:"Braun",title:"工业设计教父 · 10 Principles for Good Design",field:["industrial"],
+    bio:"Born 1932 in Wiesbaden, Germany. Joined Braun in 1955, Chief of Design 1961-1995. Defined Braun's clean functional aesthetic. Iconic products: SK 4 record player (1956), 606 Universal Shelving System (1960), T3 pocket radio (1958, direct inspiration for the iPod). Authored '10 Principles for Good Design' (1970s). Philosophy 'Less, but better' (Weniger, aber besser) became foundational influence on Jony Ive at Apple. Officer of the Order of Merit Federal Republic of Germany. Vitsoe still produces his furniture today.",papers:[{y:"1956",t:"SK 4 record player (Braun)"},{y:"1960",t:"606 Universal Shelving System (Vitsoe)"},{y:"1970s",t:"10 Principles for Good Design"}]},
+  {id:"jonyive",name:"Jony Ive",org:"LoveFrom",title:"Apple 前首席设计官 · 创办 LoveFrom",field:["industrial"],
+    bio:"Born 1967 in London. Newcastle Polytechnic graduate. Joined Apple 1992, Chief Design Officer 1997-2019. Led design of iMac G3 (1998), iPod (2001), iPhone (2007), iPad (2010), Apple Watch (2015), all Mac hardware. KBE 2012. Left Apple 2019 to found LoveFrom design studio with Marc Newson. Strongly influenced by Dieter Rams. LoveFrom's first major work: Ferrari concepts and the Airbnb redesign with Brian Chesky (2024).",papers:[{y:"2001",t:"iPod"},{y:"2007",t:"iPhone"},{y:"2015",t:"Apple Watch"},{y:"2019",t:"Founded LoveFrom"}]},
+  {id:"naotofukasawa",name:"Naoto Fukasawa",org:"MUJI / ±0",title:"MUJI 设计顾问 · ±0 创始人",field:["industrial"],
+    bio:"Born 1956 in Yamanashi. Tama Art University. Joined IDEO Japan, then founded Naoto Fukasawa Design 2003. MUJI Advisory Board member since 2002 (alongside Kenya Hara, Sam Hecht, Jasper Morrison). Designed MUJI wall-mounted CD player (1999), MUJI humidifier, ±0 brand humidifier. Coined 'super normal' philosophy with Jasper Morrison. Without Thought workshop methodology. Royal Designer for Industry (UK). Currently Director of 21_21 Design Sight (Tokyo).",papers:[{y:"1999",t:"MUJI Wall-mounted CD player"},{y:"2003",t:"Founded Naoto Fukasawa Design"},{y:"2007",t:"Super Normal exhibition with Morrison"}]},
+  {id:"jaspermorrison",name:"Jasper Morrison",org:"Jasper Morrison Studio",title:"Super Normal 哲学 · 英国产品设计代表",field:["industrial"],
+    bio:"Born 1959 London. Royal College of Art graduate. Established Office for Design 1986 (now Jasper Morrison Studio in London/Paris/Tokyo). MUJI Advisory Board. Designed for Vitra, Cappellini, Magis, Alessi, Rowenta, Sony. 2007 'Super Normal' exhibition with Naoto Fukasawa launched the 'super normal' design philosophy - celebrating ordinary objects perfectly executed. RDI 2001.",papers:[{y:"1988",t:"Thinking Man's Chair (Cappellini)"},{y:"2007",t:"Super Normal book/exhibition"},{y:"2010",t:"Basel Tram (Bombardier)"}]},
+  {id:"marcnewson",name:"Marc Newson",org:"LoveFrom / Apple",title:"Apple Watch 联设 · LoveFrom 联创",field:["industrial"],
+    bio:"Born 1963 Sydney. Sydney College of the Arts. Iconic 1986 Lockheed Lounge sold for £2.4M (highest price for living designer). Designed for Cappellini, Apple, Ford, Nike, Qantas (interior). CBE 2012. Joined Apple as Special Projects Designer 2014, co-led Apple Watch design with Jony Ive. Co-founded LoveFrom 2019 with Ive. TIME 100 most influential 2005.",papers:[{y:"1986",t:"Lockheed Lounge"},{y:"2014",t:"Apple Watch (with Ive)"},{y:"2019",t:"Co-founded LoveFrom"}]},
+  {id:"philippestarck",name:"Philippe Starck",org:"Starck Network",title:"法国跨界设计师 · 万物皆可设计",field:["industrial"],
+    bio:"Born 1949 Paris. École Camondo. Began as Pierre Cardin Art Director (1968). Designed Café Costes 1984 (career-defining). Iconic: Juicy Salif lemon squeezer (Alessi 1990), Louis Ghost chair (Kartell 2002), Mickey Mouse-themed Mademoiselle chair. Designs span furniture, hotels, yachts (including for Steve Jobs), watches, toothbrushes. Most prolific commercial designer of late 20th century. Multiple French Légion d'honneur.",papers:[{y:"1990",t:"Juicy Salif (Alessi)"},{y:"2002",t:"Louis Ghost chair (Kartell)"},{y:"2008",t:"Steve Jobs's yacht Venus"}]},
+  {id:"konstantingrcic",name:"Konstantin Grcic",org:"Konstantin Grcic Design",title:"工业设计 · 现代主义新一代",field:["industrial"],
+    bio:"Born 1965 Munich, Germany. Royal College of Art London, then assistant to Jasper Morrison. Founded KGID 1991. Designed for Magis, Mattiazzi, Plank, Vitra, Iittala. Iconic: Mayday lamp (1999), Chair_One (Magis 2004), Pro chair (Flötotto 2013). Compasso d'Oro 2001, 2011. Now teaches at Hochschule für Bildende Künste Hamburg. Embodies new German rational-but-witty design.",papers:[{y:"1999",t:"Mayday lamp"},{y:"2004",t:"Chair_One (Magis)"},{y:"2013",t:"Pro chair (Flötotto)"}]},
+  {id:"yvesbehar",name:"Yves Béhar",org:"Fuseproject",title:"Fuseproject 创始人 · 社会创新设计",field:["industrial"],
+    bio:"Born 1967 Lausanne, Switzerland. Art Center College of Design Pasadena. Founded Fuseproject 1999 in San Francisco. Famous for: One Laptop Per Child (XO laptop 2007), Jawbone wearables, Herman Miller SAYL chair, August Smart Lock, Ouya gaming. Cofounder of Forme (smart mirror), Canopy (skincare). 2016 sold majority stake of Fuseproject to BlueFocus. Multiple AIGA medals. Champion of design for social good.",papers:[{y:"2007",t:"XO laptop (One Laptop Per Child)"},{y:"2010",t:"Jawbone Up wristband"},{y:"2014",t:"Herman Miller SAYL chair"}]},
+  {id:"hartmutesslinger",name:"Hartmut Esslinger",org:"frog design (founder)",title:"frog design 创始人 · Apple Snow White 设计语言",field:["industrial"],
+    bio:"Born 1944 Black Forest, Germany. Founded Esslinger Design 1969 (became frog design 1982). Hired by Steve Jobs 1982 with $1M annual contract — first major industrial design firm to define Apple's visual identity. Created the 'Snow White' design language used on Apple IIc, Macintosh SE, etc (1984-1990). Also designed for Sony Trinitron TV, Wega audio, Lufthansa, SAP, Microsoft. frog design has worked for HP, Disney, Sony — most influential design consultancy of the 80s/90s.",papers:[{y:"1982",t:"Founded frog design"},{y:"1984",t:"Apple Snow White design language"},{y:"1990",t:"Sony Trinitron design language"}]},
+  {id:"eames",name:"Charles & Ray Eames",org:"Eames Office",title:"美国 20 世纪设计巨擘",field:["industrial"],
+    bio:"Charles Eames (1907-1978) and Ray Kaiser Eames (1912-1988). Husband-and-wife duo founded Eames Office 1941 in Los Angeles. Pioneered molded plywood furniture (LCW chair 1946), fiberglass shells (DSW chair 1950), the Eames Lounge Chair (1956). Beyond furniture: Case Study House #8, films like 'Powers of Ten' (1977), exhibitions for IBM. The most influential American design partnership of the 20th century. Their work continues at Herman Miller and Vitra.",papers:[{y:"1946",t:"LCW Lounge Chair Wood"},{y:"1956",t:"Eames Lounge Chair (Herman Miller)"},{y:"1977",t:"Powers of Ten (film)"}]},
+  {id:"ettoresottsass",name:"Ettore Sottsass",org:"Memphis Group",title:"Memphis 集团创始人 · Olivetti",field:["industrial"],
+    bio:"Born 1917 Innsbruck (Italian). Polytechnic University of Turin architecture. Olivetti's lead consultant 1958-1980, designed the iconic Olivetti Valentine portable typewriter (1969, MoMA collection). Founded the Memphis Group 1981 in Milan, sparking the postmodern design movement that rebelled against good-taste minimalism with bright colors, wild patterns, asymmetric forms. Compasso d'Oro multiple times. Memphis influenced 80s/90s pop culture, fashion, and product design globally.",papers:[{y:"1969",t:"Olivetti Valentine typewriter"},{y:"1981",t:"Founded Memphis Group"},{y:"1981",t:"Carlton bookshelf (Memphis)"}]},
+  {id:"patriciaurquiola",name:"Patricia Urquiola",org:"Studio Urquiola / Cassina",title:"西班牙设计师 · Cassina 艺术总监",field:["industrial"],
+    bio:"Born 1961 Oviedo, Spain. Madrid Polytechnic + Milan Polytechnic. Worked with Achille Castiglioni, Vico Magistretti, Piero Lissoni. Founded Studio Urquiola 2001 in Milan. Cassina Art Director since 2015. Designs for B&B Italia, Moroso, Foscarini, Kettal, Mutina. Iconic: Tropicalia chair (Moroso 2008), Husk chair (B&B Italia 2011). Royal Designer for Industry. Compasso d'Oro 2011.",papers:[{y:"2008",t:"Tropicalia chair (Moroso)"},{y:"2011",t:"Husk chair (B&B Italia)"},{y:"2015",t:"Cassina Art Director"}]},
+  {id:"karimrashid",name:"Karim Rashid",org:"Karim Rashid Inc",title:"加拿大-埃及设计师 · 'democratic design' 倡导者",field:["industrial"],
+    bio:"Born 1960 Cairo (Egyptian-British-Canadian). Carleton University Ottawa. Founded Karim Rashid Inc 1993 in NYC. 4000+ products designed across 90+ countries. Iconic: Garbo trash can (1996, Umbra, sold 7M units), Oh chair, Dirt Devil Kone vacuum, Method cleaning products. 300+ awards. Hugely prolific commercial / colorful / 'sensual minimalism' style — divisive among design purists but enormously commercially successful.",papers:[{y:"1996",t:"Garbo trash can (Umbra, 7M sold)"},{y:"2007",t:"Method cleaning products"}]},
+  {id:"rosslovegrove",name:"Ross Lovegrove",org:"Lovegrove Studio",title:"英国设计 · 'Organic Essentialism'",field:["industrial"],
+    bio:"Born 1958 Cardiff Wales. Royal College of Art. Joined frog design 1980s (worked on Sony Walkman, Apple). Founded Lovegrove Studio 1990 London. Coined 'Organic Essentialism' — bio-inspired forms enabled by digital fabrication. Designed Sony Walkman, Olympus Eye Trek glasses, Ty Nant water bottle, Bombay Sapphire bottle, Air One chair (Edra). Royal Designer for Industry.",papers:[{y:"2001",t:"Air One chair (Edra)"},{y:"2006",t:"Ty Nant water bottle"}]},
+  {id:"samhecht",name:"Sam Hecht",org:"Industrial Facility",title:"Industrial Facility 联创 · MUJI 设计核心",field:["industrial"],
+    bio:"Born 1969 London. Royal College of Art. Worked at IDEO 1991-2002 (San Francisco then Tokyo). Co-founded Industrial Facility 2002 in London with Kim Colin. MUJI Advisory Board since 2003 alongside Naoto Fukasawa. Designed MUJI products (kitchen scales, calculators), Herman Miller, Mattiazzi, Established & Sons. Quiet, considered, super-normal aesthetic.",papers:[{y:"2002",t:"Founded Industrial Facility"},{y:"2003",t:"MUJI Advisory Board member"}]},
+  {id:"tinkerhatfield",name:"Tinker Hatfield",org:"Nike",title:"Nike Air Jordan 主设计师",field:["industrial"],
+    bio:"Born 1952 Hillsboro, Oregon. University of Oregon (architecture, also a pole vaulter). Joined Nike 1981 as corporate architect, switched to shoe design 1985. Vice President for Design + Special Projects at Nike. Designed Air Jordan 3 (1988) through Air Jordan 15, plus Air Max 1, Nike Mag (Back to the Future self-lacing). The most influential athletic shoe designer in history. Inducted into Footwear News Hall of Fame.",papers:[{y:"1988",t:"Air Jordan 3"},{y:"1987",t:"Nike Air Max 1"},{y:"2016",t:"Nike Mag self-lacing (BTTF)"}]},
+
+  // ===== Graphic / Brand Design =====
+  {id:"paulrand",name:"Paul Rand",org:"Yale (taught) / freelance",title:"美国现代品牌设计奠基人 · IBM/UPS/ABC logos",field:["graphic"],
+    bio:"Born 1914 NYC, died 1996. Pratt Institute / Art Students League. Self-taught into modernist graphic design. Designed iconic logos: IBM (1956 + 1972 striped version), ABC TV (1962), UPS (1961, redesigned 2003), Westinghouse (1960), Enron (1996), Steve Jobs's NeXT logo (1986, charged $100k for it). Authored 'Thoughts on Design' (1947). Yale School of Art professor 1956-1985. Brought European modernism to American corporate identity.",papers:[{y:"1956",t:"IBM logo"},{y:"1961",t:"UPS logo"},{y:"1986",t:"NeXT logo for Steve Jobs ($100k)"}]},
+  {id:"massimovignelli",name:"Massimo Vignelli",org:"Vignelli Associates",title:"NYC 地铁地图 · Helvetica 倡导者",field:["graphic"],
+    bio:"Born 1931 Milan, died 2014 NYC. Polytechnic University of Milan. Co-founded Unimark International 1965 (later Vignelli Associates 1971). Designed: NYC Subway signage system (1970, with Bob Noorda, used for 50+ years), American Airlines identity (1968-2013), Bloomingdale's brown bag, Knoll logo, Saint Peter's Church NYC. Strong advocate for Helvetica typeface. 'If you can design one thing, you can design everything.' AIGA Medal 1983.",papers:[{y:"1968",t:"American Airlines logo (used 45 years)"},{y:"1970",t:"NYC Subway signage (with Bob Noorda)"},{y:"1972",t:"NYC Subway map"}]},
+  {id:"paulascher",name:"Paula Scher",org:"Pentagram",title:"Pentagram 合伙人 · Citi/MoMA/Tiffany identity",field:["graphic"],
+    bio:"Born 1948 Washington DC. Tyler School of Art. Started at CBS Records 1970s (300+ album covers, 4 Grammys). Co-founded Koppel & Scher 1984. Joined Pentagram 1991 — first female partner. Designed identities for Citibank (2000), MoMA (2009), Tiffany & Co (2014), Microsoft Windows logo (2012), Public Theater NYC (1994 ongoing), Bloomberg, Microsoft. Iconic typographic and bold-color style. AIGA Medal 2001.",papers:[{y:"1994",t:"Public Theater identity (NYC)"},{y:"2000",t:"Citibank logo"},{y:"2014",t:"Tiffany & Co identity"}]},
+  {id:"stefansagmeister",name:"Stefan Sagmeister",org:"Sagmeister & Walsh → Sagmeister Inc",title:"奥地利设计师 · 极致表达派",field:["graphic"],
+    bio:"Born 1962 Bregenz, Austria. Pratt Institute MFA. Worked for Tibor Kalman at M&Co. Founded Sagmeister Inc 1993. Co-founded Sagmeister & Walsh 2012-2019 with Jessica Walsh. Famous for the 1999 AIGA poster — text carved into his own torso. Album covers for Lou Reed, Rolling Stones, Talking Heads, OK Go. 2 Grammys. Sabbatical-driven creative practice. TED talks on happiness through design.",papers:[{y:"1999",t:"AIGA Detroit poster (carved into torso)"},{y:"2008",t:"The Happy Show"}]},
+  {id:"miltonglaser",name:"Milton Glaser",org:"Pushpin Studios / Milton Glaser Inc",title:"I ♥ NY logo · 美国流行设计教父",field:["graphic"],
+    bio:"Born 1929 NYC, died 2020. Cooper Union, Academia di Belle Arti Bologna. Co-founded Pushpin Studios 1954. Founded Milton Glaser Inc 1974. Designed: I ♥ NY logo (1977, pro bono for NY State, became most-imitated logo ever), Bob Dylan poster (1966), DC Comics logo (1977), Brooklyn Brewery logo (1996). National Medal of Arts 2009 — first graphic designer to receive it. SVA professor 50+ years. AIGA Medal 1972.",papers:[{y:"1966",t:"Bob Dylan poster"},{y:"1977",t:"I ♥ NY logo"},{y:"1977",t:"DC Comics logo"}]},
+  {id:"saulbass",name:"Saul Bass",org:"Saul Bass Associates",title:"电影片头海报奠基人 · AT&T/UA logos",field:["graphic"],
+    bio:"Born 1920 NYC, died 1996. Art Students League / Brooklyn College. Pioneered the modern movie title sequence with Otto Preminger ('The Man with the Golden Arm' 1955). Designed title sequences for Hitchcock (Psycho/Vertigo/North by Northwest), Scorsese (Casino/Cape Fear), Kubrick (Spartacus). Logos: AT&T (1969 + 1983 globe), United Airlines (1974), Continental (1968), Bell System (1969). Oscar 1969 (animated short). 1996 last work was Casino titles.",papers:[{y:"1955",t:"The Man with the Golden Arm (titles)"},{y:"1969",t:"AT&T logo (Bell System)"},{y:"1974",t:"United Airlines logo"}]},
+  {id:"jessicawalsh",name:"Jessica Walsh",org:"&Walsh",title:"Sagmeister & Walsh 联创 → &Walsh CEO",field:["graphic"],
+    bio:"Born 1986 Connecticut. RISD. Joined Sagmeister Inc 2008, became partner 2012 forming Sagmeister & Walsh. Notable: 40 Days of Dating (viral 2013). Founded &Walsh 2019 (her solo studio). Clients: Apple, Ford, Levi's, Adidas, Snapchat. Strong advocate for women in design. Forbes 30 Under 30 (2014). Vibrant, surreal, photo-illustration-driven visual style.",papers:[{y:"2013",t:"40 Days of Dating (viral project)"},{y:"2019",t:"Founded &Walsh"}]},
+  {id:"erikspiekermann",name:"Erik Spiekermann",org:"MetaDesign / FontShop",title:"FontShop 创始人 · FF Meta/Lufthansa typography",field:["graphic"],
+    bio:"Born 1947 Stadthagen, Germany. Free University Berlin (art history). Co-founded MetaDesign 1979 (Berlin, became one of largest design firms). Co-founded FontShop 1989 (first digital type retailer). Designed FF Meta typeface (1991) — called 'the Helvetica of the 90s'. Designed identity for Audi, Volkswagen, Lufthansa, Deutsche Bahn corporate type. AIGA Medal 2011. Honorary Royal Designer for Industry. Author 'Stop Stealing Sheep' on typography.",papers:[{y:"1989",t:"Co-founded FontShop"},{y:"1991",t:"FF Meta typeface"},{y:"1995",t:"Lufthansa identity"}]},
+  {id:"otlaicher",name:"Otl Aicher",org:"HfG Ulm",title:"1972 慕尼黑奥运会 + Lufthansa 设计",field:["graphic"],
+    bio:"Born 1922 Ulm, Germany, died 1991. Co-founded Hochschule für Gestaltung Ulm 1953 (the post-Bauhaus design school). Designed identity for Lufthansa 1969 (used until 2018), 1972 Munich Olympics (introduced pictogram system that became universal Olympic standard), ERCO lighting. Created Rotis typeface (1988). Defined corporate identity as a discipline in Germany. Husband of Inge Scholl (Sophie Scholl's sister).",papers:[{y:"1969",t:"Lufthansa identity (used 50 years)"},{y:"1972",t:"Munich Olympics (pictograms)"},{y:"1988",t:"Rotis typeface"}]},
+  {id:"josefmullerbrockmann",name:"Josef Müller-Brockmann",org:"Swiss Style",title:"瑞士国际主义平面设计代表",field:["graphic","typography"],
+    bio:"Born 1914 Rapperswil Switzerland, died 1996. Defining figure of Swiss International Typographic Style — grid systems, sans-serif type, asymmetric layouts, photography-over-illustration. Designed iconic Zurich Tonhalle concert posters (1950s-60s). Authored 'Grid Systems in Graphic Design' (1981) — became the bible of grid-based design. Founded Neue Grafik magazine 1958. Co-founded the magazine that defined the Swiss Style abroad.",papers:[{y:"1950s",t:"Zurich Tonhalle posters"},{y:"1958",t:"Neue Grafik magazine"},{y:"1981",t:"Grid Systems in Graphic Design (book)"}]},
+  {id:"jantschichold",name:"Jan Tschichold",org:"Penguin Books",title:"Die Neue Typographie · Penguin 重设计师",field:["graphic","typography"],
+    bio:"Born 1902 Leipzig, died 1974. Bauhaus exposure 1923. Authored 'Die Neue Typographie' (1928) — the manifesto of modernist asymmetric type design. Fled Nazi Germany 1933. Hired by Penguin Books 1947 — completely redesigned all Penguin titles into the iconic standardized format used today. Designed Sabon typeface (1967). His shift from radical modernism to classical typography late in career remains a famous design trajectory.",papers:[{y:"1928",t:"Die Neue Typographie (book)"},{y:"1947",t:"Penguin Books redesign"},{y:"1967",t:"Sabon typeface"}]},
+  {id:"davidcarson",name:"David Carson",org:"Ray Gun magazine",title:"反网格设计 · Ray Gun 主美",field:["graphic"],
+    bio:"Born 1955 Corpus Christi Texas. Self-taught (was a pro surfer). Art Director at Ray Gun magazine 1992-1995 — created the most influential anti-grid, deconstructed editorial design of the 90s. Designed for Pepsi, Nike, MTV, Sony, Microsoft. 'The End of Print' (1995) sold 200K+ copies. Inspired a generation of grunge / experimental designers. Anti-Müller-Brockmann philosophy.",papers:[{y:"1992",t:"Ray Gun magazine art direction"},{y:"1995",t:"The End of Print (book, 200K+ sold)"}]},
+
+  // ===== UX / UI / Digital =====
+  {id:"donnorman",name:"Don Norman",org:"NN/g · UCSD",title:"《设计心理学》作者 · 用户体验之父",field:["ux"],
+    bio:"Born 1935. UPenn psychology PhD. Coined the term 'User Experience' at Apple 1993 as VP Advanced Technology. Founded Nielsen Norman Group 1998 with Jakob Nielsen. Authored 'The Design of Everyday Things' (1988) — most-read design book ever. UCSD professor (Cognitive Science). Critic of bad design — popularized concepts of affordances, signifiers, mental models, the 'Norman door'. National Academy of Engineering. AIGA Medal 2006.",papers:[{y:"1988",t:"The Design of Everyday Things (book)"},{y:"1998",t:"Co-founded Nielsen Norman Group"}]},
+  {id:"jakobnielsen",name:"Jakob Nielsen",org:"NN/g",title:"NN/g 联创 · 可用性工程教父",field:["ux"],
+    bio:"Born 1957 Denmark. Technical University of Denmark PhD. Sun Microsystems Distinguished Engineer (web usability research). Co-founded Nielsen Norman Group 1998 with Don Norman. Authored 'Usability Engineering' (1993) — defined the field. Created the '10 Heuristics' for usability evaluation (1994) — still the standard. Pioneered the 5-user usability test. 79 patents.",papers:[{y:"1993",t:"Usability Engineering (book)"},{y:"1994",t:"10 Usability Heuristics"},{y:"1998",t:"Co-founded NN/g"}]},
+  {id:"johnmaeda",name:"John Maeda",org:"Everbridge / Automattic / SVA",title:"MIT Media Lab → RISD 校长 · 计算设计代表",field:["ux","graphic"],
+    bio:"Born 1966 Seattle. MIT BS/MS, Tsukuba PhD (design). MIT Media Lab faculty 1996-2008 (founded SIMPLICITY group). RISD President 2008-2013. Joined eBay 2014, then Automattic, now Everbridge. Authored 'The Laws of Simplicity' (2006) — defined 'simplicity' as design principle. Pioneered computational design + creative coding (Processing language influence). National Design Award 2001. AIGA Medal 2010.",papers:[{y:"2006",t:"The Laws of Simplicity (book)"},{y:"2008",t:"RISD President"}]},
+  {id:"bretvictor",name:"Bret Victor",org:"Dynamicland",title:"交互设计哲学家 · Inventing on Principle",field:["ux"],
+    bio:"Born ~1976. Caltech BS, UC Berkeley MS. Apple Human Interface Designer (worked on iPad concept). Founded Dynamicland 2014 (research lab in Oakland). Famous 2012 talk 'Inventing on Principle' — defining vision for live-coding-feedback interactive systems. Subsequent essays 'Up and Down the Ladder of Abstraction', 'Magic Ink', 'Drawing Dynamic Visualizations' became seminal HCI references. Reclusive, highly influential among interaction designers.",papers:[{y:"2012",t:"Inventing on Principle (talk)"},{y:"2014",t:"Founded Dynamicland"}]},
+  {id:"susankare",name:"Susan Kare",org:"Apple alum / Niiice.co",title:"Mac 图标设计师 · UI 图标之母",field:["ux","graphic"],
+    bio:"Born 1954 Ithaca NYC. NYU PhD art history. Hired by Steve Jobs at Apple 1982. Designed all original Macintosh icons (1984): the Happy Mac, the Trash, the Lasso, the Bomb. Created Chicago typeface (used in original Mac OS, then iPod). Left Apple 1986 with Jobs to NeXT, then designed icons for Windows 3.0 (Microsoft 1991), IBM, Facebook (early), Pinterest. AIGA Medal 2018. The most influential interface designer no one knew.",papers:[{y:"1984",t:"Original Macintosh icons + Chicago typeface"},{y:"1991",t:"Windows 3.0 icons"}]},
+  {id:"scottbelsky",name:"Scott Belsky",org:"Adobe (CSO)",title:"Behance 创始人 · Adobe 创意业务总监",field:["ux"],
+    bio:"Born 1980 Pittsburgh. Cornell undergrad, Harvard MBA. Founded Behance 2006 (creative portfolio platform, sold to Adobe 2012 for $150M). Authored 'Making Ideas Happen' (2010), 'The Messy Middle' (2018). Adobe CSO + EVP Creative Cloud since 2017. Early investor: Pinterest, Uber, Sweetgreen, Periscope, Warby Parker. Personal blog widely read by design entrepreneurs.",papers:[{y:"2006",t:"Founded Behance"},{y:"2012",t:"Behance acquired by Adobe ($150M)"},{y:"2018",t:"The Messy Middle (book)"}]},
+  {id:"tobiasvanschneider",name:"Tobias van Schneider",org:"DESK Studio",title:"前 Spotify Sr Designer · 创办 DESK + 数字游民",field:["ux","graphic"],
+    bio:"Born ~1986 Austria. Self-taught designer. Joined Spotify 2014-2017 as Senior Product Designer (NYC). Co-founded Semplice (CMS for designers) 2016. Founded DESK Studio 2017 with co-founders. Co-founded Mymind (visual bookmarking) 2020. Newsletter (200k+ subs) on remote work + design entrepreneurship. Strong indie-design / digital nomad voice.",papers:[{y:"2014",t:"Spotify Sr Product Designer"},{y:"2016",t:"Founded Semplice"},{y:"2020",t:"Co-founded Mymind"}]},
+  {id:"juliezhuo",name:"Julie Zhuo",org:"Sundial · ex-Facebook",title:"前 Facebook 产品设计副总裁 · 写作型 PM",field:["ux"],
+    bio:"Born ~1983 Shanghai (immigrated). Stanford CS. Joined Facebook as 1st female engineer-turned-designer 2006. Rose to VP of Product Design (managed 200+ designers) by age 28. Authored 'The Making of a Manager' (2019) — bestseller on tech management. Left Facebook 2020 to co-found Sundial (data product). Newsletter Looks Good widely read among tech designers/managers.",papers:[{y:"2019",t:"The Making of a Manager (book)"},{y:"2020",t:"Co-founded Sundial"}]},
+
+  // ===== Type Design / Additional Western =====
+  {id:"wolfgangweingart",name:"Wolfgang Weingart",org:"Basel School of Design",title:"瑞士字体学派 → New Wave 革命者",field:["typography","graphic"],
+    bio:"Born 1941 Salem Germany, died 2021. Studied Basel School of Design. Taught at Basel from 1968 — initially Swiss Style purist, then radically broke with the rigid grid in 1970s, pioneering 'Swiss Punk' / 'New Wave' typography (chaotic mixed type, photographic typography, deliberate disruption). Influenced April Greiman, Dan Friedman, and a whole generation of postmodern designers. Bridge between Swiss modernism and 1980s deconstruction.",papers:[{y:"1968",t:"Basel teaching career"},{y:"1976",t:"Typographic Process series"}]},
+  {id:"aarondraplin",name:"Aaron Draplin",org:"Draplin Design Co (DDC)",title:"Field Notes 联创 · 美国工匠风设计",field:["graphic"],
+    bio:"Born 1969 Detroit. Self-taught (snowboarder background). Founded Draplin Design Co (DDC) 2005 in Portland. Co-founded Field Notes 2008 with Coudal Partners (small notebooks, sold 50M+). Designed for Burton Snowboards, Nike, Esquire, Patagonia, Carhartt, Cobra Dogs. Authored 'Pretty Much Everything' (2016). Personifies the 'rugged American workmanship' graphic design style.",papers:[{y:"2005",t:"Founded Draplin Design Co"},{y:"2008",t:"Co-founded Field Notes (50M sold)"}]},
+
+  // ===== Japanese =====
+  {id:"kenyahara",name:"Kenya Hara",org:"MUJI Art Director",title:"原研哉 · MUJI 艺术总监 · '白' 哲学",field:["graphic","industrial"],
+    bio:"Born 1958 Okayama, Japan. Musashino Art University. Hara Design Institute President (Nippon Design Center). MUJI Art Director since 2002 — defines MUJI's visual identity (those minimalist 地平线/horizon ad campaigns). Designed identity for Tsutaya, Roppongi Hills. Authored 'Designing Design' (2007), 'White' (2010), 'Ex-formation' (2017). Pioneered 'emptiness' as Japanese design philosophy worth exporting globally.",papers:[{y:"2002",t:"MUJI Art Director"},{y:"2007",t:"Designing Design (book)"},{y:"2010",t:"White (book)"}]},
+  {id:"okisato",name:"Oki Sato",org:"Nendo",title:"Nendo 创始人 · 日本极简主义代表",field:["industrial"],
+    bio:"Born 1977 Toronto (Japanese). Waseda University Master of Architecture. Founded Nendo 2002 in Tokyo. 200+ projects per year. Designed for Cappellini, Camper, Issey Miyake, Tod's, Coca-Cola, Lexus, Starbucks. Iconic small playful 'click moment' product design. 2012 Wallpaper Designer of the Year. Tokyo 2020 Olympic torch design.",papers:[{y:"2002",t:"Founded Nendo"},{y:"2020",t:"Tokyo 2020 Olympic torch"}]},
+  {id:"kashiwasato",name:"Kashiwa Sato",org:"Samurai Inc",title:"佐藤可士和 · UNIQLO 品牌设计师",field:["graphic"],
+    bio:"Born 1965 Tokyo. Tama Art University. Joined Hakuhodo 1989, founded Samurai Inc 2000. Defined UNIQLO's global brand identity 2006-present (red square logo, store design, advertising). Designed 7-Eleven Japan rebrand, Honda Stepwgn, Tsutaya T-Card, Rakuten logo, Imabari Towel. Most influential Japanese commercial brand designer. Visiting professor Tama Art University. Author 'Kashiwa Sato's Ultimate Method to Reach the Essentials'.",papers:[{y:"2006",t:"UNIQLO global rebrand"},{y:"2000",t:"Founded Samurai Inc"}]},
+
+  // ===== Chinese Designers =====
+  {id:"kantaikeung",name:"Kan Tai-keung",org:"靳叔包装",title:"靳埭强 · 香港平面设计教父",field:["graphic","chinese"],
+    bio:"Born 1942 广东番禺. 香港浸会学院. 自学成才,为新华、太古、屈臣氏、中国银行设计 logo (1984 中行红五星 logo 沿用至今). 创办「靳埭强设计奖」推动华人设计教育. 受张光宇、王无邪影响,融合中国水墨与现代设计. AGI 会员,香港艺术发展局视觉艺术主席. 著作《设计心法》《关于设计的 110 个故事》. 在中国大陆与靳与刘合作创立 KL&K Design.",papers:[{y:"1984",t:"中国银行 Logo"},{y:"1999",t:"创办靳埭强设计奖"}]},
+  {id:"alanchan",name:"Alan Chan",org:"Alan Chan Design",title:"陈幼坚 · 香港品牌设计代表",field:["graphic","chinese"],
+    bio:"Born 1950 Hong Kong. 中学毕业自学,1980 创立 Alan Chan Design Company. 设计 Tsutaya 香港、HSBC、Watson's、Mandarin Oriental、Shanghai Tang 视觉识别. 「东西合璧」最具商业代表性的华人设计师. 600+ 国际奖项. 2002 创办上海 Alan Chan Creations 工作室. 香港艺术中心荣誉院士. 《时代》评选 'Asia's 25 most influential people' 1996.",papers:[{y:"1994",t:"Tsutaya Hong Kong"},{y:"1996",t:"Shanghai Tang Visual Identity"}]},
+  {id:"hejianping",name:"He Jianping",org:"Hesign Berlin/Shanghai",title:"何见平 · 中德双线运营 · 海报艺术家",field:["graphic","chinese"],
+    bio:"Born 1973 浙江. 杭州中国美术学院 → 柏林艺术大学. 师承 Helmut Schmid. 创办 Hesign 工作室(柏林 2003 / 上海 2004). 全球各大海报双年展常胜军(华沙、布鲁诺、墨西哥金奖等 100+). 创办「Hesign 出版社」、组织「中国海报双年展」. 中国美术学院 + 柏林艺术大学双教职. 著作《设计 + 文化》(德文)、《设计的旅行》",papers:[{y:"2003",t:"创办 Hesign Berlin"},{y:"2010s",t:"100+ 国际海报奖"}]},
+  {id:"hanjiaying",name:"Han Jiaying",org:"Han Jiaying Design",title:"韩家英 · 深圳现代品牌设计代表",field:["graphic","chinese"],
+    bio:"Born 1961 北京. 西安美术学院. 1990 南下深圳,1993 创办韩家英设计有限公司. 设计万科、招商银行、中国国际海运集装箱、深圳中国设计大展等品牌识别. AGI 会员. 中国最早一批将国际设计语言带入大陆品牌的设计师. 「2008 北京奥运视觉设计」核心成员. 数次代表中国设计参加国际三年展.",papers:[{y:"1993",t:"创办韩家英设计"},{y:"2008",t:"参与北京奥运视觉设计"}]},
+  {id:"heiyiyang",name:"Hei Yiyang",org:"SenseTeam (山河水)",title:"黑一烊 · SenseTeam 创始人",field:["graphic","chinese"],
+    bio:"Born 1971 广东惠州. 自学派. 2003 创办深圳「山河水设计 SenseTeam」. 设计华为终端品牌(Mate 系列视觉)、网易云音乐、龙湖地产、Manner 咖啡等. 2010 代表中国登上《Communication Arts》封面. AGI 中国区会员. 「黑色」标签是行业 insider 的共识符号. 多次操刀「字体设计 + 品牌」交叉项目,推动中文字体在新生代中商业化运用.",papers:[{y:"2003",t:"创办 SenseTeam"},{y:"2018",t:"网易云音乐 视觉系统"}]},
+  {id:"zhuzhiwei",name:"Zhu Zhiwei",org:"方正字库",title:"朱志伟 · 中文字库元老 · 兰亭黑/博雅宋设计者",field:["typography","chinese"],
+    bio:"Born 1956 北京. 北京印刷学院. 1989 加入方正,中国数字字库奠基人之一. 主导设计「方正兰亭黑」「方正博雅宋」「方正悠黑」等中文经典字体. 兰亭黑被苹果选为 Mac OS X 系统简体中文默认字体(2010 年起). 2018 「方正悠黑」入选中国第二届字体设计大奖. 影响整个中文数字阅读时代的视觉基础.",papers:[{y:"2002",t:"方正兰亭黑(后成 macOS 系统字体)"},{y:"2008",t:"方正博雅宋"},{y:"2018",t:"方正悠黑"}]},
+  {id:"zhuyingchun",name:"Zhu Yingchun",org:"南京艺术学院",title:"朱赢椿 · 书籍设计大师",field:["graphic","chinese"],
+    bio:"Born 1970 江苏盐城. 南京师范大学美术系. 南京艺术学院教授 + 书衣坊主持人. 设计书籍《不裁》《肥肉》《虫子书》《设计诗》— 累计获德国莱比锡「世界最美的书」金奖、中国「最美的书」十多次. 「实物 + 概念 + 文学」三位一体的书籍设计开创者. 中国最具有「书是物」哲学的设计师. 受日本杉浦康平影响.",papers:[{y:"2007",t:"《不裁》(获德国莱比锡世界最美的书)"},{y:"2009",t:"《设计诗》"}]},
+  {id:"yangmingjie",name:"Yang Mingjie",org:"YANG DESIGN / 羊舍",title:"杨明洁 · 中国工业设计代表 / 羊舍创始人",field:["industrial","chinese"],
+    bio:"Born 1971 杭州. 中国美术学院 + 同济大学 + 慕尼黑工业大学 / 西门子研究院. 2005 创办 YANG DESIGN(上海),工业设计 + 产品策略咨询. 2014 推出自主品牌「羊舍 Yang House」家具. 客户:海尔、华为、奔驰、米其林、可口可乐. 出版《设计的醒觉》. 中国大陆最商业成熟的工业设计师之一,国际设计奖项最多的中国设计师.",papers:[{y:"2005",t:"创办 YANG DESIGN"},{y:"2014",t:"创办「羊舍 Yang House」家具品牌"}]},
+  {id:"jiawei",name:"Jia Wei",org:"LKK 洛可可",title:"賈伟 · 洛可可创始人 · 大中型设计公司模式",field:["industrial","chinese"],
+    bio:"Born 1973 太原. 北京理工大学工业设计. 2004 创办洛可可创新设计集团(LKK),发展为中国规模最大的设计咨询公司之一(800+ 员工 / 全国 8 城市分公司). 客户覆盖海尔、美的、华为、三星、可口可乐 1000+ 品牌. 红点/IF 等国际奖项 100+. 2018 创办「洛客 LKKER」设计众包平台. 推动中国从代工(OEM)转向自主设计(ODM)的代表人物.",papers:[{y:"2004",t:"创办 LKK 洛可可"},{y:"2018",t:"创办洛客平台"}]},
+  {id:"zhouchenchen",name:"Zhou Chenchen",org:"Frank Chou Design Studio",title:"周宸宸 Frank Zhou · 国内当代家具设计代表",field:["industrial","chinese"],
+    bio:"Born 1986 北京. 中央美术学院家具设计 + 米兰理工学院产品设计. 2012 创办 Frank Chou Design Studio. 受日本/北欧家具影响,但探索中国当代产品语境. 设计「Combo」沙发(2017,广州设计周年度家具)、「Cube」椅. 与意大利 Cassina、丹麦 Stellar Works 合作. 代表中国 80/90 后家具设计语言走向国际. 米兰设计周中国设计师常驻代表.",papers:[{y:"2012",t:"创办 Frank Chou Design Studio"},{y:"2017",t:"Combo Sofa(广州设计周年度家具)"}]},
+  {id:"lincunzhen",name:"Lin Cunzhen",org:"中央美术学院",title:"林存真 · 北京冬奥设计总监 + 字体设计",field:["graphic","chinese"],
+    bio:"Born 1971 山东. 中央美术学院 + 莱比锡视觉艺术学院博士. 中央美术学院设计学院副院长. 2022 北京冬奥会会徽「冬梦」主设计师 + 视觉形象设计总监. 「方正悠黑」字体合作开发. 当代中国具备国际视野且承担国家级视觉项目的代表设计师.",papers:[{y:"2017",t:"北京冬奥会徽「冬梦」"},{y:"2022",t:"北京冬奥视觉形象总设计师"}]},
+  {id:"jianghua",name:"Jiang Hua",org:"中国美术学院",title:"蒋华 · 中国当代字体设计教育者",field:["typography","chinese"],
+    bio:"Born 1971 杭州. 中国美术学院视觉传达硕士. 中国美术学院设计学院教授. 创办「Type is Beautiful」中文字体网志(2007). 著作《这个杀手不太冷:汉字字体设计对话录》. 中国最早一批系统性引入西方字体设计理论的学者,影响新一代华文字体设计者. AGI 会员.",papers:[{y:"2007",t:"创办 Type is Beautiful"},{y:"2018",t:"《汉字字体设计对话录》"}]},
+  {id:"wangmin",name:"Wang Min",org:"中央美术学院",title:"王敏 · 央美设计学院前院长 + 北京奥运",field:["graphic","chinese"],
+    bio:"Born 1956 北京. 中央工艺美术学院 + 美国耶鲁大学硕士. 1990s 在 Adobe / 苹果 / 微软担任艺术总监. 2002 回国任中央美术学院设计学院院长 (2002-2018). 2008 北京奥运会形象与景观艺术总监. 「奥运同心结」视觉系统主导者. 推动中国设计教育与国际接轨,培养整整一代国内设计领导者.",papers:[{y:"2008",t:"北京奥运形象与景观艺术总监"},{y:"2002",t:"央美设计学院院长"}]},
+];
+
+const connections = [
+  // Rams 影响谱系 — 现代极简主义传承
+  {source:"dieterrams",target:"jonyive",type:"advisor",label:"Ive 公开承认 Rams 是最大设计影响"},
+  {source:"dieterrams",target:"naotofukasawa",type:"advisor",label:"Rams 极简哲学传承到 MUJI"},
+  {source:"dieterrams",target:"jaspermorrison",type:"advisor",label:"Super Normal 哲学传承"},
+  // Apple / LoveFrom 体系
+  {source:"jonyive",target:"marcnewson",type:"cofounder",label:"2019 共同创办 LoveFrom"},
+  {source:"hartmutesslinger",target:"jonyive",type:"advisor",label:"Esslinger 80 年代奠定 Apple 设计语言"},
+  // MUJI Advisory Board 矩阵
+  {source:"naotofukasawa",target:"jaspermorrison",type:"cofounder",label:"2007 共同 Super Normal 展览 + MUJI 顾问董事会同事"},
+  {source:"naotofukasawa",target:"kenyahara",type:"colleague",label:"MUJI Art Director / Advisor 长期同事"},
+  {source:"naotofukasawa",target:"samhecht",type:"colleague",label:"MUJI Advisory Board"},
+  {source:"jaspermorrison",target:"samhecht",type:"colleague",label:"MUJI Advisory Board + 英国设计圈"},
+  {source:"kenyahara",target:"samhecht",type:"colleague",label:"MUJI Advisory Board"},
+  // 师承
+  {source:"jaspermorrison",target:"konstantingrcic",type:"advisor",label:"Grcic 早期助理"},
+  // Sagmeister 圈
+  {source:"stefansagmeister",target:"jessicawalsh",type:"cofounder",label:"2012-2019 Sagmeister & Walsh 联创"},
+  // Pentagram 同事(Scher / Spiekermann 都曾在 Pentagram)
+  {source:"paulascher",target:"erikspiekermann",type:"colleague",label:"Pentagram partners"},
+  // Eames 夫妇
+  // (already combined into one node "eames")
+  // Vignelli + Helvetica + Swiss Style 谱系
+  {source:"josefmullerbrockmann",target:"massimovignelli",type:"advisor",label:"瑞士国际主义影响 Vignelli"},
+  {source:"jantschichold",target:"erikspiekermann",type:"advisor",label:"现代主义字体设计师承谱系"},
+  {source:"josefmullerbrockmann",target:"wolfgangweingart",type:"advisor",label:"Basel School 瑞士字体血脉"},
+  {source:"wolfgangweingart",target:"davidcarson",type:"advisor",label:"Weingart 反叛传给 Carson 的反网格"},
+  // Saul Bass / Glaser / Rand 美国 mid-century 平面设计巨擘相互影响
+  {source:"paulrand",target:"miltonglaser",type:"colleague",label:"NYC mid-century 美国设计同辈"},
+  {source:"paulrand",target:"saulbass",type:"colleague",label:"美国战后企业品牌设计同辈"},
+  {source:"miltonglaser",target:"massimovignelli",type:"colleague",label:"NYC 设计圈同辈"},
+  // M&Co / Kalman 培养 Sagmeister
+  // 跳过 Tibor Kalman 因为没加
+  // UX 黄金圈
+  {source:"donnorman",target:"jakobnielsen",type:"cofounder",label:"1998 共同创办 Nielsen Norman Group"},
+  {source:"donnorman",target:"susankare",type:"colleague",label:"Apple 1980s 同事"},
+  {source:"susankare",target:"johnmaeda",type:"colleague",label:"美国数字设计奠基者同辈"},
+  {source:"johnmaeda",target:"bretvictor",type:"colleague",label:"MIT 计算设计血脉"},
+  {source:"scottbelsky",target:"juliezhuo",type:"colleague",label:"美国科技公司设计领导者同辈"},
+  {source:"scottbelsky",target:"tobiasvanschneider",type:"colleague",label:"Adobe 生态 + Behance 早期作者"},
+  // Apple Susan Kare 谱系
+  {source:"jonyive",target:"susankare",type:"colleague",label:"Apple 设计史(Kare 80s,Ive 90s+)"},
+  // 奥运 / Olympic 设计
+  {source:"otlaicher",target:"wangmin",type:"advisor",label:"奥运设计语言传承(1972 慕尼黑 → 2008 北京)"},
+  {source:"otlaicher",target:"lincunzhen",type:"advisor",label:"奥运视觉系统延续(1972 → 2022 北京冬奥)"},
+  {source:"wangmin",target:"lincunzhen",type:"colleague",label:"中央美院 + 国家奥运视觉项目"},
+  {source:"wangmin",target:"hanjiaying",type:"colleague",label:"2008 北京奥运视觉团队"},
+  // 香港平面设计圈
+  {source:"kantaikeung",target:"alanchan",type:"colleague",label:"1980s 香港平面设计代表同辈"},
+  {source:"kantaikeung",target:"hejianping",type:"advisor",label:"靳埭强设计奖体系培养下一代"},
+  // 字体设计
+  {source:"zhuzhiwei",target:"jianghua",type:"colleague",label:"中文字体设计两代代表"},
+  {source:"zhuzhiwei",target:"lincunzhen",type:"colleague",label:"方正悠黑合作"},
+  // 深圳品牌设计圈
+  {source:"hanjiaying",target:"heiyiyang",type:"colleague",label:"深圳品牌设计两代代表"},
+  // 中国当代家具
+  {source:"yangmingjie",target:"zhouchenchen",type:"colleague",label:"中国 70 后/80 后工业设计代表"},
+  {source:"jiawei",target:"yangmingjie",type:"colleague",label:"中国本土工业设计公司创始人同辈"},
+  // 出版/书籍设计
+  {source:"zhuyingchun",target:"jianghua",type:"colleague",label:"中国当代书籍/字体设计"},
+  // 跨界 Italian 老一辈
+  {source:"ettoresottsass",target:"patriciaurquiola",type:"advisor",label:"Sottsass 后米兰 Italian 设计学院"},
+  // Frog 起点
+  {source:"hartmutesslinger",target:"rosslovegrove",type:"colleague",label:"frog design 1980s 同事"},
+  // Olivetti / Italian 工业设计
+  {source:"ettoresottsass",target:"konstantingrcic",type:"colleague",label:"米兰工业设计师同辈"},
+  // Penguin / British 设计
+  {source:"jantschichold",target:"jaspermorrison",type:"advisor",label:"英国现代主义设计血脉"},
+  // Tinker Hatfield
+  {source:"tinkerhatfield",target:"yvesbehar",type:"colleague",label:"美国当代品牌产品设计师同辈"},
+];
+
+// ===================================================================
+// COLOR SYSTEM
+// ===================================================================
+const orgColorMap = {
+  // Industrial Design
+  "Braun":"#FF6B35","LoveFrom":"#1d1d1f","MUJI / ±0":"#8B7355","Jasper Morrison Studio":"#5A8DEE",
+  "frog design (founder)":"#00C2A8","Eames Office":"#D4A574","Memphis Group":"#FF1F8F",
+  "Studio Urquiola / Cassina":"#A8456B","Karim Rashid Inc":"#FF3399","Lovegrove Studio":"#7CCBA2",
+  "Industrial Facility":"#5A8DEE","Konstantin Grcic Design":"#34495E","Fuseproject":"#5A8DEE",
+  "Starck Network":"#000000","Nike":"#FA5400",
+  // Graphic
+  "Yale (taught) / freelance":"#0066CC","Vignelli Associates":"#D7263D","Pentagram":"#000000",
+  "Sagmeister & Walsh → Sagmeister Inc":"#FF1493","&Walsh":"#FF1493",
+  "Pushpin Studios / Milton Glaser Inc":"#E91E63","Saul Bass Associates":"#FFA500",
+  "MetaDesign / FontShop":"#0099CC","HfG Ulm":"#FFC72C","Swiss Style":"#DC143C",
+  "Penguin Books":"#FF6600","Ray Gun magazine":"#9C27B0","Basel School of Design":"#DC143C",
+  "Draplin Design Co (DDC)":"#FFB400",
+  // UX/UI
+  "NN/g · UCSD":"#0070C9","NN/g":"#0070C9","Everbridge / Automattic / SVA":"#5856D6",
+  "Dynamicland":"#FF453A","Apple alum / Niiice.co":"#A1A1A6","Adobe (CSO)":"#FA0F00",
+  "DESK Studio":"#0a84ff","Sundial · ex-Facebook":"#1877F2",
+  // Japanese
+  "MUJI Art Director":"#8B7355","Nendo":"#000000","Samurai Inc":"#FF0000",
+  // Chinese
+  "靳叔包装":"#C8102E","Alan Chan Design":"#9B0028","Hesign Berlin/Shanghai":"#0066CC",
+  "Han Jiaying Design":"#D32F2F","SenseTeam (山河水)":"#000000",
+  "方正字库":"#1F4788","南京艺术学院":"#5D4037","YANG DESIGN / 羊舍":"#3E2723",
+  "LKK 洛可可":"#E91E63","Frank Chou Design Studio":"#5A4A3A","中央美术学院":"#C8102E",
+  "中国美术学院":"#1B5E20",
+};
+const orgRawColors = {
+  "Google DeepMind":"#64d2ff","OpenAI":"#30d158","Anthropic":"#ff6482",
+  "Meta AI":"#5e9eff","AMI Labs":"#ffd60a","Stanford":"#ff9f0a","UC Berkeley":"#bf5af2",
+  "University of Toronto":"#bf5af2","Mila / U. Montreal":"#bf5af2",
+  "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
+  "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
+  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Tencent":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
+  "Independent":"#98989d","Tsinghua IIIS":"#bf5af2","SenseTime / CUHK":"#bf5af2","PKU / BIGAI":"#bf5af2","SenseTime":"#bf5af2","Princeton":"#bf5af2","Tsinghua CoAI":"#bf5af2","Xiaomi (ex-DeepSeek)":"#ffd60a","Tencent (ex-DeepSeek)":"#ffd60a","Stanford / DeepLearning.AI":"#ff9f0a",
+  "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
+  "CUHK (Shenzhen)":"#bf5af2",
+};
+const linkColorMap = {coauthor:"#2997ff",advisor:"#64d2ff",colleague:"rgba(255,255,255,0.1)",cofounder:"#30d158"};
+
+function getColor(org) { return orgRawColors[org] || "#98989d"; }
+
+// ===================================================================
+// D3 GRAPH
+// ===================================================================
+const W = window.innerWidth;
+const H = window.innerHeight - 48;
+
+const svg = d3.select("#main-svg");
+const g = svg.append("g");
+
+// Zoom
+const zoomBehavior = d3.zoom().scaleExtent([0.15, 5])
+  .on("zoom", ({transform}) => g.attr("transform", transform));
+svg.call(zoomBehavior);
+
+// 节点光晕:放弃 feGaussianBlur,用纯渐变填充(滤镜在 zoom/pan 时极慢)
+const defs = svg.append("defs");
+const glowGrad = defs.append("radialGradient").attr("id","glow-grad").attr("cx","50%").attr("cy","50%").attr("r","50%");
+glowGrad.append("stop").attr("offset","0%").attr("stop-color","white").attr("stop-opacity",0.55);
+glowGrad.append("stop").attr("offset","60%").attr("stop-color","white").attr("stop-opacity",0.18);
+glowGrad.append("stop").attr("offset","100%").attr("stop-color","white").attr("stop-opacity",0);
+
+// Force simulation
+const simulation = d3.forceSimulation(scholars)
+  .force("link", d3.forceLink(connections).id(d=>d.id).distance(d=>{
+    if(d.type==="cofounder")return 70;if(d.type==="coauthor")return 95;if(d.type==="advisor")return 110;return 140;
+  }).strength(d=>{
+    if(d.type==="cofounder")return 0.8;if(d.type==="coauthor")return 0.4;if(d.type==="advisor")return 0.5;return 0.12;
+  }))
+  .force("charge", d3.forceManyBody().strength(-260).distanceMax(600))
+  .force("center", d3.forceCenter(W/2, H/2))
+  .force("collision", d3.forceCollide().radius(36))
+  .force("x", d3.forceX(W/2).strength(0.04))
+  .force("y", d3.forceY(H/2).strength(0.04))
+  .alphaDecay(0.05)
+  .velocityDecay(0.55)
+  .alphaMin(0.01);
+
+setTimeout(()=>{ if(simulation.alpha() < 0.05) simulation.stop(); }, 8000);
+
+// Links — use <path> for curved lines
+const linkG = g.append("g");
+const linkLines = linkG.selectAll("path").data(connections).join("path")
+  .attr("class", d => `link-line type-${d.type}`)
+  .attr("fill", "none");
+
+// Nodes
+const nodeG = g.append("g");
+const nodeGroups = nodeG.selectAll("g").data(scholars).join("g")
+  .attr("class","node-group")
+  .call(d3.drag().on("start",(e,d)=>{if(!e.active)simulation.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+    .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
+    .on("end",(e,d)=>{if(!e.active)simulation.alphaTarget(0);d.fx=null;d.fy=null;}));
+
+function nodeSize(d){
+  const c=connections.filter(c=>{
+    const s=typeof c.source==='object'?c.source.id:c.source;
+    const t=typeof c.target==='object'?c.target.id:c.target;
+    return s===d.id||t===d.id;
+  }).length;
+  return Math.min(Math.max(c*1.3+4,5),16);
+}
+
+// Glow — 移除 SVG filter,改用纯填充,GPU 友好
+nodeGroups.append("circle").attr("class","node-glow")
+  .attr("r",d=>nodeSize(d)+6)
+  .attr("fill",d=>getColor(d.org))
+  .attr("opacity",0.22);
+
+// Circle
+nodeGroups.append("circle").attr("class","node-circle")
+  .attr("r",d=>nodeSize(d))
+  .attr("fill",d=>getColor(d.org))
+  .attr("stroke","rgba(255,255,255,0.08)")
+  .attr("stroke-width",0.5)
+  .style("cursor","pointer");
+
+// Labels — name + org
+nodeGroups.append("text").attr("class","node-label node-name-label")
+  .attr("dy",d=>nodeSize(d)+13)
+  .attr("font-size","10px")
+  .attr("letter-spacing","-0.08px")
+  .text(d=>d.name);
+nodeGroups.append("text").attr("class","node-label node-org-label")
+  .attr("dy",d=>nodeSize(d)+23)
+  .attr("font-size","8px")
+  .attr("letter-spacing","-0.06px")
+  .attr("fill","rgba(255,255,255,0.35)")
+  .text(d=>d.org);
+
+// Tick — straight lines
+simulation.on("tick",()=>{
+  linkLines.attr("d", d => `M${d.source.x},${d.source.y} L${d.target.x},${d.target.y}`);
+  nodeGroups.attr("transform",d=>`translate(${d.x},${d.y})`);
+});
+
+// ===================================================================
+// INTERACTIONS
+// ===================================================================
+const tooltip = document.getElementById("tooltip");
+
+// Hover highlight
+nodeGroups.on("mouseenter",(event,d)=>{
+  const connected = new Set([d.id]);
+  connections.forEach(c=>{
+    const s=typeof c.source==='object'?c.source.id:c.source;
+    const t=typeof c.target==='object'?c.target.id:c.target;
+    if(s===d.id)connected.add(t);if(t===d.id)connected.add(s);
+  });
+  nodeGroups.classed("dimmed",n=>!connected.has(n.id)).classed("highlighted",n=>connected.has(n.id));
+  linkLines.classed("dimmed",l=>{
+    const s=typeof l.source==='object'?l.source.id:l.source;
+    const t=typeof l.target==='object'?l.target.id:l.target;
+    return s!==d.id&&t!==d.id;
+  }).classed("highlighted",l=>{
+    const s=typeof l.source==='object'?l.source.id:l.source;
+    const t=typeof l.target==='object'?l.target.id:l.target;
+    return s===d.id||t===d.id;
+  });
+  // Tooltip
+  const zhTip = scholarZh[d.id];
+  document.getElementById("tooltip-name").textContent = (currentLang === "zh" && zhTip && zhTip.zhName) ? zhTip.zhName + "  " + d.name : d.name;
+  document.getElementById("tooltip-org").textContent=d.org;
+  tooltip.classList.add("visible");
+}).on("mousemove",(event)=>{
+  tooltip.style.left=(event.clientX+14)+"px";
+  tooltip.style.top=(event.clientY-10)+"px";
+}).on("mouseleave",()=>{
+  nodeGroups.classed("dimmed",false).classed("highlighted",false);
+  linkLines.classed("dimmed",false).classed("highlighted",false);
+  tooltip.classList.remove("visible");
+});
+
+// Click → Detail Panel (openDetail defined later in i18n section)
+nodeGroups.on("click",(event,d)=>{
+  event.stopPropagation();
+  history.replaceState(null,'',`?node=${encodeURIComponent(d.id)}`);
+  openDetail(d);
+});
+svg.on("click",()=>closeDetail());
+
+function closeDetail(){
+  document.getElementById("detail-panel").classList.remove("open");
+  if(location.search) history.replaceState(null,'',location.pathname);
+}
+
+// Deep link: focus node from ?node=X URL param on load
+(function(){
+  const id=new URLSearchParams(location.search).get('node');
+  if(!id) return;
+  const target=scholars.find(s=>s.id===id);
+  if(!target) return;
+  setTimeout(()=>openDetail(target),700);
+})();
+document.getElementById("detail-close").addEventListener("click",e=>{e.stopPropagation();closeDetail();});
+
+// ===================================================================
+// SEARCH
+// ===================================================================
+// 实验室/学校中英文别名:搜「清华」也能找到 Tsinghua / 北大 → PKU 等
+const orgAlias = {
+  "OpenAI":"OpenAI","Anthropic":"Anthropic","Google DeepMind":"Google DeepMind 谷歌深度思维 谷歌",
+  "MIT / Google DeepMind":"MIT 麻省理工 DeepMind","Microsoft AI":"微软 Microsoft",
+  "Cohere":"Cohere","Mistral AI":"Mistral","Sakana AI":"Sakana 坂井",
+  "xAI":"xAI 马斯克","SSI":"SSI Safe Superintelligence Sutskever",
+  "Black Forest Labs":"Black Forest Labs Flux","Inceptive":"Inceptive",
+  "Eureka Labs":"Eureka Labs Karpathy","Essential AI":"Essential AI",
+  "01.AI / Sinovation":"零一万物 01.AI 创新工场 李开复",
+  "DeepSeek":"深度求索 DeepSeek 梁文锋","Moonshot AI":"月之暗面 Moonshot Kimi 杨植麟",
+  "Zhipu AI / Tsinghua":"智谱 AI 清华 Zhipu","Tsinghua CoAI":"清华 CoAI",
+  "Tsinghua IIIS":"清华叉院 清华交叉信息研究院 姚班 Tsinghua",
+  "PKU / BIGAI":"北大 北京大学 BIGAI 通研院 朱松纯",
+  "MiniMax":"MiniMax 海螺","ByteDance Seed":"字节 字节跳动 Seed ByteDance",
+  "Tencent":"腾讯 Tencent","Tencent (ex-DeepSeek)":"腾讯 前 DeepSeek",
+  "Alibaba Cloud":"阿里云 通义千问 Qwen Alibaba",
+  "Baidu":"百度 文心 ERNIE Baidu","Xiaomi (ex-DeepSeek)":"小米 前 DeepSeek",
+  "SenseTime":"商汤 SenseTime","SenseTime / CUHK":"商汤 香港中文大学 CUHK",
+  "Stanford":"斯坦福 Stanford","Stanford / DeepLearning.AI":"斯坦福 吴恩达 Andrew Ng",
+  "Princeton":"普林斯顿 Princeton","UC Berkeley / Covariant":"伯克利 Berkeley Covariant",
+  "UC Berkeley / Physical Intelligence":"伯克利 Berkeley Physical Intelligence pi",
+  "University of Toronto":"多伦多大学 Toronto Hinton",
+  "University of Alberta":"阿尔伯塔大学 Alberta Sutton",
+  "Mila / U. Montreal":"Mila 蒙特利尔 Montreal Bengio",
+  "JKU Linz / ELLIS":"JKU Linz Schmidhuber Hochreiter",
+  "KAUST / IDSIA":"KAUST IDSIA Schmidhuber","AMI Labs":"AMI Labs",
+  "MiraclePlus":"奇绩创坛"
+};
+document.getElementById("search-input").addEventListener("input",e=>{
+  const q=e.target.value.toLowerCase().trim();
+  if(!q){
+    nodeGroups.style("opacity",null);linkLines.style("opacity",null);return;
+  }
+  const match=new Set();
+  scholars.forEach(s=>{
+    const zh = (typeof scholarZh !== 'undefined' && scholarZh[s.id]) || {};
+    const haystack = [
+      s.name, s.org, s.title, s.bio, s.id,
+      zh.zhName, zh.title, zh.bio,
+      orgAlias[s.org] || '',
+      ...((s.papers||[]).map(p => p.t || ''))
+    ].filter(Boolean).join(' \n ').toLowerCase();
+    if(haystack.includes(q)) match.add(s.id);
+  });
+  const expanded=new Set(match);
+  connections.forEach(c=>{
+    const s=typeof c.source==='object'?c.source.id:c.source;
+    const t=typeof c.target==='object'?c.target.id:c.target;
+    if(match.has(s))expanded.add(t);if(match.has(t))expanded.add(s);
+  });
+  nodeGroups.style("opacity",d=>match.has(d.id)?1:expanded.has(d.id)?0.4:0.04);
+  linkLines.style("opacity",l=>{
+    const s=typeof l.source==='object'?l.source.id:l.source;
+    const t=typeof l.target==='object'?l.target.id:l.target;
+    return(match.has(s)||match.has(t))?0.5:0.02;
+  });
+});
+
+// ===================================================================
+// FILTER PILLS
+// ===================================================================
+document.querySelectorAll(".filter-pill").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-pill").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const f=btn.dataset.filter;
+    if(f==="all"){nodeGroups.style("opacity",null);linkLines.style("opacity",null);return;}
+    const match=new Set();
+    scholars.forEach(s=>{if(s.field&&s.field.includes(f))match.add(s.id);});
+    nodeGroups.style("opacity",d=>match.has(d.id)?1:0.04);
+    linkLines.style("opacity",l=>{
+      const s=typeof l.source==='object'?l.source.id:l.source;
+      const t=typeof l.target==='object'?l.target.id:l.target;
+      return(match.has(s)&&match.has(t))?0.5:0.02;
+    });
+  });
+});
+
+// ===================================================================
+// KEYBOARD
+// ===================================================================
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeDetail();
+  if(e.key==="/"&&document.activeElement!==document.getElementById("search-input")){
+    e.preventDefault();document.getElementById("search-input").focus();
+  }
+});
+
+// ===================================================================
+// I18N — LANGUAGE SYSTEM
+// ===================================================================
+let currentLang = "zh";
+
+const i18n = {
+  en: {
+    navTitle: "Designer Graph",
+    searchPlaceholder: "Search designers...",
+    filterAll: "All",
+    filterIndustrial: "Industrial",
+    filterGraphic: "Graphic",
+    filterUX: "UX / UI",
+    filterType: "Type",
+    filterChinese: "Chinese",
+    stats: (s, c) => `${s} designers · ${c} connections`,
+    legendOrgs: "Studios",
+    legendConns: "Connections",
+    legendApple: "Apple / LoveFrom",
+    legendBraun: "Braun",
+    legendMUJI: "MUJI Advisory",
+    legendPentagram: "Pentagram",
+    legendChinese: "Chinese",
+    legendStartup: "Studios",
+    legendCoauthor: "Co-design",
+    legendAdvisor: "Mentor / Influence",
+    legendCofounder: "Co-founder",
+    legendColleague: "Studio colleague",
+    sectionAbout: "About",
+    sectionPapers: "Key Works",
+    sectionConnections: "Connections",
+    hintZoom: "Zoom",
+    hintPan: "Pan",
+    hintDetails: "Details",
+    hintClose: "Close",
+    typeLabels: { coauthor: "Co-design", advisor: "Mentor", colleague: "Colleague", cofounder: "Co-founder" },
+  },
+  zh: {
+    navTitle: "设计师图谱",
+    searchPlaceholder: "搜索设计师...",
+    filterAll: "全部",
+    filterIndustrial: "工业设计",
+    filterGraphic: "平面设计",
+    filterUX: "交互/UX",
+    filterType: "字体设计",
+    filterChinese: "中国",
+    stats: (s, c) => `${s} 位设计师 · ${c} 条关系`,
+    legendOrgs: "工作室",
+    legendConns: "关系类型",
+    legendApple: "Apple / LoveFrom",
+    legendBraun: "Braun",
+    legendMUJI: "MUJI 顾问董事",
+    legendPentagram: "Pentagram",
+    legendChinese: "中国设计圈",
+    legendStartup: "独立工作室",
+    legendCoauthor: "共同设计",
+    legendAdvisor: "师承 / 影响",
+    legendCofounder: "联合创始",
+    legendColleague: "同事",
+    sectionAbout: "简介",
+    sectionPapers: "代表作品",
+    sectionConnections: "关系网络",
+    hintZoom: "缩放",
+    hintPan: "平移",
+    hintDetails: "详情",
+    hintClose: "关闭",
+    typeLabels: { coauthor: "共同设计", advisor: "师承", colleague: "同事", cofounder: "联合创始人" },
+  }
+};
+
+// Chinese scholar data
+const scholarZh = {
+  // ===== 工业设计大师 =====
+  dieterrams: { zhName: "迪特·拉姆斯", title: "Braun 设计总监(1961-1995) · 好设计十大原则", bio: "1932 年生于德国威斯巴登。1955 加入博朗,1961-1995 担任设计总监,定义了博朗简洁功能性美学。代表作:SK 4 留声机(1956)、606 通用书架系统(1960)、T3 便携收音机(1958,直接启发 iPod)。70 年代提出「好设计十大原则」。「Less, but better」(少而精)哲学深刻影响乔尼·艾维和苹果。德意志联邦共和国功勋十字勋章持有者。Vitsoe 至今仍生产他的家具。" },
+  jonyive: { zhName: "乔尼·艾维", title: "苹果前首席设计官 · 创办 LoveFrom", bio: "1967 年生于伦敦。纽卡斯尔理工学院毕业。1992 加入苹果,1997-2019 任首席设计官。主导设计 iMac G3(1998)、iPod(2001)、iPhone(2007)、iPad(2010)、Apple Watch(2015) 及全部 Mac 硬件。2012 年获 KBE 爵位。2019 离开苹果与马克·纽森联创 LoveFrom 设计事务所。受迪特·拉姆斯影响极深。LoveFrom 首批主要项目:法拉利概念车 + 与 Brian Chesky 合作 Airbnb 改版(2024)。" },
+  naotofukasawa: { zhName: "深泽直人", title: "MUJI 设计顾问 · ±0 创始人", bio: "1956 年生于日本山梨县。多摩美术大学毕业。先后加入 IDEO 日本,2003 年自创深泽直人设计事务所。自 2002 起担任 MUJI 顾问董事会成员(同期还有原研哉、Sam Hecht、Jasper Morrison)。设计 MUJI 壁挂式 CD 播放器(1999)、MUJI 加湿器、±0 品牌加湿器。与 Jasper Morrison 共同提出「Super Normal」哲学。Without Thought 工作坊方法论。英国皇家工业设计师。21_21 Design Sight 馆长。" },
+  jaspermorrison: { zhName: "贾斯伯·莫里森", title: "Super Normal 哲学 · 英国产品设计代表", bio: "1959 生于伦敦。皇家艺术学院毕业。1986 创立 Office for Design(现 Jasper Morrison Studio,工作室分布伦敦/巴黎/东京)。MUJI 顾问董事会成员。客户:Vitra、Cappellini、Magis、Alessi、Rowenta、Sony。2007 与深泽直人联合策划「Super Normal」展览,提出「超平凡」设计哲学——歌颂被完美执行的普通物件。2001 英国皇家工业设计师。" },
+  marcnewson: { zhName: "马克·纽森", title: "Apple Watch 联设 · LoveFrom 联创", bio: "1963 生于悉尼。悉尼艺术学院。1986 设计的 Lockheed Lounge 椅 2009 拍出 240 万英镑(在世设计师最高拍卖价)。客户:Cappellini、Apple、Ford、Nike、澳航(机舱内饰)。2012 获 CBE 爵位。2014 加入苹果任特别项目设计师,与艾维合作主导 Apple Watch 设计。2019 与艾维联创 LoveFrom。《时代》2005 年百大最具影响力人物。" },
+  philippestarck: { zhName: "菲利普·斯塔克", title: "法国跨界设计师 · 万物皆可设计", bio: "1949 生于巴黎。Camondo 艺术学院。开始任 Pierre Cardin 艺术总监(1968)。1984 设计 Café Costes 引爆事业。代表作:Juicy Salif 柠檬榨汁器(Alessi 1990)、Louis Ghost 椅(Kartell 2002)。设计涵盖家具、酒店、游艇(包括为乔布斯设计的 Venus 号)、手表、牙刷。20 世纪末最多产的商业设计师。法国荣誉军团勋章多次获颁。" },
+  konstantingrcic: { zhName: "康士坦丁·葛切奇", title: "工业设计 · 现代主义新一代", bio: "1965 生于慕尼黑。皇家艺术学院,曾任 Jasper Morrison 助理。1991 创立 KGID(慕尼黑,后迁柏林)。客户:Magis、Mattiazzi、Plank、Vitra、Iittala。代表作:Mayday 灯(1999)、Chair_One(Magis 2004)、Pro 椅(Flötotto 2013)。Compasso d'Oro 金奖 2001、2011。汉堡造型艺术大学教授。代表新一代理性而幽默的德国设计。" },
+  yvesbehar: { zhName: "伊夫·贝阿尔", title: "Fuseproject 创始人 · 社会创新设计", bio: "1967 生于瑞士洛桑。Art Center College of Design 毕业。1999 创立 Fuseproject(旧金山)。代表作:One Laptop Per Child XO 笔电(2007)、Jawbone 可穿戴、Herman Miller SAYL 椅、August 智能锁、Ouya 游戏机。联创 Forme(智能镜)、Canopy(护肤)。2016 将 Fuseproject 多数股权卖给蓝色光标。多次获 AIGA 奖章。社会公益设计代言人。" },
+  hartmutesslinger: { zhName: "哈穆特·艾斯林格", title: "frog design 创始人 · 苹果 Snow White 设计语言", bio: "1944 生于德国黑森林。1969 创办 Esslinger Design(1982 改名 frog design)。1982 被乔布斯以年薪 100 万美金签约——首个为苹果定义视觉识别的工业设计公司。1984-1990 创造苹果「Snow White」设计语言(Apple IIc / Macintosh SE 等)。也设计 Sony Trinitron 电视、Wega 音响、汉莎航空、SAP、微软。frog design 服务过 HP、迪士尼、索尼,80/90 年代最具影响力的设计咨询公司。" },
+  eames: { zhName: "查尔斯 + 蕾·伊姆斯", title: "美国 20 世纪设计巨擘 · 伊姆斯椅", bio: "查尔斯·伊姆斯(1907-1978)和蕾·凯瑟·伊姆斯(1912-1988)夫妇 1941 在洛杉矶创办伊姆斯工作室。开创模压胶合板家具(LCW 椅 1946)、玻璃纤维壳椅(DSW 1950)、伊姆斯休闲椅(1956)。家具之外:Case Study House #8 自宅、《Powers of Ten》(1977)电影、IBM 展览。20 世纪最具影响力的美国设计师组合。Herman Miller 和 Vitra 至今出品其作品。" },
+  ettoresottsass: { zhName: "埃托·索特萨斯", title: "孟菲斯集团创始人 · Olivetti 主设计师", bio: "1917 生于因斯布鲁克(意大利籍),2007 去世。都灵理工大学建筑系。1958-1980 任 Olivetti 主设计师,设计 Olivetti Valentine 便携打字机(1969,MoMA 永久馆藏)。1981 在米兰创立孟菲斯集团,引爆后现代主义设计运动——用鲜艳色彩、狂野图案、非对称形态反叛极简「good taste」。Compasso d'Oro 金奖多次。孟菲斯影响了 80/90 年代全球流行文化、时尚和产品设计。" },
+  patriciaurquiola: { zhName: "帕特里夏·乌尔奇奥拉", title: "西班牙设计师 · Cassina 艺术总监", bio: "1961 生于西班牙奥维耶多。马德里 + 米兰理工大学。曾与 Achille Castiglioni、Vico Magistretti、Piero Lissoni 共事。2001 创立 Studio Urquiola(米兰)。2015 起任 Cassina 艺术总监。客户:B&B Italia、Moroso、Foscarini、Kettal、Mutina。代表作:Tropicalia 椅(Moroso 2008)、Husk 椅(B&B Italia 2011)。英国皇家工业设计师。Compasso d'Oro 金奖 2011。" },
+  karimrashid: { zhName: "卡里姆·拉希德", title: "加拿大-埃及设计师 · 'democratic design' 倡导者", bio: "1960 生于开罗(英埃加三国背景)。卡尔顿大学渥太华。1993 在纽约创办 Karim Rashid Inc。在 90+ 国家设计 4000+ 产品。代表作:Garbo 垃圾桶(Umbra 1996,售出 700 万件)、Oh 椅、Dirt Devil Kone 吸尘器、Method 清洁产品。300+ 设计奖项。极度多产的商业 / 「sensual minimalism」风格——纯设计圈分歧大但商业成功无可争议。" },
+  rosslovegrove: { zhName: "罗斯·拉夫格罗夫", title: "英国设计 · 'Organic Essentialism'", bio: "1958 生于英国卡迪夫。皇家艺术学院。1980 年代加入 frog design(Sony Walkman、苹果项目)。1990 在伦敦创立 Lovegrove Studio。提出「Organic Essentialism」(有机本质主义)——数字制造支持的仿生形态。设计 Sony Walkman、Olympus Eye Trek 眼镜、Ty Nant 矿泉水瓶、Bombay Sapphire 杜松子酒瓶、Air One 椅(Edra)。英国皇家工业设计师。" },
+  samhecht: { zhName: "山姆·赫克特", title: "Industrial Facility 联创 · MUJI 设计核心", bio: "1969 生于伦敦。皇家艺术学院。1991-2002 在 IDEO(旧金山 → 东京)。2002 与 Kim Colin 在伦敦联创 Industrial Facility。2003 起 MUJI 顾问董事会成员。设计 MUJI 厨房秤、MUJI 计算器、Herman Miller、Mattiazzi、Established & Sons。安静、深思、超普通的美学风格。" },
+  tinkerhatfield: { zhName: "廷克·哈特菲尔德", title: "Nike Air Jordan 主设计师", bio: "1952 生于俄勒冈州 Hillsboro。俄勒冈大学(建筑系,前撑杆跳运动员)。1981 加入 Nike 任企业建筑师,1985 转型为鞋款设计师。任 Nike 设计与特别项目副总裁。设计 Air Jordan 3(1988)至 Air Jordan 15、Air Max 1、Nike Mag(回到未来自动系带)。运动鞋设计史最具影响力的人物。Footwear News Hall of Fame 入选。" },
+
+  // ===== 平面 / 品牌设计 =====
+  paulrand: { zhName: "保罗·兰德", title: "美国现代品牌设计奠基人 · IBM/UPS/ABC logos", bio: "1914 生于纽约,1996 去世。Pratt Institute / Art Students League。自学成才的现代主义平面设计师。设计标志性 logos:IBM(1956 + 1972 条纹版)、ABC TV(1962)、UPS(1961,2003 改版前一直使用)、西屋(1960)、Enron(1996)、乔布斯的 NeXT logo(1986,收费 10 万美金)。著作《Thoughts on Design》(1947)。耶鲁艺术学院教授 1956-1985。把欧洲现代主义带进美国企业品牌识别。" },
+  massimovignelli: { zhName: "马西莫·维涅利", title: "纽约地铁地图 · Helvetica 倡导者", bio: "1931 生于米兰,2014 去世于纽约。米兰理工大学。1965 联创 Unimark International(后 1971 创办 Vignelli Associates)。设计:纽约地铁标识系统(1970,与 Bob Noorda 合作,沿用 50+ 年)、美国航空识别(1968-2013)、Bloomingdale's 棕色购物袋、Knoll logo、纽约 Saint Peter 教堂。Helvetica 字体的强烈倡导者。「If you can design one thing, you can design everything」。AIGA 奖章 1983。" },
+  paulascher: { zhName: "葆拉·谢尔", title: "Pentagram 合伙人 · Citi/MoMA/Tiffany identity", bio: "1948 生于华盛顿特区。Tyler 艺术学院。70 年代在 CBS Records(300+ 唱片封面 / 4 个 Grammy 提名)。1984 联创 Koppel & Scher。1991 加入 Pentagram——首位女性合伙人。设计:花旗银行(2000)、MoMA(2009)、Tiffany & Co(2014)、微软 Windows logo(2012)、纽约 Public Theater(1994 至今)、彭博社、微软。标志性大字体粗色设计风格。AIGA 奖章 2001。" },
+  stefansagmeister: { zhName: "斯特凡·萨格梅斯特", title: "奥地利设计师 · 极致表达派", bio: "1962 生于奥地利布雷根茨。Pratt Institute MFA。曾在 Tibor Kalman 的 M&Co 工作。1993 创办 Sagmeister Inc。2012-2019 与 Jessica Walsh 联创 Sagmeister & Walsh。1999 AIGA 海报——把文字刻在自己赤裸躯干上,设计史标志性事件。为 Lou Reed、Rolling Stones、Talking Heads、OK Go 设计专辑。2 个 Grammy。Sabbatical 创意实践。TED 关于「设计与幸福」演讲广为流传。" },
+  miltonglaser: { zhName: "米尔顿·格拉泽", title: "I ♥ NY logo · 美国流行设计教父", bio: "1929 生于纽约,2020 去世。Cooper Union、博洛尼亚 Academia di Belle Arti。1954 联创 Pushpin Studios。1974 创办 Milton Glaser Inc。代表作:I ♥ NY logo(1977,免费为纽约州设计,成为史上最被模仿的 logo)、Bob Dylan 海报(1966)、DC Comics logo(1977)、布鲁克林啤酒厂 logo(1996)。2009 国家艺术奖章——首位获此奖的平面设计师。SVA 教授 50+ 年。AIGA 奖章 1972。" },
+  saulbass: { zhName: "索尔·巴斯", title: "电影片头海报奠基人 · AT&T/UA logos", bio: "1920 生于纽约,1996 去世。Art Students League / 布鲁克林学院。与奥托·普雷明格合作的《金臂人》(1955)开创现代电影片头序列。为希区柯克(《惊魂记》《迷魂记》《北西北》)、斯科塞斯(《赌城风云》《恐惧角》)、库布里克(《斯巴达克斯》)设计片头。Logos:AT&T(1969 + 1983 地球)、联合航空(1974)、大陆航空(1968)、贝尔系统(1969)。1969 奥斯卡(动画短片)。" },
+  jessicawalsh: { zhName: "杰西卡·沃尔什", title: "Sagmeister & Walsh 联创 → &Walsh CEO", bio: "1986 生于康涅狄格州。RISD 罗德岛设计学院。2008 加入 Sagmeister Inc,2012 升任合伙人成立 Sagmeister & Walsh。代表作:40 Days of Dating(2013 病毒式项目)。2019 创办 &Walsh(独立工作室)。客户:苹果、福特、Levi's、阿迪达斯、Snapchat。女性设计师权益强烈倡导者。Forbes 30 Under 30(2014)。鲜艳超现实图像化视觉风格。" },
+  erikspiekermann: { zhName: "埃里克·施皮克曼", title: "FontShop 创始人 · FF Meta/汉莎字体", bio: "1947 生于德国 Stadthagen。柏林自由大学(艺术史)。1979 联创 MetaDesign(柏林,德国最大设计公司之一)。1989 联创 FontShop——全球第一家数字字体零售商。设计 FF Meta 字体(1991)——被誉为「90 年代的 Helvetica」。设计奥迪、大众、汉莎、德国铁路企业字体。AIGA 奖章 2011。英国名誉皇家工业设计师。著作《Stop Stealing Sheep》。" },
+  otlaicher: { zhName: "奥特·艾舍", title: "1972 慕尼黑奥运 + 汉莎航空设计", bio: "1922 生于德国乌尔姆,1991 去世。1953 联创乌尔姆造型学院(后包豪斯设计学校)。设计:1969 汉莎航空识别(2018 前一直使用)、1972 慕尼黑奥运会(引入图标系统,成为奥运通用标准)、ERCO 灯具。创造 Rotis 字体(1988)。在德国把企业识别确立为一门学科。妻子 Inge Scholl(白玫瑰反纳粹组织成员 Sophie Scholl 之姐)。" },
+  josefmullerbrockmann: { zhName: "约瑟夫·穆勒-布罗克曼", title: "瑞士国际主义平面设计代表", bio: "1914 生于瑞士拉珀斯维尔,1996 去世。瑞士国际主义字体风格的定义性人物——网格系统、无衬线字体、不对称版面、摄影优先于插画。设计 50/60 年代苏黎世 Tonhalle 音乐厅海报。著作《Grid Systems in Graphic Design》(1981)成为网格设计圣经。1958 创办 Neue Grafik 杂志。" },
+  jantschichold: { zhName: "扬·奇肖尔德", title: "Die Neue Typographie · Penguin 重新设计师", bio: "1902 生于莱比锡,1974 去世。1923 接触包豪斯。1928 著作《Die Neue Typographie》——现代主义不对称字体设计宣言。1933 逃离纳粹德国。1947 受聘于企鹅图书,完全重设全部企鹅书系标准化版面(沿用至今)。1967 设计 Sabon 字体。从激进现代主义到古典字体的晚期转向是设计史著名转折。" },
+  davidcarson: { zhName: "大卫·卡森", title: "反网格设计 · Ray Gun 主美", bio: "1955 生于德州 Corpus Christi。自学(前职业冲浪运动员)。1992-1995 任 Ray Gun 杂志艺术总监——创造 90 年代最具影响力的反网格、解构主义编辑设计。客户:百事、耐克、MTV、索尼、微软。著作《The End of Print》(1995)售出 20 万+ 册。启发了一代 grunge / 实验设计师。反穆勒-布罗克曼哲学。" },
+
+  // ===== UX / UI / Digital =====
+  donnorman: { zhName: "唐纳德·诺曼", title: "《设计心理学》作者 · 用户体验之父", bio: "1935 生。UPenn 心理学博士。1993 在苹果任先进技术副总裁时首创「User Experience」一词。1998 与 Jakob Nielsen 联创 Nielsen Norman Group。著作《设计心理学》(原名 Design of Everyday Things,1988)——历史上阅读最多的设计书。UCSD 认知科学教授。批评糟糕设计——普及「affordance」「signifier」「mental model」「Norman door」概念。美国国家工程院院士。AIGA 奖章 2006。" },
+  jakobnielsen: { zhName: "雅各布·尼尔森", title: "NN/g 联创 · 可用性工程教父", bio: "1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师(网页可用性研究)。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heuristics」(至今行业标准)。开创 5 用户可用性测试。79 项专利。" },
+  johnmaeda: { zhName: "约翰·前田", title: "MIT Media Lab → RISD 校长 · 计算设计代表", bio: "1966 生于西雅图。MIT 本硕,筑波大学博士(设计)。1996-2008 MIT Media Lab 教师(创办 SIMPLICITY 研究组)。2008-2013 RISD 校长。2014 加入 eBay,后入 Automattic,现 Everbridge。著作《The Laws of Simplicity》(2006)定义「简洁」作为设计原则。开创计算设计 + 创意编码(影响 Processing 语言)。2001 国家设计奖。AIGA 奖章 2010。" },
+  bretvictor: { zhName: "布雷特·维克托", title: "交互设计哲学家 · Inventing on Principle", bio: "约 1976 生。加州理工本,UC 伯克利硕士。苹果人机界面设计师(参与 iPad 概念)。2014 创立 Dynamicland(奥克兰研究实验室)。著名 2012 演讲「Inventing on Principle」——定义了实时反馈交互系统的愿景。后续文章《Up and Down the Ladder of Abstraction》《Magic Ink》《Drawing Dynamic Visualizations》成为 HCI 圈经典。极少出现于公众,但在交互设计圈影响力巨大。" },
+  susankare: { zhName: "苏珊·凯尔", title: "Mac 图标设计师 · UI 图标之母", bio: "1954 生于纽约 Ithaca。NYU 艺术史博士。1982 被乔布斯招入苹果。设计原版 Macintosh 全部图标(1984):Happy Mac、垃圾桶、套索、炸弹。创造 Chicago 字体(原版 Mac OS 与 iPod 使用)。1986 与乔布斯一起离开苹果加入 NeXT,后为 Windows 3.0(1991)、IBM、Facebook(早期)、Pinterest 设计图标。AIGA 奖章 2018。最具影响力但鲜为人知的界面设计师。" },
+  scottbelsky: { zhName: "斯科特·贝尔斯基", title: "Behance 创始人 · Adobe 创意业务总监", bio: "1980 生于匹兹堡。康奈尔本科,哈佛 MBA。2006 创立 Behance(创意作品集平台,2012 被 Adobe 1.5 亿美金收购)。著作《Making Ideas Happen》(2010)、《The Messy Middle》(2018)。2017 起任 Adobe CSO + EVP Creative Cloud。早期投资:Pinterest、Uber、Sweetgreen、Periscope、Warby Parker。个人博客被设计创业者广泛阅读。" },
+  tobiasvanschneider: { zhName: "托比亚斯·范施奈德", title: "前 Spotify 高级设计师 · DESK + 数字游民代表", bio: "约 1986 生于奥地利。自学设计。2014-2017 任 Spotify 高级产品设计师(纽约)。2016 联创 Semplice(设计师专用 CMS)。2017 创立 DESK Studio。2020 联创 Mymind(视觉书签)。Newsletter 20 万+ 订阅,聚焦远程办公 + 设计创业。强烈的独立设计师 / 数字游民声音。" },
+  juliezhuo: { zhName: "Julie Zhuo", title: "前 Facebook 产品设计副总裁 · 写作型 PM", bio: "约 1983 生于上海(后移民美国)。斯坦福 CS。2006 加入 Facebook(初为工程师,后转产品设计)。28 岁升任产品设计副总裁(管 200+ 设计师)。著作《The Making of a Manager》(2019)——科技管理畅销书。2020 离开 Facebook 联创 Sundial(数据产品)。Newsletter《Looks Good》在科技圈设计师/管理者中广泛阅读。" },
+
+  // ===== 字体设计 / 其他西方 =====
+  wolfgangweingart: { zhName: "沃尔夫冈·韦因加特", title: "瑞士字体学派 → New Wave 革命者", bio: "1941 生于德国 Salem,2021 去世。巴塞尔设计学校。1968 起在巴塞尔教学——初为瑞士风格纯派,但 70 年代激进打破刚性网格,开创「Swiss Punk」/「New Wave」字体设计(混乱混合字体、摄影字体、刻意打破)。影响 April Greiman、Dan Friedman 与一整代后现代设计师。瑞士现代主义与 80 年代解构主义之间的桥梁。" },
+  aarondraplin: { zhName: "亚伦·德拉普林", title: "Field Notes 联创 · 美国工匠风设计", bio: "1969 生于底特律。自学(滑雪运动员背景)。2005 在波特兰创立 Draplin Design Co(DDC)。2008 与 Coudal Partners 联创 Field Notes(小本笔记本,售出 5000 万+)。客户:Burton 滑板、耐克、Esquire、Patagonia、Carhartt、Cobra Dogs。著作《Pretty Much Everything》(2016)。代表「粗犷美国工匠」平面设计风格。" },
+
+  // ===== 日本 =====
+  kenyahara: { zhName: "原研哉", title: "MUJI 艺术总监 · 「白」哲学", bio: "1958 生于日本冈山。武藏野美术大学。Hara Design Institute 总裁(隶属日本设计中心)。2002 起任 MUJI 艺术总监——定义 MUJI 视觉识别(那些极简「地平线 horizon」广告)。设计 Tsutaya、六本木 Hills 识别。著作《Designing Design》(2007)、《白》(2010)、《Ex-formation》(2017)。开创将「emptiness 留白」作为日本设计哲学输出全球。" },
+  okisato: { zhName: "佐藤大(Nendo)", title: "Nendo 创始人 · 日本极简主义代表", bio: "1977 生于多伦多(日籍)。早稻田大学建筑硕士。2002 在东京创立 Nendo。每年 200+ 项目。客户:Cappellini、Camper、Issey Miyake、Tod's、可口可乐、雷克萨斯、星巴克。标志性小巧、玩味、「click moment」产品设计。2012 Wallpaper 年度设计师。东京 2020 奥运火炬设计。" },
+  kashiwasato: { zhName: "佐藤可士和", title: "UNIQLO 品牌设计师", bio: "1965 生于东京。多摩美术大学。1989 加入博报堂,2000 创立 Samurai Inc。2006 至今定义 UNIQLO 全球品牌识别(红色方形 logo、店面设计、广告)。设计 7-Eleven 日本品牌、本田 Stepwgn、Tsutaya T-Card、乐天 logo、今治毛巾。日本最有影响力的商业品牌设计师。多摩美术大学客座教授。著《佐藤可士和的超整理术》。" },
+
+  // ===== 中国设计师 =====
+  kantaikeung: { zhName: "靳埭强", title: "香港平面设计教父 · 中国银行 logo", bio: "1942 生于广东番禺。香港浸会学院。自学成才,为新华、太古、屈臣氏、中国银行设计 logo(1984 中行红五星 logo 沿用至今)。创办「靳埭强设计奖」推动华人设计教育。受张光宇、王无邪影响,融合中国水墨与现代设计。AGI 会员,香港艺术发展局视觉艺术主席。著作《设计心法》《关于设计的 110 个故事》。在中国大陆与靳与刘合作创立 KL&K Design。" },
+  alanchan: { zhName: "陈幼坚", title: "香港品牌设计代表 · 东西合璧", bio: "1950 生于香港。中学毕业自学,1980 创立 Alan Chan Design Company。设计 Tsutaya 香港、HSBC、Watson's、Mandarin Oriental、Shanghai Tang 视觉识别。「东西合璧」最具商业代表性的华人设计师。600+ 国际奖项。2002 创办上海 Alan Chan Creations 工作室。香港艺术中心荣誉院士。1996《时代》评选 'Asia's 25 most influential people'。" },
+  hejianping: { zhName: "何见平", title: "Hesign 创始人 · 中德双线运营 · 海报艺术家", bio: "1973 生于浙江。杭州中国美术学院 → 柏林艺术大学。师承 Helmut Schmid。创办 Hesign 工作室(柏林 2003 / 上海 2004)。全球各大海报双年展常胜军(华沙、布鲁诺、墨西哥金奖等 100+)。创办 Hesign 出版社、组织「中国海报双年展」。中国美术学院 + 柏林艺术大学双教职。著作《设计 + 文化》(德文)、《设计的旅行》。" },
+  hanjiaying: { zhName: "韩家英", title: "深圳现代品牌设计代表", bio: "1961 生于北京。西安美术学院。1990 南下深圳,1993 创办韩家英设计有限公司。设计万科、招商银行、中国国际海运集装箱、深圳中国设计大展等品牌识别。AGI 会员。中国最早一批将国际设计语言带入大陆品牌的设计师。2008 北京奥运视觉设计核心成员。数次代表中国设计参加国际三年展。" },
+  heiyiyang: { zhName: "黑一烊", title: "SenseTeam(山河水)创始人", bio: "1971 生于广东惠州。自学派。2003 创办深圳 SenseTeam(山河水设计)。设计华为终端品牌(Mate 系列视觉)、网易云音乐、龙湖地产、Manner 咖啡等。2010 代表中国登上《Communication Arts》封面。AGI 中国区会员。「黑色」标签是行业 insider 的共识符号。多次操刀「字体设计 + 品牌」交叉项目,推动中文字体在新生代中商业化运用。" },
+  zhuzhiwei: { zhName: "朱志伟", title: "方正字库元老 · 兰亭黑/博雅宋设计者", bio: "1956 生于北京。北京印刷学院。1989 加入方正,中国数字字库奠基人之一。主导设计「方正兰亭黑」「方正博雅宋」「方正悠黑」等中文经典字体。兰亭黑被苹果选为 Mac OS X 系统简体中文默认字体(2010 年起)。2018 方正悠黑入选中国第二届字体设计大奖。影响整个中文数字阅读时代的视觉基础。" },
+  zhuyingchun: { zhName: "朱赢椿", title: "书籍设计大师 · 世界最美的书获得者", bio: "1970 生于江苏盐城。南京师范大学美术系。南京艺术学院教授 + 书衣坊主持人。设计书籍《不裁》《肥肉》《虫子书》《设计诗》——累计获德国莱比锡「世界最美的书」金奖、中国「最美的书」十多次。「实物 + 概念 + 文学」三位一体的书籍设计开创者。中国最具有「书是物」哲学的设计师。受日本杉浦康平影响。" },
+  yangmingjie: { zhName: "杨明洁", title: "中国工业设计代表 · 羊舍创始人", bio: "1971 生于杭州。中国美术学院 + 同济大学 + 慕尼黑工业大学 / 西门子研究院。2005 创办 YANG DESIGN(上海),工业设计 + 产品策略咨询。2014 推出自主品牌「羊舍 Yang House」家具。客户:海尔、华为、奔驰、米其林、可口可乐。出版《设计的醒觉》。中国大陆最商业成熟的工业设计师之一,国际设计奖项最多的中国设计师。" },
+  jiawei: { zhName: "賈伟", title: "洛可可 LKK 创始人 · 大中型设计公司模式", bio: "1973 生于太原。北京理工大学工业设计。2004 创办洛可可创新设计集团(LKK),发展为中国规模最大的设计咨询公司之一(800+ 员工 / 全国 8 城市分公司)。客户覆盖海尔、美的、华为、三星、可口可乐 1000+ 品牌。红点/IF 等国际奖项 100+。2018 创办洛客 LKKER 设计众包平台。推动中国从代工(OEM)转向自主设计(ODM)的代表人物。" },
+  zhouchenchen: { zhName: "周宸宸 Frank Zhou", title: "国内当代家具设计代表", bio: "1986 生于北京。中央美术学院家具设计 + 米兰理工学院产品设计。2012 创办 Frank Chou Design Studio。受日本/北欧家具影响,但探索中国当代产品语境。设计 Combo 沙发(2017,广州设计周年度家具)、Cube 椅。与意大利 Cassina、丹麦 Stellar Works 合作。代表中国 80/90 后家具设计语言走向国际。米兰设计周中国设计师常驻代表。" },
+  lincunzhen: { zhName: "林存真", title: "北京冬奥设计总监 + 字体设计", bio: "1971 生于山东。中央美术学院 + 莱比锡视觉艺术学院博士。中央美术学院设计学院副院长。2022 北京冬奥会会徽「冬梦」主设计师 + 视觉形象设计总监。「方正悠黑」字体合作开发。当代中国具备国际视野且承担国家级视觉项目的代表设计师。" },
+  jianghua: { zhName: "蒋华", title: "中国当代字体设计教育者", bio: "1971 生于杭州。中国美术学院视觉传达硕士。中国美术学院设计学院教授。创办「Type is Beautiful」中文字体网志(2007)。著作《这个杀手不太冷:汉字字体设计对话录》。中国最早一批系统性引入西方字体设计理论的学者,影响新一代华文字体设计者。AGI 会员。" },
+  wangmin: { zhName: "王敏", title: "央美设计学院前院长 + 北京奥运形象总监", bio: "1956 生于北京。中央工艺美术学院 + 美国耶鲁大学硕士。1990 年代在 Adobe / 苹果 / 微软担任艺术总监。2002 回国任中央美术学院设计学院院长(2002-2018)。2008 北京奥运会形象与景观艺术总监。「奥运同心结」视觉系统主导者。推动中国设计教育与国际接轨,培养整整一代国内设计领导者。" },
+};
+
+// Chinese connection labels
+const connLabelZh = {
+  "2015 Nature paper, Turing Award trio": "2015 Nature 论文，图灵奖三巨头",
+  "Turing Award trio, Deep Learning review": "图灵奖三巨头，深度学习综述",
+  "Turing Award trio": "图灵奖三巨头",
+  "PhD advisor at U. Toronto": "多伦多大学博士导师",
+  "AlexNet co-author, PhD advisor": "AlexNet 合著者，博士导师",
+  "AlexNet (2012)": "AlexNet (2012)",
+  "PhD advisor, supervised GANs": "博士导师，指导 GAN 研究",
+  "Attention Is All You Need (2017)": "Attention Is All You Need (2017)",
+  "Attention Is All You Need + Essential AI": "Transformer 论文 + 联合创办 Essential AI",
+  "Co-founded Essential AI": "联合创办 Essential AI",
+  "Google Brain colleagues": "Google Brain 同事",
+  "Co-founded Google Brain": "联合创办 Google Brain",
+  "Google, Gemini/PaLM": "Google Gemini/PaLM 协作",
+  "Google DeepMind leadership": "Google DeepMind 管理层",
+  "Co-founded DeepMind": "联合创办 DeepMind",
+  "AlphaGo, AlphaFold": "AlphaGo、AlphaFold",
+  "DeepMind RL research": "DeepMind 强化学习研究",
+  "Co-founded OpenAI": "联合创办 OpenAI",
+  "OpenAI, GPT architecture": "OpenAI，GPT 架构",
+  "OpenAI founding team": "OpenAI 创始团队",
+  "GPT-2, GPT-3": "GPT-2、GPT-3",
+  "OpenAI colleagues": "OpenAI 同事",
+  "OpenAI leadership": "OpenAI 管理层",
+  "OpenAI": "OpenAI",
+  "OpenAI / LLM scaling": "OpenAI / 大模型 Scaling",
+  "Co-founded Anthropic (siblings)": "联合创办 Anthropic（兄妹）",
+  "Co-founded Anthropic": "联合创办 Anthropic",
+  "Both ex-OpenAI, now Anthropic": "均为前 OpenAI，现 Anthropic",
+  "Former OpenAI colleagues": "前 OpenAI 同事",
+  "Dario was OpenAI VP under Altman, left to found Anthropic": "Dario 曾任 Altman 麾下 OpenAI 研究VP，后创办 Anthropic",
+  "PhD advisor at Stanford": "斯坦福博士导师",
+  "Stanford AI Lab": "斯坦福 AI 实验室",
+  "Stanford NLP group": "斯坦福 NLP 组",
+  "Stanford HAI co-directors": "斯坦福 HAI 联合主任",
+  "UC Berkeley robot learning": "UC Berkeley 机器人学习",
+  "PhD advisor at UC Berkeley": "UC Berkeley 博士导师",
+  "Berkeley, generative models": "Berkeley，生成模型",
+  "Stanford contemporaries": "斯坦福同期",
+  "GAN / generative lineage": "GAN / 生成模型传承",
+  "Google Brain, chain-of-thought": "Google Brain，思维链",
+  "Google DeepMind": "Google DeepMind",
+  "Co-founded OpenAI (2015), later split": "联合创办 OpenAI（2015），后分道扬镳",
+  "Co-founded xAI": "联合创办 xAI",
+  "PhD under Hinton at U. Toronto": "多伦多大学 Hinton 门下博士",
+  "Adversarial examples (2013), Google colleagues": "对抗样本研究（2013），Google 同事",
+  "FAIR / computer vision community": "FAIR / 计算机视觉社区",
+  "Google DeepMind (2025-)": "Google DeepMind（2025年起）",
+  "AMI Labs, Chief Science Officer": "AMI Labs 首席科学官",
+  "Diffusion Transformers lineage": "扩散 Transformer 技术传承",
+  "PhD under Andrew Ng at Stanford": "斯坦福 Andrew Ng 门下博士",
+  "Sequence-to-Sequence (2014)": "Seq2Seq 模型（2014）",
+  "AI leaders, China-US bridge": "AI 领袖，中美桥梁",
+  "Recruited to Tsinghua IIIS at 28":"28岁招入清华叉院","Yang Zhilin Yao Class":"杨植麟姚班","Chen Danqi Yao Class 2008":"陈丹琦姚班2008","Ma Tengyu Yao Class 2008":"马腾宇姚班2008","PhD advisor CUHK MMLab":"港中文MMLab博导","MMLab professor":"MMLab教授","SenseTime co-founder mentor":"商汤联创导师","SenseTime co-founders":"商汤联创同门","Both CV pioneers":"CV先驱","Yao Class 2008 classmates":"姚班2008同学","DeepSeek members from CoAI lab":"DeepSeek成员出自CoAI","DeepSeek core, poached by Xiaomi":"DeepSeek核心被小米挖","DeepSeek V1 author, left for Tencent":"DeepSeek V1作者转腾讯",
+  "Tsinghua University": "清华大学",
+  "Tsinghua undergraduate advisor": "清华本科导师",
+  "Transformer-XL extends Transformer lineage": "Transformer-XL 延伸了 Transformer 技术线",
+  "Both from Chinese CV community, CAS/SenseTime era": "均来自中国 CV 社区，中科院/商汤时期",
+  "Google Brain/DeepMind colleagues": "Google Brain/DeepMind 同事",
+  "Google Brain colleagues": "Google Brain 同事",
+  "ByteDance Seed co-leads": "字节跳动 Seed 团队联合负责人",
+  "Alibaba Tongyi Lab, Qwen team": "阿里通义实验室，Qwen 团队",
+  "Chinese open-source LLM leaders": "中国开源大模型领军者",
+  "Chinese AGI startup founders": "中国 AGI 创业公司创始人",
+  "Chinese AI startup founders": "中国 AI 创业公司创始人",
+  "Influenced RL foundations, Alberta": "RL 理论奠基，阿尔伯塔",
+  "DeepMind Alberta, RL foundations": "DeepMind Alberta，RL 基础",
+  "Diploma thesis advisor, co-invented LSTM": "毕业论文导师，联合发明 LSTM",
+  "PhD at IDSIA under Hutter (Schmidhuber's lab)": "在 IDSIA Hutter 门下读博（Schmidhuber 的实验室）",
+  "Co-authored Adam optimizer (2014)": "联合发表 Adam 优化器（2014）",
+  "OpenAI founding team, now Anthropic": "OpenAI 创始团队，现 Anthropic",
+  "Co-invented Seq2Seq (2014)": "联合发明 Seq2Seq（2014）",
+  "DeepMind, AlphaStar, Gemini": "DeepMind，AlphaStar，Gemini",
+  "Latent Diffusion builds on DDPM": "Latent Diffusion 基于 DDPM 构建",
+  "DeepMind Paris (2020-2023)": "DeepMind 巴黎（2020-2023）",
+  "French AI leaders": "法国 AI 领袖",
+  "Baidu CEO recruited Lu Qi as COO": "百度 CEO 招募陆奇任 COO",
+  "Y Combinator China, recruited by Altman": "Y Combinator 中国，被 Altman 招募",
+  "Chinese AI industry leaders": "中国 AI 产业领袖",
+  "Chinese CV community leaders": "中国计算机视觉社区领袖",
+  "DNN speech recognition (2011)": "DNN 语音识别（2011）",
+  "Tencent AI leadership": "腾讯 AI 管理层",
+  "Succeeded Sutskever as OpenAI Chief Scientist": "接替 Sutskever 任 OpenAI 首席科学家",
+  "OpenAI co-research leaders (Chief Scientist + CRO)": "OpenAI 研究双核（首席科学家 + CRO）",
+  "OpenAI Chief Scientist under Altman": "Altman 麾下 OpenAI 首席科学家",
+  "OpenAI CRO under Altman": "Altman 麾下 OpenAI CRO",
+  "Co-led DALL-E and GPT-4 at OpenAI": "在 OpenAI 联合主导 DALL-E 和 GPT-4",
+  "o1 reasoning model co-architects": "o1 推理模型联合架构师",
+  "Recruited to OpenAI for reasoning research": "被招入 OpenAI 从事推理研究",
+  "Anthropic co-founders, both ex-OpenAI": "Anthropic 联合创始人，均来自 OpenAI",
+  "Scaling Laws co-authors, JHU physics colleagues": "Scaling Laws 合著者，JHU 物理同门",
+  "Anthropic co-founders": "Anthropic 联合创始人",
+  "DeepMind VP Research under Hassabis": "Hassabis 麾下 DeepMind 研究副总裁",
+  "DeepMind research leadership": "DeepMind 研究管理层",
+  "DeepSeek-R1 first author under Liang Wenfeng": "梁文锋麾下 DeepSeek-R1 第一作者",
+};
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  const t = i18n[lang];
+
+  // Nav
+  document.querySelector(".nav-title").textContent = t.navTitle;
+  document.getElementById("search-input").placeholder = t.searchPlaceholder;
+  document.getElementById("nav-stats").textContent = t.stats(scholars.length, connections.length);
+
+  // Filter pills
+  const pillMap = { all: t.filterAll, industrial: t.filterIndustrial, graphic: t.filterGraphic, ux: t.filterUX, typography: t.filterType, chinese: t.filterChinese };
+  document.querySelectorAll(".filter-pill").forEach(btn => {
+    btn.textContent = pillMap[btn.dataset.filter] || btn.textContent;
+  });
+
+  // Legend
+  const legendLabels = document.querySelectorAll("#legend .legend-label");
+  const legendTexts = [t.legendDeepMind, t.legendOpenAI, t.legendAnthropic, t.legendMeta, t.legendStanford, t.legendUniversity, t.legendStartup, t.legendCoauthor, t.legendAdvisor, t.legendCofounder, t.legendColleague];
+  legendLabels.forEach((el, i) => { if (legendTexts[i]) el.textContent = legendTexts[i]; });
+
+  const legendHeadings = document.querySelectorAll("#legend .legend-heading");
+  if (legendHeadings[0]) legendHeadings[0].textContent = t.legendOrgs;
+  if (legendHeadings[1]) legendHeadings[1].textContent = t.legendConns;
+
+  // Detail panel section titles
+  const sectionTitles = document.querySelectorAll(".detail-section-title");
+  if (sectionTitles[0]) sectionTitles[0].textContent = t.sectionAbout;
+  if (sectionTitles[1]) sectionTitles[1].textContent = t.sectionPapers;
+  if (sectionTitles[2]) sectionTitles[2].textContent = t.sectionConnections;
+
+  // Keyboard hints
+  const hints = document.querySelectorAll(".hint-item");
+  const hintTexts = [t.hintZoom, t.hintPan, t.hintDetails, t.hintClose];
+  hints.forEach((el, i) => {
+    const key = el.querySelector(".hint-key");
+    if (key && hintTexts[i]) {
+      el.innerHTML = "";
+      el.appendChild(key);
+      el.append(" " + hintTexts[i]);
+    }
+  });
+
+  // Update graph node labels with Chinese names
+  nodeGroups.selectAll(".node-name-label").text(d => {
+    const zhData = scholarZh[d.id];
+    if (lang === "zh" && zhData && zhData.zhName) return zhData.zhName;
+    return d.name;
+  });
+
+  // If detail panel is open, refresh it
+  if (document.getElementById("detail-panel").classList.contains("open") && window._currentDetailScholar) {
+    openDetail(window._currentDetailScholar);
+  }
+
+  // Toggle buttons
+  document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+}
+
+// Wikipedia article title mapping for avatar fetching
+const wikiTitles = {
+  dieterrams: "Dieter_Rams", jonyive: "Jony_Ive", naotofukasawa: "Naoto_Fukasawa",
+  jaspermorrison: "Jasper_Morrison", marcnewson: "Marc_Newson", philippestarck: "Philippe_Starck",
+  konstantingrcic: "Konstantin_Grcic", yvesbehar: "Yves_Béhar", hartmutesslinger: "Hartmut_Esslinger",
+  eames: "Charles_and_Ray_Eames", ettoresottsass: "Ettore_Sottsass",
+  patriciaurquiola: "Patricia_Urquiola", karimrashid: "Karim_Rashid", rosslovegrove: "Ross_Lovegrove",
+  samhecht: "Sam_Hecht", tinkerhatfield: "Tinker_Hatfield",
+  paulrand: "Paul_Rand", massimovignelli: "Massimo_Vignelli", paulascher: "Paula_Scher",
+  stefansagmeister: "Stefan_Sagmeister", miltonglaser: "Milton_Glaser", saulbass: "Saul_Bass",
+  jessicawalsh: "Jessica_Walsh", erikspiekermann: "Erik_Spiekermann", otlaicher: "Otl_Aicher",
+  josefmullerbrockmann: "Josef_Müller-Brockmann", jantschichold: "Jan_Tschichold",
+  davidcarson: "David_Carson_(graphic_designer)", wolfgangweingart: "Wolfgang_Weingart",
+  aarondraplin: "Aaron_Draplin",
+  donnorman: "Don_Norman", jakobnielsen: "Jakob_Nielsen", johnmaeda: "John_Maeda",
+  bretvictor: "Bret_Victor", susankare: "Susan_Kare", scottbelsky: "Scott_Belsky",
+  kenyahara: "Kenya_Hara", okisato: "Oki_Sato", kashiwasato: "Kashiwa_Sato",
+};
+
+// Twitter handles 兜底(很多 AI 大佬没 Wikipedia 但活跃在 X/Twitter)
+const twitterHandles = {
+  jonyive: "JonyIveOfficial", marcnewson: "marc_newson", yvesbehar: "yvesbehar",
+  karimrashid: "KarimRashid", stefansagmeister: "sagmeisterinc", paulascher: "paulascher",
+  jessicawalsh: "jessicawalsh", erikspiekermann: "espiekermann", aarondraplin: "Draplin",
+  davidcarson: "davidcarsondesign", johnmaeda: "johnmaeda", scottbelsky: "scottbelsky",
+  tobiasvanschneider: "vanschneider", juliezhuo: "joulee",
+  donnorman: "jnd1er", jakobnielsen: "jakobnielsen", okisato: "nendo_oki",
+  tinkerhatfield: "tinkerhatfield",
+};
+
+// 中文 Wikipedia 备用(只有中文条目的人物)
+const zhWikiTitles = {
+  kantaikeung: "靳埭強", alanchan: "陳幼堅",
+  yangmingjie: "杨明洁", wangmin: "王敏_(设计师)",
+  philippestarck: "菲利普·斯塔克", ettoresottsass: "埃托·索特薩斯",
+  kashiwasato: "佐藤可士和", okisato: "佐藤大",
+};
+
+// Photo cache
+const photoCache = {};
+
+async function fetchPhoto(scholarId) {
+  if (photoCache[scholarId]) return photoCache[scholarId];
+  // 1) 英文 Wikipedia
+  const enWiki = wikiTitles[scholarId];
+  if (enWiki) {
+    try {
+      const resp = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(enWiki)}`);
+      if (resp.ok) {
+        const data = await resp.json();
+        const url = data.thumbnail?.source;
+        if (url) { photoCache[scholarId] = url; return url; }
+      }
+    } catch(e) {}
+  }
+  // 2) 中文 Wikipedia(中国本土人物)
+  const zhWiki = zhWikiTitles[scholarId];
+  if (zhWiki) {
+    try {
+      const resp = await fetch(`https://zh.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(zhWiki)}`);
+      if (resp.ok) {
+        const data = await resp.json();
+        const url = data.thumbnail?.source;
+        if (url) { photoCache[scholarId] = url; return url; }
+      }
+    } catch(e) {}
+  }
+  // 3) Twitter avatar via unavatar.io(无 Wikipedia 但活跃在 X 的 AI 大佬)
+  const tw = twitterHandles[scholarId];
+  if (tw) {
+    const url = `https://unavatar.io/twitter/${tw}?fallback=false`;
+    const ok = await new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
+    });
+    if (ok) { photoCache[scholarId] = url; return url; }
+  }
+  // 4) 终极兜底:ui-avatars 生成彩色 monogram(每人 deterministic 颜色)
+  const scholar = scholars.find(s => s.id === scholarId);
+  if (scholar) {
+    const colors = ['0a84ff','30d158','ff375f','ff9f0a','5e5ce6','bf5af2','64d2ff','ffd60a','ff9500','32d74b'];
+    const hash = scholarId.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+    const bg = colors[hash % colors.length];
+    const url = `https://ui-avatars.com/api/?name=${encodeURIComponent(scholar.name)}&background=${bg}&color=fff&size=200&bold=true&font-size=0.4`;
+    photoCache[scholarId] = url;
+    return url;
+  }
+  return null;
+}
+
+// openDetail with i18n support
+function openDetail(d) {
+  const panel = document.getElementById("detail-panel");
+  panel.classList.add("open");
+  window._currentDetailScholar = d;
+
+  // Avatar — always reset to placeholder first
+  const initials = d.name.split(" ").map(w => w[0]).join("").slice(0, 2);
+  const oldAvatar = document.getElementById("detail-avatar");
+  const placeholder = document.createElement("div");
+  placeholder.className = "detail-avatar-placeholder";
+  placeholder.id = "detail-avatar";
+  placeholder.innerHTML = `<span>${initials}</span>`;
+  oldAvatar.replaceWith(placeholder);
+
+  // Load photo
+  const currentId = d.id;
+  if (photoCache[d.id]) {
+    const img = document.createElement("img");
+    img.className = "detail-avatar";
+    img.id = "detail-avatar";
+    img.alt = d.name;
+    img.src = photoCache[d.id];
+    placeholder.replaceWith(img);
+  } else {
+    fetchPhoto(d.id).then(url => {
+      // Only update if panel still shows same person
+      const nameEl = document.getElementById("detail-name");
+      if (!nameEl || nameEl.textContent !== d.name) return;
+      const el = document.getElementById("detail-avatar");
+      if (el && url) {
+        const img = document.createElement("img");
+        img.className = "detail-avatar";
+        img.id = "detail-avatar";
+        img.alt = d.name;
+        img.src = url;
+        el.replaceWith(img);
+      }
+    });
+  }
+
+  const t = i18n[currentLang];
+  const zh = scholarZh[d.id];
+  const displayName = (currentLang === "zh" && zh && zh.zhName) ? zh.zhName + "  " + d.name : d.name;
+
+  document.getElementById("detail-name").textContent = displayName;
+
+  if (currentLang === "zh" && zh) {
+    document.getElementById("detail-title").textContent = zh.title;
+    document.getElementById("detail-bio").textContent = zh.bio;
+  } else {
+    document.getElementById("detail-title").textContent = d.title;
+    document.getElementById("detail-bio").textContent = d.bio;
+  }
+
+  const orgEl = document.getElementById("detail-org");
+  const c = getColor(d.org);
+  orgEl.textContent = d.org;
+  orgEl.style.background = c + "18";
+  orgEl.style.color = c;
+  orgEl.style.border = `0.5px solid ${c}32`;
+
+  // Papers
+  const papersEl = document.getElementById("detail-papers");
+  const papersSection = document.getElementById("detail-papers-section");
+  if (d.papers && d.papers.length) {
+    papersSection.style.display = "block";
+    papersEl.innerHTML = d.papers.map(p => {
+      const title = p.url ? `<a class="paper-link" href="${p.url}" target="_blank" rel="noopener">${p.t}</a>` : `<span class="paper-title">${p.t}</span>`;
+      return `<div class="paper-entry"><span class="paper-year">${p.y}</span>${title}</div>`;
+    }).join("");
+  } else {
+    papersSection.style.display = "none";
+  }
+
+  // Section titles
+  const sectionTitles = document.querySelectorAll(".detail-section-title");
+  if (sectionTitles[0]) sectionTitles[0].textContent = t.sectionAbout;
+  if (sectionTitles[1]) sectionTitles[1].textContent = t.sectionPapers;
+  if (sectionTitles[2]) sectionTitles[2].textContent = t.sectionConnections;
+
+  // Connections
+  const connsEl = document.getElementById("detail-connections");
+  const related = connections.filter(c => {
+    const s = typeof c.source === 'object' ? c.source.id : c.source;
+    const tt = typeof c.target === 'object' ? c.target.id : c.target;
+    return s === d.id || tt === d.id;
+  });
+  connsEl.innerHTML = related.map(c => {
+    const s = typeof c.source === 'object' ? c.source.id : c.source;
+    const tt = typeof c.target === 'object' ? c.target.id : c.target;
+    const oid = s === d.id ? tt : s;
+    const o = scholars.find(sc => sc.id === oid);
+    if (!o) return '';
+    const label = currentLang === "zh" ? (connLabelZh[c.label] || c.label) : c.label;
+    const typeBadge = t.typeLabels[c.type];
+    return `<div class="conn-entry" data-id="${o.id}">
+      <div class="conn-dot" style="background:${getColor(o.org)}"></div>
+      <div class="conn-info"><div class="conn-name">${(currentLang === "zh" && scholarZh[o.id] && scholarZh[o.id].zhName) ? scholarZh[o.id].zhName + "  " + o.name : o.name}</div><div class="conn-relation">${label}</div></div>
+      <span class="conn-type-badge">${typeBadge}</span>
+    </div>`;
+  }).join("");
+
+  connsEl.querySelectorAll(".conn-entry").forEach(el => {
+    el.addEventListener("click", () => {
+      const target = scholars.find(s => s.id === el.dataset.id);
+      if (target) {
+        openDetail(target);
+        const tr = d3.zoomTransform(svg.node());
+        svg.transition().duration(600).ease(d3.easeCubicInOut).call(
+          zoomBehavior.transform,
+          d3.zoomIdentity.translate(W / 2 - target.x * tr.k, H / 2 - target.y * tr.k).scale(tr.k)
+        );
+      }
+    });
+  });
+};
+
+// Language toggle event
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+});
+
+// ===================================================================
+// STATS
+// ===================================================================
+document.getElementById("nav-stats").textContent = i18n[currentLang].stats(scholars.length, connections.length);
+
+// Initial position
+setTimeout(()=>{
+  svg.transition().duration(1200).ease(d3.easeCubicInOut).call(
+    zoomBehavior.transform,
+    d3.zoomIdentity.translate(W*0.08,H*0.02).scale(0.88)
+  );
+},1800);
+
+// Resize
+window.addEventListener("resize",()=>{
+  const w=window.innerWidth,h=window.innerHeight-48;
+  simulation.force("center",d3.forceCenter(w/2,h/2));
+  simulation.force("x",d3.forceX(w/2).strength(0.03));
+  simulation.force("y",d3.forceY(h/2).strength(0.03));
+  simulation.alpha(0.3).restart();
+});
+
+// ===================================================================
+// GEO MAP — World distribution (US cities + countries)
+// ===================================================================
+const cityMap = {
+  // San Francisco Bay Area
+  hinton:"toronto",lecun:"nyc",bengio:"montreal",
+  vaswani:"sf",shazeer:"sf",gomez:"toronto",jones:"tokyo",kaiser:"sf",parmar:"sf",uszkoreit:"sf",
+  sutskever:"sf",radford:"sf",schulman:"sf",karpathy:"sf",altman:"sf",brown:"sf",
+  damodei:"sf",daniela:"sf",olah:"sf",clark:"sf",
+  hassabis:"london",silver:"london",legg:"london",suleyman:"london",dean:"sf",
+  feifei:"sf",ng:"sf",manning:"sf",liang:"sf",
+  goodfellow:"sf",krizhevsky:"toronto",abbeel:"sf",levine:"sf",ho:"sf",wei:"sf",anil:"sf",
+  musk:"sf",jimmyba:"toronto",szegedy:"sf",gregyang:"sf",
+  kaiminghe:"boston",sainingxie:"paris",quocle:"sf",
+  liangwenfeng:"hangzhou",kaifulee:"beijing",jietang:"beijing",
+  yanjunjie:"shanghai",yangzhilin:"beijing",
+  wuyonghui:"beijing",
+  zhoujingren:"hangzhou",linjunyang:"hangzhou",
+  zhangzhengyou:"shenzhen",yudong:"shenzhen",yaoshunyu:"shenzhen",
+  gregbrockman:"sf",miramurati:"sf",janleike:"sf",aravindsrinivas:"sf",
+  wangxiaochuan:"beijing",liuzhiyuan:"beijing",
+  bcherny:"sf",catwu:"sf",
+  jiangdaxin:"shanghai",
+  sutton:"edmonton",schmidhuber:"riyadh",hochreiter:"linz",
+  kingma:"sf",vinyals:"london",rombach:"freiburg",mensch:"paris",
+  robinli:"beijing",luqi:"beijing",yaoqizhi:"beijing",tangxiaoou:"hongkong",zhusongchun:"beijing",lindahua:"hongkong",wangxiaogang:"hongkong",chendanqi:"sf",matengyu:"sf",huangminlie:"beijing",luofuli:"beijing",wangbingxuan:"shenzhen",
+  pachocki:"sf",markchen:"sf",noambrown:"sf",jaredkaplan:"sf",sammccandlish:"sf",pushmeetkohli:"london",dayaguo:"hangzhou",
+};
+
+// World map positions (viewBox 0 0 280 140)
+const geoPositions = {
+  sf:       {x:35, y:52, label:"旧金山", labelEn:"San Francisco"},
+  nyc:      {x:65, y:45, label:"纽约", labelEn:"New York"},
+  boston:    {x:70, y:40, label:"波士顿", labelEn:"Boston"},
+  toronto:  {x:60, y:35, label:"多伦多", labelEn:"Toronto"},
+  montreal: {x:68, y:30, label:"蒙特利尔", labelEn:"Montreal"},
+  edmonton: {x:40, y:25, label:"埃德蒙顿", labelEn:"Edmonton"},
+  london:   {x:130, y:32, label:"伦敦", labelEn:"London"},
+  paris:    {x:133, y:38, label:"巴黎", labelEn:"Paris"},
+  freiburg: {x:138, y:37, label:"弗莱堡", labelEn:"Freiburg"},
+  linz:     {x:142, y:36, label:"林茨", labelEn:"Linz"},
+  riyadh:   {x:160, y:60, label:"利雅得", labelEn:"Riyadh"},
+  hongkong: {x:225, y:65, label:"\u9999\u6e2f", labelEn:"Hong Kong"},
+  tokyo:    {x:250, y:50, label:"东京", labelEn:"Tokyo"},
+  beijing:  {x:220, y:42, label:"北京", labelEn:"Beijing"},
+  shanghai: {x:230, y:55, label:"上海", labelEn:"Shanghai"},
+  hangzhou: {x:228, y:58, label:"杭州", labelEn:"Hangzhou"},
+  shenzhen: {x:222, y:68, label:"深圳", labelEn:"Shenzhen"},
+};
+
+function renderGeoMap() {
+  const svg = document.getElementById("geo-svg");
+  if (!svg) return;
+  const counts = {};
+  Object.values(cityMap).forEach(city => { counts[city] = (counts[city] || 0) + 1; });
+
+  // Simplified world landmasses
+  let html = '';
+  // North America
+  html += '<path class="geo-outline" d="M15,15 L75,12 L80,25 L85,45 L75,60 L60,70 L40,65 L25,55 L15,40 Z"/>';
+  // Europe
+  html += '<path class="geo-outline" d="M120,18 L150,15 L155,30 L148,42 L135,45 L122,40 L118,28 Z"/>';
+  // Asia
+  html += '<path class="geo-outline" d="M155,25 L200,20 L240,25 L260,35 L255,55 L240,70 L220,75 L200,72 L180,65 L165,55 L158,42 Z"/>';
+  // Japan
+  html += '<path class="geo-outline" d="M248,40 L255,38 L258,48 L252,55 L248,48 Z"/>';
+
+  Object.entries(geoPositions).forEach(([city, pos]) => {
+    const count = counts[city] || 0;
+    if (count === 0) return;
+    const r = Math.max(Math.min(Math.sqrt(count) * 4.5, 20), 5);
+    html += `<circle class="geo-bubble" cx="${pos.x}" cy="${pos.y}" r="${r}"/>`;
+    html += `<text class="geo-count" x="${pos.x}" y="${pos.y + 2.5}">${count}</text>`;
+    const labelY = pos.y + r + 8;
+    const label = currentLang === "zh" ? pos.label : pos.labelEn;
+    html += `<text class="geo-label" x="${pos.x}" y="${labelY}">${label}</text>`;
+  });
+
+  svg.innerHTML = html;
+  const heading = document.getElementById("geo-heading");
+  if (heading) heading.textContent = currentLang === "zh" ? "学者地域分布" : "Location Distribution";
+}
+
+renderGeoMap();
+const _origApplyLang = applyLanguage;
+applyLanguage = function(lang) { _origApplyLang(lang); renderGeoMap(); };
+
+applyLanguage("zh");
+</script>
+</body>
+</html>
