@@ -978,19 +978,18 @@ body.no-insights #graph-container {
 <!-- Legend -->
 <div id="legend">
   <div class="legend-card">
-    <div class="legend-heading">Organizations</div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-deepmind)"></div><span class="legend-label">Google DeepMind</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-openai)"></div><span class="legend-label">OpenAI</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-anthropic)"></div><span class="legend-label">Anthropic</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-meta)"></div><span class="legend-label">Meta AI</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-stanford)"></div><span class="legend-label">Stanford</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-university)"></div><span class="legend-label">Universities</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:var(--org-startup)"></div><span class="legend-label">Startups</span></div>
-    <div class="legend-heading">Connections</div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:2.5px solid #30d158; opacity:0.7"></div><span class="legend-label">Co-founder</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px solid #2997ff; opacity:0.6"></div><span class="legend-label">Co-author</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px dashed #64d2ff; opacity:0.6"></div><span class="legend-label">Advisor / Student</span></div>
-    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px dotted rgba(255,255,255,0.5); opacity:0.5"></div><span class="legend-label">Colleague(同事)</span></div>
+    <div class="legend-heading">设计圈分类</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#1d1d1f;border:1px solid rgba(255,255,255,0.3)"></div><span class="legend-label">Apple / LoveFrom</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#FF6B35"></div><span class="legend-label">Braun / HfG Ulm</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#8B7355"></div><span class="legend-label">MUJI 顾问董事</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#000000;border:1px solid rgba(255,255,255,0.3)"></div><span class="legend-label">Pentagram / 平面 VI</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#C8102E"></div><span class="legend-label">中国设计圈</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#5A8DEE"></div><span class="legend-label">独立工作室</span></div>
+    <div class="legend-heading">关系类型</div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2.5px solid #30d158; opacity:0.7"></div><span class="legend-label">联合创始</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px solid #2997ff; opacity:0.6"></div><span class="legend-label">共同设计</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:2px dashed #64d2ff; opacity:0.6"></div><span class="legend-label">师承 / 影响</span></div>
+    <div class="legend-row"><div class="legend-line-sample" style="border-top:1px dotted rgba(255,255,255,0.5); opacity:0.5"></div><span class="legend-label">同事(同公司共事)</span></div>
   </div>
 </div>
 
@@ -2089,7 +2088,7 @@ function applyLanguage(lang) {
 
   // Legend
   const legendLabels = document.querySelectorAll("#legend .legend-label");
-  const legendTexts = [t.legendDeepMind, t.legendOpenAI, t.legendAnthropic, t.legendMeta, t.legendStanford, t.legendUniversity, t.legendStartup, t.legendCoauthor, t.legendAdvisor, t.legendCofounder, t.legendColleague];
+  const legendTexts = [t.legendApple, t.legendBraun, t.legendMUJI, t.legendPentagram, t.legendChinese, t.legendStartup, t.legendCofounder, t.legendCoauthor, t.legendAdvisor, t.legendColleague];
   legendLabels.forEach((el, i) => { if (legendTexts[i]) el.textContent = legendTexts[i]; });
 
   const legendHeadings = document.querySelectorAll("#legend .legend-heading");
