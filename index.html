@@ -16,16 +16,12 @@
 <meta property="og:description" content="全球与中国当代设计师关系图谱:工业设计 / 平面设计 / UX / 华人设计师。">
 <meta property="og:site_name" content="Jason's Graphs">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://design.jasonlin.tech/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="https://design.jasonlin.tech/">
 <meta name="twitter:title" content="设计师图谱">
 <meta name="twitter:description" content="全球与中国当代设计师关系图谱:工业设计 / 平面设计 / UX / 华人设计师。">
-<meta name="twitter:image" content="https://design.jasonlin.tech/og-image.png">
 <meta name="twitter:creator" content="@jasonlin">
 
 <!-- JSON-LD -->
@@ -980,11 +976,13 @@ body.no-insights #graph-container {
   <div class="legend-card">
     <div class="legend-heading">设计圈分类</div>
     <div class="legend-row"><div class="legend-dot" style="background:#1d1d1f;border:1px solid rgba(255,255,255,0.3)"></div><span class="legend-label">Apple / LoveFrom</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:#FF6B35"></div><span class="legend-label">Braun / HfG Ulm</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:#8B7355"></div><span class="legend-label">MUJI 顾问董事</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#FF6B35"></div><span class="legend-label">工业 / Braun / HfG Ulm</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#8B7355"></div><span class="legend-label">MUJI / 日本极简</span></div>
     <div class="legend-row"><div class="legend-dot" style="background:#000000;border:1px solid rgba(255,255,255,0.3)"></div><span class="legend-label">Pentagram / 平面 VI</span></div>
     <div class="legend-row"><div class="legend-dot" style="background:#C8102E"></div><span class="legend-label">中国设计圈</span></div>
-    <div class="legend-row"><div class="legend-dot" style="background:#5A8DEE"></div><span class="legend-label">独立工作室</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#0a84ff"></div><span class="legend-label">数字 / UX / Web</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#8B5CF6"></div><span class="legend-label">字体设计</span></div>
+    <div class="legend-row"><div class="legend-dot" style="background:#2D7D46"></div><span class="legend-label">建筑师(默认隐藏)</span></div>
     <div class="legend-heading">关系类型</div>
     <div class="legend-row"><div class="legend-line-sample" style="border-top:2.5px solid #30d158; opacity:0.7"></div><span class="legend-label">联合创始</span></div>
     <div class="legend-row"><div class="legend-line-sample" style="border-top:2px solid #2997ff; opacity:0.6"></div><span class="legend-label">共同设计</span></div>
@@ -1476,7 +1474,14 @@ const connections = [
   {source:"sebastiaandewith",target:"alandye",type:"colleague",label:"Apple HI/Design 早期同事"},
   {source:"khoivinh",target:"scottbelsky",type:"colleague",label:"Adobe Behance / Brand Design 同期同事"},
   {source:"jonathanhoefler",target:"tobiasfrerejones",type:"cofounder",label:"1999 联创 Hoefler & Frere-Jones(2014 决裂分家)"},
-  {source:"adrianfrutiger",target:"jantschichold",type:"colleague",label:"瑞士-德国现代字体设计师同代"}
+  {source:"adrianfrutiger",target:"jantschichold",type:"colleague",label:"瑞士-德国现代字体设计师同代"},
+  // Facebook 设计师圈(早期)
+  {source:"juliezhuo",target:"soleio",type:"colleague",label:"Facebook 早期设计师同事(2006-2014)"},
+  {source:"juliezhuo",target:"mikematas",type:"colleague",label:"Facebook 设计同事 + Creative Labs"},
+  // Apple 早期 + Maeda 谱系
+  {source:"johnmaeda",target:"susankare",type:"advisor",label:"早期 GUI 图形语言代际影响"},
+  // Adobe 早期
+  {source:"johnmaeda",target:"khoivinh",type:"colleague",label:"Adobe / SVA 设计教育同事"}
 ];
 
 // ===================================================================
@@ -1510,15 +1515,130 @@ const orgColorMap = {
   "中国美术学院":"#1B5E20",
 };
 const orgRawColors = {
-  "Google DeepMind":"#64d2ff","OpenAI":"#30d158","Anthropic":"#ff6482",
-  "Meta AI":"#5e9eff","AMI Labs":"#ffd60a","Stanford":"#ff9f0a","UC Berkeley":"#bf5af2",
-  "University of Toronto":"#bf5af2","Mila / U. Montreal":"#bf5af2",
-  "Microsoft AI":"#64d2ff","Microsoft Research":"#64d2ff",
-  "SSI":"#ffd60a","Essential AI":"#ffd60a","Cohere":"#ffd60a",
-  "Sakana AI":"#ffd60a","Inceptive":"#ffd60a","Eureka Labs":"#ffd60a","xAI":"#ffd60a","DeepSeek":"#ffd60a","01.AI / Sinovation":"#ffd60a","Zhipu AI / Tsinghua":"#ffd60a","MiniMax":"#ffd60a","Moonshot AI":"#ffd60a","ByteDance Seed":"#ffd60a","Alibaba Cloud":"#ffd60a","Tencent":"#ffd60a","Baidu":"#ffd60a","MiraclePlus":"#ffd60a","University of Alberta":"#bf5af2","KAUST / IDSIA":"#bf5af2","JKU Linz / ELLIS":"#bf5af2","Mistral AI":"#ffd60a","Black Forest Labs":"#ffd60a","MIT / Google DeepMind":"#64d2ff",
-  "Independent":"#98989d","Tsinghua IIIS":"#bf5af2","SenseTime / CUHK":"#bf5af2","PKU / BIGAI":"#bf5af2","SenseTime":"#bf5af2","Princeton":"#bf5af2","Tsinghua CoAI":"#bf5af2","Xiaomi (ex-DeepSeek)":"#ffd60a","Tencent (ex-DeepSeek)":"#ffd60a","Stanford / DeepLearning.AI":"#ff9f0a",
-  "UC Berkeley / Covariant":"#bf5af2","UC Berkeley / Physical Intelligence":"#bf5af2",
-  "CUHK (Shenzhen)":"#bf5af2",
+  "Braun":"#FF6B35",
+  "LoveFrom":"#1d1d1f",
+  "MUJI / ±0":"#8B7355",
+  "Jasper Morrison Studio":"#FF6B35",
+  "LoveFrom / Apple":"#1d1d1f",
+  "Starck Network":"#FF6B35",
+  "Konstantin Grcic Design":"#FF6B35",
+  "Fuseproject":"#FF6B35",
+  "frog design (founder)":"#FF6B35",
+  "Eames Office":"#FF6B35",
+  "Memphis Group":"#FF6B35",
+  "Studio Urquiola / Cassina":"#FF6B35",
+  "Karim Rashid Inc":"#FF6B35",
+  "Lovegrove Studio":"#FF6B35",
+  "Industrial Facility":"#FF6B35",
+  "Nike":"#FF6B35",
+  "Yale (taught) / freelance":"#000000",
+  "Vignelli Associates":"#000000",
+  "Pentagram":"#000000",
+  "Sagmeister & Walsh → Sagmeister Inc":"#000000",
+  "Pushpin Studios / Milton Glaser Inc":"#000000",
+  "Saul Bass Associates":"#000000",
+  "&Walsh":"#000000",
+  "MetaDesign / FontShop":"#000000",
+  "HfG Ulm":"#FF6B35",
+  "Swiss Style":"#000000",
+  "Penguin Books":"#000000",
+  "Ray Gun magazine":"#000000",
+  "NN/g · UCSD":"#0a84ff",
+  "NN/g":"#0a84ff",
+  "Everbridge / Automattic / SVA":"#0a84ff",
+  "Dynamicland":"#0a84ff",
+  "Apple alum / Niiice.co":"#1d1d1f",
+  "Adobe (CSO)":"#0a84ff",
+  "DESK Studio":"#0a84ff",
+  "Sundial · ex-Facebook":"#0a84ff",
+  "Basel School of Design":"#000000",
+  "Draplin Design Co (DDC)":"#000000",
+  "MUJI Art Director":"#8B7355",
+  "Nendo":"#8B7355",
+  "Samurai Inc":"#8B7355",
+  "靳叔包装":"#C8102E",
+  "Alan Chan Design":"#C8102E",
+  "Hesign Berlin/Shanghai":"#C8102E",
+  "Han Jiaying Design":"#C8102E",
+  "SenseTeam (山河水)":"#C8102E",
+  "方正字库":"#C8102E",
+  "南京艺术学院":"#C8102E",
+  "YANG DESIGN / 羊舍":"#C8102E",
+  "LKK 洛可可":"#C8102E",
+  "Frank Chou Design Studio":"#C8102E",
+  "中央美术学院":"#C8102E",
+  "中国美术学院":"#C8102E",
+  "Xiaomi":"#C8102E",
+  "Ruying Smart":"#C8102E",
+  "Meizu Flyme":"#C8102E",
+  "独立设计师":"#C8102E",
+  "vivo":"#C8102E",
+  "Cursor":"#0a84ff",
+  "Notion":"#0a84ff",
+  "Linear":"#0a84ff",
+  "Airbnb":"#0a84ff",
+  "独立 / Microsoft":"#0a84ff",
+  "Combine VC":"#0a84ff",
+  "Vercel":"#0a84ff",
+  "Apple alum":"#1d1d1f",
+  "Humane (ex-Apple)":"#1d1d1f",
+  "Apple":"#1d1d1f",
+  "Meta (ex-Apple)":"#1d1d1f",
+  "Braun (1953-)":"#FF6B35",
+  "HfG Ulm + Braun":"#FF6B35",
+  "Braun (1959-1967)":"#FF6B35",
+  "Studio Castiglioni":"#98989d",
+  "Chermayeff & Geismar":"#000000",
+  "Chermayeff & Geismar & Haviv":"#000000",
+  "Wolff Olins (cofounder)":"#000000",
+  "Landor Associates":"#000000",
+  "Studio Dumbar":"#000000",
+  "Teenage Engineering":"#FF6B35",
+  "Steiner & Co (HK)":"#C8102E",
+  "KL&K Design":"#C8102E",
+  "Clay Architecture (Taiwan)":"#C8102E",
+  "3type (三言)":"#8B5CF6",
+  "独立设计师 / TIB":"#8B5CF6",
+  "独立工作室":"#2D7D46",
+  "Taliesin Fellowship":"#2D7D46",
+  "Bauhaus → IIT Chicago":"#2D7D46",
+  "Bauhaus 创始人":"#2D7D46",
+  "Aalto Studio":"#2D7D46",
+  "University of Pennsylvania":"#2D7D46",
+  "Pei Cobb Freed":"#2D7D46",
+  "Gehry Partners":"#2D7D46",
+  "Zaha Hadid Architects":"#2D7D46",
+  "OMA":"#2D7D46",
+  "Foster + Partners":"#2D7D46",
+  "Renzo Piano Building Workshop":"#2D7D46",
+  "Ateliers Jean Nouvel":"#2D7D46",
+  "Tadao Ando Architect & Associates":"#2D7D46",
+  "Toyo Ito & Associates":"#2D7D46",
+  "SANAA":"#2D7D46",
+  "Shigeru Ban Architects":"#2D7D46",
+  "Arata Isozaki & Associates":"#2D7D46",
+  "Herzog & de Meuron":"#2D7D46",
+  "Santiago Calatrava Architects":"#2D7D46",
+  "BIG":"#2D7D46",
+  "Atelier Peter Zumthor":"#2D7D46",
+  "业余建筑工作室 / 中国美院":"#2D7D46",
+  "家琨建筑设计事务所":"#2D7D46",
+  "非常建筑 / MIT":"#2D7D46",
+  "MAD Architects":"#2D7D46",
+  "中国建筑设计研究院":"#2D7D46",
+  "朱锫建筑事务所":"#2D7D46",
+  "直向建筑":"#2D7D46",
+  "大舍建筑":"#2D7D46",
+  "Sony Design Center":"#FF6B35",
+  "SimpleBits / Dribbble":"#0a84ff",
+  "Apple Design Team":"#1d1d1f",
+  "GitHub":"#0a84ff",
+  "独立 lettering":"#8B5CF6",
+  "Adobe (Behance)":"#0a84ff",
+  "Carter & Cone Type":"#8B5CF6",
+  "独立 / Linotype":"#8B5CF6",
+  "Hoefler & Co":"#8B5CF6",
+  "Frere-Jones Type":"#8B5CF6"
 };
 const linkColorMap = {coauthor:"#2997ff",advisor:"#64d2ff",colleague:"rgba(255,255,255,0.1)",cofounder:"#30d158"};
 
