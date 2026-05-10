@@ -1724,15 +1724,27 @@ document.getElementById("search-input").addEventListener("input",e=>{
 // ===================================================================
 // FILTER PILLS
 // ===================================================================
+function applyAllFilter(){
+  // "All" 隐藏 architect 分类(建筑师为独立兴趣,显式点击 Architect 才显示)
+  nodeGroups.style("opacity",d=>(d.field||[]).includes("architect")?0:null)
+            .style("pointer-events",d=>(d.field||[]).includes("architect")?"none":null);
+  linkLines.style("opacity",l=>{
+    const s=typeof l.source==='object'?l.source:scholars.find(x=>x.id===l.source);
+    const t=typeof l.target==='object'?l.target:scholars.find(x=>x.id===l.target);
+    const hasArch=((s?.field)||[]).includes("architect")||((t?.field)||[]).includes("architect");
+    return hasArch?0:null;
+  });
+}
 document.querySelectorAll(".filter-pill").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".filter-pill").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
     const f=btn.dataset.filter;
-    if(f==="all"){nodeGroups.style("opacity",null);linkLines.style("opacity",null);return;}
+    if(f==="all"){applyAllFilter();return;}
     const match=new Set();
     scholars.forEach(s=>{if(s.field&&s.field.includes(f))match.add(s.id);});
-    nodeGroups.style("opacity",d=>match.has(d.id)?1:0.04);
+    nodeGroups.style("opacity",d=>match.has(d.id)?1:0.04)
+              .style("pointer-events",d=>match.has(d.id)?null:"none");
     linkLines.style("opacity",l=>{
       const s=typeof l.source==='object'?l.source.id:l.source;
       const t=typeof l.target==='object'?l.target.id:l.target;
@@ -1740,6 +1752,8 @@ document.querySelectorAll(".filter-pill").forEach(btn=>{
     });
   });
 });
+// 页面加载时立即应用 "All" 默认状态(隐藏建筑师)
+applyAllFilter();
 
 // ===================================================================
 // KEYBOARD
