@@ -1070,7 +1070,7 @@ body.no-insights #graph-container {
 
 <!-- Insights Section (rendered by insights-widget.js) -->
 <section id="insights-section" data-graph="designer"></section>
-<script src="https://hardware.jasonlin.tech/insights-widget.js?v=45" defer></script>
+<script src="https://hardware.jasonlin.tech/insights-widget.js?v=46" defer></script>
 
 <script>
 // ===================================================================
@@ -1368,10 +1368,12 @@ const scholars = [
   {id:"evansharp",name:"Evan Sharp",org:"LoveFrom (ex-Pinterest)",title:"Pinterest 联创 · 2021 加入 LoveFrom",field:["ux","industrial"],bio:"1982 生于宾州 York。芝加哥大学历史本科 + Columbia 建筑研究生院。**建筑学生时期开发 Pinterest grid**,2010 与 Ben Silbermann、Paul Sciarra 联创 Pinterest(视觉发现引擎)。任 Chief Design and Creative Officer。**2021 年 10 月离开 Pinterest 加入 Jony Ive 的 LoveFrom**,成为 Ive 之后 LoveFrom 招募的最重磅设计师之一。Pinterest 2019 IPO,Evan 是亿万富翁。代表「建筑师转 web 设计师再加入工业设计大师工作室」的稀缺路径。",papers:[{y:"2010",t:"联创 Pinterest"},{y:"2019",t:"Pinterest IPO(NYSE: PINS)"},{y:"2021",t:"加入 LoveFrom"}]},
   {id:"dougbowman",name:"Doug Bowman",org:"Twitter (ex-)",title:"前 Google 首席设计师 / 前 Twitter 创意总监",field:["ux","graphic"],bio:"美国 web 设计师。Stopdesign 创办人(2002,著名 web 标准博客)。2006 加入 Google 任 Visual Design Lead。**2009.3 公开离职,blog 「Goodbye, Google」批评 Google「让数据驱动主导一切设计决策」(著名 41 shades of blue 事件——团队测试 41 种蓝色看哪个点击率高),成为设计圈反对「过度数据驱动」的标志性事件**。后加入 Twitter 任 Creative Director,主导 2011-2014 Twitter 视觉系统。代表 web 标准社区「设计直觉 vs 数据测试」论争的核心人物。",papers:[{y:"2002",t:"创办 Stopdesign"},{y:"2009.3",t:"《Goodbye, Google》— 41 shades of blue 著名离职文"},{y:"2010",t:"Twitter Creative Director"}]},
   {id:"stewartbutterfield",name:"Stewart Butterfield",org:"Slack (cofounder)",title:"Slack 联创 + 前 CEO · 前 Flickr 联创",field:["ux"],bio:"1973 生于加拿大。Victoria 大学哲学本科 + Cambridge 哲学硕士。哲学背景 + 设计直觉。2003 联创 Game Neverending(失败) → 转型 Flickr(2004,2005 卖给雅虎 \$35M)。2009 再联创 Tiny Speck 做游戏 Glitch(失败) → **从游戏内部协作工具转型 Slack(2013)**。2019 Slack 直接上市 NYSE。2021 卖给 Salesforce \$27.7B。2022 卸任 Slack CEO。代表「设计师哲学家做企业级软件」的范式 + 两次失败孵化出现象级工具。",papers:[{y:"2004",t:"联创 Flickr"},{y:"2013",t:"创办 Slack"},{y:"2019",t:"Slack 直接上市"},{y:"2021",t:"Slack 卖给 Salesforce \$27.7B"}]},
-  {id:"mikedavidson",name:"Mike Davidson",org:"独立(ex-Twitter)",title:"前 Twitter 设计副总裁 · Newsvine 联创",field:["ux"],bio:"美国设计师 + 创业者。Newsvine(社交新闻平台)联创 + CEO(2005-2008,卖给 MSNBC)。后任 MSNBC 视觉设计 VP。2012 加入 Twitter 任 VP of Design,接 Doug Bowman 主导 Twitter 设计文化(2012-2016)。后任 InVision 顾问 + 独立设计咨询。Mikeindustries.com 博客被设计师圈广泛阅读。代表 mid-2010s「Twitter 设计黄金时代」的运营者。",papers:[{y:"2005",t:"联创 Newsvine"},{y:"2012",t:"Twitter VP Design"}]}
+  {id:"mikedavidson",name:"Mike Davidson",org:"独立(ex-Twitter)",title:"前 Twitter 设计副总裁 · Newsvine 联创",field:["ux"],bio:"美国设计师 + 创业者。Newsvine(社交新闻平台)联创 + CEO(2005-2008,卖给 MSNBC)。后任 MSNBC 视觉设计 VP。2012 加入 Twitter 任 VP of Design,接 Doug Bowman 主导 Twitter 设计文化(2012-2016)。后任 InVision 顾问 + 独立设计咨询。Mikeindustries.com 博客被设计师圈广泛阅读。代表 mid-2010s「Twitter 设计黄金时代」的运营者。",papers:[{y:"2005",t:"联创 Newsvine"},{y:"2012",t:"Twitter VP Design"}]},
+  {id:"mollyanderson",name:"Molly Anderson",org:"Apple",title:"VP of Industrial Design (post-Jony Ive era)",field:["industrial"],bio:"Apple's current head of industrial design, appointed VP after Evans Hankey's departure left a leadership gap following Jony Ive's 2019 exit. Associated with Apple ID patents since 2016 and credited on the Apple Pencil Pro and recent MacBook work. Unlike her predecessors she holds less singular authority, reflecting Apple's post-Ive shift from a 'star design director' model to a flatter, platform-driven structure. Surfaced publicly in June 2026 as a juror for Apple's revived 'Designers of Tomorrow' program at Design Miami.Paris, signaling a pivot toward empowering a younger generation of designers.",papers:[{y:"2016",t:"Joined Apple Industrial Design team"},{y:"2026",t:"Head of Industrial Design; Designers of Tomorrow juror"}]}
 ];
 
 const connections = [
+  {"source": "mollyanderson","target": "jonyive","type": "colleague","label": "Apple ID team; successor to Ive-era design leadership"},
   {"source": "krissowersby","target": "erikspiekermann","type": "colleague","label": "Collaborated on FF Meta Serif / FF Unit Slab"},
   {"source": "krissowersby","target": "matthewcarter","type": "advisor","label": "Heir to historical type-revival digital foundry tradition"},
   {"source": "christianschwartz","target": "erikspiekermann","type": "colleague","label": "MetaDesign + Bosch/Deutsche Bahn type collaboration"},
@@ -2061,6 +2063,7 @@ const i18n = {
 
 // Chinese scholar data
 const scholarZh = {
+  "mollyanderson":{"zhName": "莫莉·安德森","title": "Apple 工业设计副总裁（后乔尼·艾维时代）","bio": "苹果现任工业设计负责人。乔尼·艾维 2019 年离开后，继任者埃文斯·汉基（Evans Hankey）离职留下领导真空，安德森随后升任工业设计副总裁。自 2016 年起与苹果工业设计专利相关联，参与了 Apple Pencil Pro 及近期 MacBook 的设计。与前任不同，她的话语权不再「一人独大」，反映出苹果在后艾维时代从「明星设计总监」转向更扁平、平台驱动的结构。2026 年 6 月，她作为评委出现在苹果重启的 Design Miami.Paris「Designers of Tomorrow」计划中，标志苹果对外叙事转向扶持新生代设计师。"},
   "krissowersby":{"zhName": "克里斯·索尔斯比","title": "Klim 字体铸造厂创始人","bio": "1981 年生于新西兰，主要为自学成才。曾就读旺加努伊设计学院平面设计专业。2005 年在惠灵顿创立 Klim Type Foundry。其精雕细琢的字体深植于字体历史：Feijoa 与 National（2007，纽约 TDC 卓越证书）、Founders Grotesk（2009）、Tiempos（2010）及 Domaine。苹果为其设备授权了 Founders Grotesk 与 Domaine Display。曾与 Erik Spiekermann、Christian Schwartz 合作设计 FF Meta Serif 与 FF Unit Slab。2013 年 AGI 会员。"},
   "christianschwartz":{"zhName": "克里斯蒂安·施瓦茨","title": "Commercial Type 联合创始人","bio": "1977 年生于美国新罕布什尔州康科德。毕业于卡内基梅隆大学传达设计专业。先在柏林 MetaDesign 为大众汽车开发字体，后加入 Font Bureau（与 Tobias Frere-Jones 共事），2001 年独立执业。2007 年与伦敦设计师 Paul Barnes 联合创办 Commercial Type。代表作 Neutraface（2002）、Graphik（2009）及权威的 Neue Haas Grotesk 复刻（2010）。曾与 Erik Spiekermann 合作 Bosch、德国铁路字体。"},
   "nadinechahine":{"zhName": "娜丁·沙欣","title": "阿拉伯文字体设计师 · ArabicType 总监","bio": "黎巴嫩字体设计师，当代阿拉伯文字体领域的领军人物。先后获贝鲁特美国大学学士、雷丁大学字体设计硕士、莱顿大学阿拉伯文易读性博士（2012）。任 Linotype/Monotype 阿拉伯文专家期间（2005-2018）设计了 Helvetica、Univers、Zapfino 的阿拉伯文配套版本。最著名的是 Frutiger Arabic（2007）——作为 Adrian Frutiger 人文无衬线体的官方阿拉伯文配套，由其本人直接参与开发。现于伦敦经营 ArabicType。"},
@@ -2223,6 +2226,7 @@ const scholarZh = {
 
 // Chinese connection labels
 const connLabelZh = {
+  "Apple ID team; successor to Ive-era design leadership":"Apple 工业设计团队；接棒 Ive 时代设计领导层",
   "2015 Nature paper, Turing Award trio": "2015 Nature 论文，图灵奖三巨头",
   "Turing Award trio, Deep Learning review": "图灵奖三巨头，深度学习综述",
   "Turing Award trio": "图灵奖三巨头",
