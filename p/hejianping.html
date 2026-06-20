@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>何见平 He Jianping · Hesign Berlin/Shanghai | 设计师图谱</title>
 <meta name="description" content="1973 生于浙江。杭州中国美术学院 → 柏林艺术大学。师承 Helmut Schmid。创办 Hesign 工作室（柏林 2003 / 上海 2004）。全球各大海报双年展常胜军（华沙、布鲁诺、墨西哥金奖等 100+）。创办 Hesign 出版社、组织「中国海报双年展」。中国美术学院 + 柏林艺…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/hejianping.html">
@@ -23,26 +24,37 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;display:block;margin:8px 0 4px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.avatar.mono{display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
 li a,.bio a{color:var(--blue);text-decoration:none}
 .nbr{display:flex;flex-direction:column;padding:12px 14px;background:var(--card);border-radius:12px;margin:0 0 10px;text-decoration:none;color:var(--fg)}
 .nbr b{font-size:16px}.nbr span{font-size:13px;color:var(--mut);margin-top:2px}
-.cta{display:inline-block;margin:30px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta{display:inline-block;margin:30px 12px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">设计师图谱 · Designer Graph ↗</a>
-<h1>何见平 He Jianping</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
+<div class="avatar mono" style="background:linear-gradient(145deg,rgba(255,159,10,.92),rgba(255,159,10,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(255,159,10,.14)">HJ</div>
+<h1><span class="i18n-zh">何见平 He Jianping</span><span class="i18n-en">He Jianping</span></h1>
 <p class="org">Hesign Berlin/Shanghai</p>
-<p class="role">Hesign 创始人 · 中德双线运营 · 海报艺术家</p>
+<p class="role"><span class="i18n-zh">Hesign 创始人 · 中德双线运营 · 海报艺术家</span><span class="i18n-en">何见平 · 中德双线运营 · 海报艺术家</span></p>
 <div class="fields"><span class="tag">graphic</span><span class="tag">chinese</span></div>
-<div class="bio">1973 生于浙江。杭州中国美术学院 → 柏林艺术大学。师承 Helmut Schmid。创办 Hesign 工作室（柏林 2003 / 上海 2004）。全球各大海报双年展常胜军（华沙、布鲁诺、墨西哥金奖等 100+）。创办 Hesign 出版社、组织「中国海报双年展」。中国美术学院 + 柏林艺术大学双教职。著作《设计 + 文化》（德文）、《设计的旅行》。</div>
-<div class="bio en">Born 1973 浙江. 杭州中国美术学院 → 柏林艺术大学. 师承 Helmut Schmid. 创办 Hesign 工作室(柏林 2003 / 上海 2004). 全球各大海报双年展常胜军(华沙、布鲁诺、墨西哥金奖等 100+). 创办「Hesign 出版社」、组织「中国海报双年展」. 中国美术学院 + 柏林艺术大学双教职. 著作《设计 + 文化》(德文)、《设计的旅行》</div>
-<a class="cta" href="/?node=hejianping">在关系图谱中查看 何见平 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2003</span> 创办 Hesign Berlin</li><li><span class="y">2010s</span> 100+ 国际海报奖</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/kantaikeung.html"><b>靳埭强 Kan Tai-keung</b><span>靳埭强设计奖体系培养</span></a>
-<a class="back" href="/">← 返回完整图谱 设计师图谱</a>
-</div></body></html>
+<div class="bio i18n-zh">1973 生于浙江。杭州中国美术学院 → 柏林艺术大学。师承 Helmut Schmid。创办 Hesign 工作室（柏林 2003 / 上海 2004）。全球各大海报双年展常胜军（华沙、布鲁诺、墨西哥金奖等 100+）。创办 Hesign 出版社、组织「中国海报双年展」。中国美术学院 + 柏林艺术大学双教职。著作《设计 + 文化》（德文）、《设计的旅行》。</div><div class="bio i18n-en">Born 1973 浙江. 杭州中国美术学院 → 柏林艺术大学. 师承 Helmut Schmid. 创办 Hesign 工作室(柏林 2003 / 上海 2004). 全球各大海报双年展常胜军(华沙、布鲁诺、墨西哥金奖等 100+). 创办「Hesign 出版社」、组织「中国海报双年展」. 中国美术学院 + 柏林艺术大学双教职. 著作《设计 + 文化》(德文)、《设计的旅行》</div>
+<a class="cta" href="/?node=hejianping"><span class="i18n-zh">在关系图谱中查看 何见平 →</span><span class="i18n-en">View He Jianping in the graph →</span></a>
+
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2003</span> 创办 Hesign Berlin</li><li><span class="y">2010s</span> 100+ 国际海报奖</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/kantaikeung.html"><b>靳埭强 Kan Tai-keung</b><span>靳埭强设计奖体系培养</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

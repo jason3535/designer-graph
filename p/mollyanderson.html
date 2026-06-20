@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>莫莉·安德森 Molly Anderson · Apple | 设计师图谱</title>
 <meta name="description" content="苹果现任工业设计负责人。乔尼·艾维 2019 年离开后，继任者埃文斯·汉基（Evans Hankey）离职留下领导真空，安德森随后升任工业设计副总裁。自 2016 年起与苹果工业设计专利相关联，参与了 Apple Pencil Pro 及近期 MacBook 的设计。与前任不同，她的话语权不再「一…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/mollyanderson.html">
@@ -23,26 +24,37 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;display:block;margin:8px 0 4px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.avatar.mono{display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
 li a,.bio a{color:var(--blue);text-decoration:none}
 .nbr{display:flex;flex-direction:column;padding:12px 14px;background:var(--card);border-radius:12px;margin:0 0 10px;text-decoration:none;color:var(--fg)}
 .nbr b{font-size:16px}.nbr span{font-size:13px;color:var(--mut);margin-top:2px}
-.cta{display:inline-block;margin:30px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta{display:inline-block;margin:30px 12px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">设计师图谱 · Designer Graph ↗</a>
-<h1>莫莉·安德森 Molly Anderson</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
+<div class="avatar mono" style="background:linear-gradient(145deg,rgba(48,209,88,.92),rgba(48,209,88,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(48,209,88,.14)">MA</div>
+<h1><span class="i18n-zh">莫莉·安德森 Molly Anderson</span><span class="i18n-en">Molly Anderson</span></h1>
 <p class="org">Apple</p>
-<p class="role">Apple 工业设计副总裁（后乔尼·艾维时代）</p>
+<p class="role"><span class="i18n-zh">Apple 工业设计副总裁（后乔尼·艾维时代）</span><span class="i18n-en">VP of Industrial Design (post-Jony Ive era)</span></p>
 <div class="fields"><span class="tag">industrial</span></div>
-<div class="bio">苹果现任工业设计负责人。乔尼·艾维 2019 年离开后，继任者埃文斯·汉基（Evans Hankey）离职留下领导真空，安德森随后升任工业设计副总裁。自 2016 年起与苹果工业设计专利相关联，参与了 Apple Pencil Pro 及近期 MacBook 的设计。与前任不同，她的话语权不再「一人独大」，反映出苹果在后艾维时代从「明星设计总监」转向更扁平、平台驱动的结构。2026 年 6 月，她作为评委出现在苹果重启的 Design Miami.Paris「Designers of Tomorrow」计划中，标志苹果对外叙事转向扶持新生代设计师。</div>
-<div class="bio en">Apple's current head of industrial design, appointed VP after Evans Hankey's departure left a leadership gap following Jony Ive's 2019 exit. Associated with Apple ID patents since 2016 and credited on the Apple Pencil Pro and recent MacBook work. Unlike her predecessors she holds less singular authority, reflecting Apple's post-Ive shift from a 'star design director' model to a flatter, platform-driven structure. Surfaced publicly in June 2026 as a juror for Apple's revived 'Designers of Tomorrow' program at Design Miami.Paris, signaling a pivot toward empowering a younger generation of designers.</div>
-<a class="cta" href="/?node=mollyanderson">在关系图谱中查看 莫莉·安德森 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2016</span> Joined Apple Industrial Design team</li><li><span class="y">2026</span> Head of Industrial Design; Designers of Tomorrow juror</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/jonyive.html"><b>乔尼·艾维 Jony Ive</b><span>Apple 工业设计团队；接棒 Ive 时代设计领导层</span></a>
-<a class="back" href="/">← 返回完整图谱 设计师图谱</a>
-</div></body></html>
+<div class="bio i18n-zh">苹果现任工业设计负责人。乔尼·艾维 2019 年离开后，继任者埃文斯·汉基（Evans Hankey）离职留下领导真空，安德森随后升任工业设计副总裁。自 2016 年起与苹果工业设计专利相关联，参与了 Apple Pencil Pro 及近期 MacBook 的设计。与前任不同，她的话语权不再「一人独大」，反映出苹果在后艾维时代从「明星设计总监」转向更扁平、平台驱动的结构。2026 年 6 月，她作为评委出现在苹果重启的 Design Miami.Paris「Designers of Tomorrow」计划中，标志苹果对外叙事转向扶持新生代设计师。</div><div class="bio i18n-en">Apple's current head of industrial design, appointed VP after Evans Hankey's departure left a leadership gap following Jony Ive's 2019 exit. Associated with Apple ID patents since 2016 and credited on the Apple Pencil Pro and recent MacBook work. Unlike her predecessors she holds less singular authority, reflecting Apple's post-Ive shift from a 'star design director' model to a flatter, platform-driven structure. Surfaced publicly in June 2026 as a juror for Apple's revived 'Designers of Tomorrow' program at Design Miami.Paris, signaling a pivot toward empowering a younger generation of designers.</div>
+<a class="cta" href="/?node=mollyanderson"><span class="i18n-zh">在关系图谱中查看 莫莉·安德森 →</span><span class="i18n-en">View Molly Anderson in the graph →</span></a>
+
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2016</span> Joined Apple Industrial Design team</li><li><span class="y">2026</span> Head of Industrial Design; Designers of Tomorrow juror</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/jonyive.html"><b>乔尼·艾维 Jony Ive</b><span>Apple 工业设计团队；接棒 Ive 时代设计领导层</span></a><a class="nbr" href="/p/evanshankey.html"><b>埃文斯·汉基 Evans Hankey</b><span>苹果工业设计</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

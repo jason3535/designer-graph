@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>约瑟夫·穆勒-布罗克曼 Josef Müller-Brockmann · Swiss Style | 设计师图谱</title>
 <meta name="description" content="1914 生于瑞士拉珀斯维尔，1996 去世。瑞士国际主义字体风格的定义性人物——网格系统、无衬线字体、不对称版面、摄影优先于插画。设计 50/60 年代苏黎世 Tonhalle 音乐厅海报。著作《Grid Systems in Graphic Design》(1981)成为网格设计圣经。1958…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/josefmullerbrockmann.html">
@@ -23,26 +24,37 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;display:block;margin:8px 0 4px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.avatar.mono{display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
 li a,.bio a{color:var(--blue);text-decoration:none}
 .nbr{display:flex;flex-direction:column;padding:12px 14px;background:var(--card);border-radius:12px;margin:0 0 10px;text-decoration:none;color:var(--fg)}
 .nbr b{font-size:16px}.nbr span{font-size:13px;color:var(--mut);margin-top:2px}
-.cta{display:inline-block;margin:30px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta{display:inline-block;margin:30px 12px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">设计师图谱 · Designer Graph ↗</a>
-<h1>约瑟夫·穆勒-布罗克曼 Josef Müller-Brockmann</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
+<div class="avatar mono" style="background:linear-gradient(145deg,rgba(255,159,10,.92),rgba(255,159,10,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(255,159,10,.14)">JM</div>
+<h1><span class="i18n-zh">约瑟夫·穆勒-布罗克曼 Josef Müller-Brockmann</span><span class="i18n-en">Josef Müller-Brockmann</span></h1>
 <p class="org">Swiss Style</p>
-<p class="role">瑞士国际主义平面设计代表</p>
+<p class="role"><span class="i18n-zh">瑞士国际主义平面设计代表</span><span class="i18n-en">瑞士国际主义平面设计代表</span></p>
 <div class="fields"><span class="tag">graphic</span><span class="tag">typography</span></div>
-<div class="bio">1914 生于瑞士拉珀斯维尔，1996 去世。瑞士国际主义字体风格的定义性人物——网格系统、无衬线字体、不对称版面、摄影优先于插画。设计 50/60 年代苏黎世 Tonhalle 音乐厅海报。著作《Grid Systems in Graphic Design》(1981)成为网格设计圣经。1958 创办 Neue Grafik 杂志。</div>
-<div class="bio en">Born 1914 Rapperswil Switzerland, died 1996. Defining figure of Swiss International Typographic Style — grid systems, sans-serif type, asymmetric layouts, photography-over-illustration. Designed iconic Zurich Tonhalle concert posters (1950s-60s). Authored 'Grid Systems in Graphic Design' (1981) — became the bible of grid-based design. Founded Neue Grafik magazine 1958. Co-founded the magazine that defined the Swiss Style abroad.</div>
-<a class="cta" href="/?node=josefmullerbrockmann">在关系图谱中查看 约瑟夫·穆勒-布罗克曼 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">1950s</span> Zurich Tonhalle posters</li><li><span class="y">1958</span> Neue Grafik magazine</li><li><span class="y">1981</span> Grid Systems in Graphic Design (book)</li></ul>
+<div class="bio i18n-zh">1914 生于瑞士拉珀斯维尔，1996 去世。瑞士国际主义字体风格的定义性人物——网格系统、无衬线字体、不对称版面、摄影优先于插画。设计 50/60 年代苏黎世 Tonhalle 音乐厅海报。著作《Grid Systems in Graphic Design》(1981)成为网格设计圣经。1958 创办 Neue Grafik 杂志。</div><div class="bio i18n-en">Born 1914 Rapperswil Switzerland, died 1996. Defining figure of Swiss International Typographic Style — grid systems, sans-serif type, asymmetric layouts, photography-over-illustration. Designed iconic Zurich Tonhalle concert posters (1950s-60s). Authored 'Grid Systems in Graphic Design' (1981) — became the bible of grid-based design. Founded Neue Grafik magazine 1958. Co-founded the magazine that defined the Swiss Style abroad.</div>
+<a class="cta" href="/?node=josefmullerbrockmann"><span class="i18n-zh">在关系图谱中查看 约瑟夫·穆勒-布罗克曼 →</span><span class="i18n-en">View Josef Müller-Brockmann in the graph →</span></a>
 
-<a class="back" href="/">← 返回完整图谱 设计师图谱</a>
-</div></body></html>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">1950s</span> Zurich Tonhalle posters</li><li><span class="y">1958</span> Neue Grafik magazine</li><li><span class="y">1981</span> Grid Systems in Graphic Design (book)</li></ul>
+
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>雅各布·尼尔森 Jakob Nielsen · NN/g | 设计师图谱</title>
 <meta name="description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 He…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/jakobnielsen.html">
@@ -23,26 +24,37 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;display:block;margin:8px 0 4px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.avatar.mono{display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
 li a,.bio a{color:var(--blue);text-decoration:none}
 .nbr{display:flex;flex-direction:column;padding:12px 14px;background:var(--card);border-radius:12px;margin:0 0 10px;text-decoration:none;color:var(--fg)}
 .nbr b{font-size:16px}.nbr span{font-size:13px;color:var(--mut);margin-top:2px}
-.cta{display:inline-block;margin:30px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta{display:inline-block;margin:30px 12px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">设计师图谱 · Designer Graph ↗</a>
-<h1>雅各布·尼尔森 Jakob Nielsen</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
+<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">JN</div>
+<h1><span class="i18n-zh">雅各布·尼尔森 Jakob Nielsen</span><span class="i18n-en">Jakob Nielsen</span></h1>
 <p class="org">NN/g</p>
-<p class="role">NN/g 联创 · 可用性工程教父</p>
+<p class="role"><span class="i18n-zh">NN/g 联创 · 可用性工程教父</span><span class="i18n-en">NN/g 联创 · 可用性工程教父</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio">1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heuristics」（至今行业标准）。开创 5 用户可用性测试。79 项专利。</div>
-<div class="bio en">Born 1957 Denmark. Technical University of Denmark PhD. Sun Microsystems Distinguished Engineer (web usability research). Co-founded Nielsen Norman Group 1998 with Don Norman. Authored 'Usability Engineering' (1993) — defined the field. Created the '10 Heuristics' for usability evaluation (1994) — still the standard. Pioneered the 5-user usability test. 79 patents.</div>
-<a class="cta" href="/?node=jakobnielsen">在关系图谱中查看 雅各布·尼尔森 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">1993</span> Usability Engineering (book)</li><li><span class="y">1994</span> 10 Usability Heuristics</li><li><span class="y">1998</span> Co-founded NN/g</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/lukewroblewski.html"><b>卢克·罗布莱夫斯基 Luke Wroblewski</b><span>Extended UX usability design tradition</span></a><a class="nbr" href="/p/donnorman.html"><b>唐纳德·诺曼 Don Norman</b><span>1998 联创 Nielsen Norman Group</span></a>
-<a class="back" href="/">← 返回完整图谱 设计师图谱</a>
-</div></body></html>
+<div class="bio i18n-zh">1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heuristics」（至今行业标准）。开创 5 用户可用性测试。79 项专利。</div><div class="bio i18n-en">Born 1957 Denmark. Technical University of Denmark PhD. Sun Microsystems Distinguished Engineer (web usability research). Co-founded Nielsen Norman Group 1998 with Don Norman. Authored 'Usability Engineering' (1993) — defined the field. Created the '10 Heuristics' for usability evaluation (1994) — still the standard. Pioneered the 5-user usability test. 79 patents.</div>
+<a class="cta" href="/?node=jakobnielsen"><span class="i18n-zh">在关系图谱中查看 雅各布·尼尔森 →</span><span class="i18n-en">View Jakob Nielsen in the graph →</span></a>
+
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">1993</span> Usability Engineering (book)</li><li><span class="y">1994</span> 10 Usability Heuristics</li><li><span class="y">1998</span> Co-founded NN/g</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/lukewroblewski.html"><b>卢克·罗布莱夫斯基 Luke Wroblewski</b><span>Extended UX usability design tradition</span></a><a class="nbr" href="/p/donnorman.html"><b>唐纳德·诺曼 Don Norman</b><span>1998 联创 Nielsen Norman Group</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>

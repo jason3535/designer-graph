@@ -1,5 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>斯科特·贝尔斯基 Scott Belsky · Adobe (CSO) | 设计师图谱</title>
 <meta name="description" content="1980 生于匹兹堡。康奈尔本科，哈佛 MBA。2006 创立 Behance（创意作品集平台，2012 被 Adobe 1.5 亿美金收购）。著作《Making Ideas Happen》(2010)、《The Messy Middle》(2018)。2017 起任 Adobe CSO + EV…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/scottbelsky.html">
@@ -23,26 +24,37 @@ h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
 .role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
-.bio.en{color:var(--mut);font-size:16px}
+.avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;display:block;margin:8px 0 4px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.avatar.mono{display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
+html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
 li a,.bio a{color:var(--blue);text-decoration:none}
 .nbr{display:flex;flex-direction:column;padding:12px 14px;background:var(--card);border-radius:12px;margin:0 0 10px;text-decoration:none;color:var(--fg)}
 .nbr b{font-size:16px}.nbr span{font-size:13px;color:var(--mut);margin-top:2px}
-.cta{display:inline-block;margin:30px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta{display:inline-block;margin:30px 12px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
+.cta2{display:inline-block;margin:30px 0 0;padding:14px 26px;background:rgba(124,92,255,.16);color:#cbb9ff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
-</style></head><body><div class="wrap">
-<a class="eyebrow" href="/">设计师图谱 · Designer Graph ↗</a>
-<h1>斯科特·贝尔斯基 Scott Belsky</h1>
+</style></head><body>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<div class="wrap">
+<a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
+<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">SB</div>
+<h1><span class="i18n-zh">斯科特·贝尔斯基 Scott Belsky</span><span class="i18n-en">Scott Belsky</span></h1>
 <p class="org">Adobe (CSO)</p>
-<p class="role">Behance 创始人 · Adobe 创意业务总监</p>
+<p class="role"><span class="i18n-zh">Behance 创始人 · Adobe 创意业务总监</span><span class="i18n-en">Behance 创始人 · Adobe 创意业务总监</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio">1980 生于匹兹堡。康奈尔本科，哈佛 MBA。2006 创立 Behance（创意作品集平台，2012 被 Adobe 1.5 亿美金收购）。著作《Making Ideas Happen》(2010)、《The Messy Middle》(2018)。2017 起任 Adobe CSO + EVP Creative Cloud。早期投资：Pinterest、Uber、Sweetgreen、Periscope、Warby Parker。个人博客被设计创业者广泛阅读。</div>
-<div class="bio en">Born 1980 Pittsburgh. Cornell undergrad, Harvard MBA. Founded Behance 2006 (creative portfolio platform, sold to Adobe 2012 for $150M). Authored 'Making Ideas Happen' (2010), 'The Messy Middle' (2018). Adobe CSO + EVP Creative Cloud since 2017. Early investor: Pinterest, Uber, Sweetgreen, Periscope, Warby Parker. Personal blog widely read by design entrepreneurs.</div>
-<a class="cta" href="/?node=scottbelsky">在关系图谱中查看 斯科特·贝尔斯基 →</a>
-<h2>时间线 / Timeline</h2><ul><li><span class="y">2006</span> Founded Behance</li><li><span class="y">2012</span> Behance acquired by Adobe ($150M)</li><li><span class="y">2018</span> The Messy Middle (book)</li></ul>
-<h2>关系网络 / Connections</h2><a class="nbr" href="/p/jordansinger.html"><b>乔丹·辛格 Jordan Singer</b><span>AI-era creative-tools entrepreneurship lineage</span></a><a class="nbr" href="/p/khoivinh.html"><b>Khoi Vinh</b><span>Adobe Behance / Brand Design 同期同事</span></a>
-<a class="back" href="/">← 返回完整图谱 设计师图谱</a>
-</div></body></html>
+<div class="bio i18n-zh">1980 生于匹兹堡。康奈尔本科，哈佛 MBA。2006 创立 Behance（创意作品集平台，2012 被 Adobe 1.5 亿美金收购）。著作《Making Ideas Happen》(2010)、《The Messy Middle》(2018)。2017 起任 Adobe CSO + EVP Creative Cloud。早期投资：Pinterest、Uber、Sweetgreen、Periscope、Warby Parker。个人博客被设计创业者广泛阅读。</div><div class="bio i18n-en">Born 1980 Pittsburgh. Cornell undergrad, Harvard MBA. Founded Behance 2006 (creative portfolio platform, sold to Adobe 2012 for $150M). Authored 'Making Ideas Happen' (2010), 'The Messy Middle' (2018). Adobe CSO + EVP Creative Cloud since 2017. Early investor: Pinterest, Uber, Sweetgreen, Periscope, Warby Parker. Personal blog widely read by design entrepreneurs.</div>
+<a class="cta" href="/?node=scottbelsky"><span class="i18n-zh">在关系图谱中查看 斯科特·贝尔斯基 →</span><span class="i18n-en">View Scott Belsky in the graph →</span></a>
+
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2006</span> Founded Behance</li><li><span class="y">2012</span> Behance acquired by Adobe ($150M)</li><li><span class="y">2018</span> The Messy Middle (book)</li></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/jordansinger.html"><b>乔丹·辛格 Jordan Singer</b><span>AI-era creative-tools entrepreneurship lineage</span></a><a class="nbr" href="/p/khoivinh.html"><b>Khoi Vinh</b><span>Adobe Behance / Brand Design 同期同事</span></a>
+<a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
+</div>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+</body></html>
