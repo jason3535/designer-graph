@@ -1070,7 +1070,7 @@ body.no-insights #graph-container {
 
 <!-- Insights Section (rendered by insights-widget.js) -->
 <section id="insights-section" data-graph="designer"></section>
-<script src="https://hardware.jasonlin.tech/insights-widget.js?v=52" defer></script>
+<script src="https://hardware.jasonlin.tech/insights-widget.js?v=53" defer></script>
 
 <script>
 // ===================================================================
@@ -1952,7 +1952,18 @@ function closeDetail(){
   if(!id) return;
   const target=scholars.find(s=>s.id===id);
   if(!target) return;
-  setTimeout(()=>openDetail(target),700);
+  setTimeout(()=>{
+    openDetail(target);
+    try{
+      if(target.x!=null){
+        const k=1.4;
+        svg.transition().duration(900).ease(d3.easeCubicInOut).call(
+          zoomBehavior.transform,
+          d3.zoomIdentity.translate(W/2 - target.x*k, H/2 - target.y*k).scale(k)
+        );
+      }
+    }catch(_){}
+  },800);
 })();
 document.getElementById("detail-close").addEventListener("click",e=>{e.stopPropagation();closeDetail();});
 
@@ -2508,6 +2519,12 @@ const photoCache = {};
 
 async function fetchPhoto(scholarId) {
   if (photoCache[scholarId]) return photoCache[scholarId];
+  // 0) 本地真实头像(复用自 AI 播客站,已核验)——有则最优先
+  {
+    const local = `/assets/people/${scholarId}.jpg`;
+    const ok = await new Promise(resolve => { const i = new Image(); i.onload=()=>resolve(true); i.onerror=()=>resolve(false); i.src=local; });
+    if (ok) { photoCache[scholarId] = local; return local; }
+  }
   // 1) 英文 Wikipedia
   const enWiki = wikiTitles[scholarId];
   if (enWiki) {
@@ -2532,7 +2549,7 @@ async function fetchPhoto(scholarId) {
       }
     } catch(e) {}
   }
-  // 3) Twitter avatar via unavatar.io(无 Wikipedia 但活跃在 X 的 AI 大佬)
+  // 3) Twitter avatar via unavatar.io(无 Wikipedia 但活跃在 X 的设计师)
   const tw = twitterHandles[scholarId];
   if (tw) {
     const url = `https://unavatar.io/twitter/${tw}?fallback=false`;
