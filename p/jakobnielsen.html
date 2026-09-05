@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>雅各布·尼尔森 Jakob Nielsen · NN/g | 设计师图谱</title>
-<meta name="description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 He…">
+<title>Jakob Nielsen · NN/g | 设计师图谱</title>
+<meta name="description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heu…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/jakobnielsen.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://design.jasonlin.tech/p/jakobnielsen.html">
-<meta property="og:title" content="雅各布·尼尔森 Jakob Nielsen · NN/g 联创 · 可用性工程教父">
-<meta property="og:description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 He…">
+<meta property="og:title" content="Jakob Nielsen · NN/g 联创 · 可用性工程教父">
+<meta property="og:description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heu…">
 <meta property="og:site_name" content="设计师图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://design.jasonlin.tech/og/jakobnielsen.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="雅各布·尼尔森 Jakob Nielsen"><meta name="twitter:description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 He…">
+<meta name="twitter:title" content="Jakob Nielsen"><meta name="twitter:description" content="1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heu…">
 <meta name="twitter:image" content="https://design.jasonlin.tech/og/jakobnielsen.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"雅各布·尼尔森 Jakob Nielsen","alternateName":"Jakob Nielsen","jobTitle":"NN/g 联创 · 可用性工程教父","worksFor":{"@type":"Organization","name":"NN/g"},"description":"1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 He…","url":"https://design.jasonlin.tech/p/jakobnielsen.html","image":"https://design.jasonlin.tech/og/jakobnielsen.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Jakob Nielsen", "alternateName": "雅各布·尼尔森", "jobTitle": "NN/g 联创 · 可用性工程教父", "worksFor": {"@type": "Organization", "name": "NN/g"}, "description": "1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heu", "url": "https://design.jasonlin.tech/p/jakobnielsen.html", "image": "https://design.jasonlin.tech/og/jakobnielsen.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -46,19 +48,23 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
 <a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">JN</div>
-<h1><span class="i18n-zh">雅各布·尼尔森 Jakob Nielsen</span><span class="i18n-en">Jakob Nielsen</span></h1>
+<div class="avatar mono" style="background:linear-gradient(145deg,#0a84ffeb,#0a84ff80);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px #0a84ff24">JN</div>
+<h1><span class="i18n-zh">雅各布·尼尔森</span><span class="i18n-en">Jakob Nielsen</span></h1>
 <p class="org">NN/g</p>
 <p class="role"><span class="i18n-zh">NN/g 联创 · 可用性工程教父</span><span class="i18n-en">NN/g 联创 · 可用性工程教父</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio i18n-zh">1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heuristics」（至今行业标准）。开创 5 用户可用性测试。79 项专利。</div><div class="bio i18n-en">Born 1957 Denmark. Technical University of Denmark PhD. Sun Microsystems Distinguished Engineer (web usability research). Co-founded Nielsen Norman Group 1998 with Don Norman. Authored 'Usability Engineering' (1993) — defined the field. Created the '10 Heuristics' for usability evaluation (1994) — still the standard. Pioneered the 5-user usability test. 79 patents.</div>
-<a class="cta" href="/?node=jakobnielsen"><span class="i18n-zh">在关系图谱中查看 雅各布·尼尔森 →</span><span class="i18n-en">View Jakob Nielsen in the graph →</span></a>
+<div class="bio i18n-zh">1957 生于丹麦。丹麦技术大学博士。Sun Microsystems 杰出工程师（网页可用性研究）。1998 与 Don Norman 联创 Nielsen Norman Group。著作《Usability Engineering》(1993)定义了该领域。1994 创造可用性评估「10 Heuristics」（至今行业标准）。开创 5 用户可用性测试。79 项专利。</div><div class="bio i18n-en">Born 1957 Denmark. Technical University of Denmark PhD. Sun Microsystems Distinguished Engineer (web usability research). Co-founded Nielsen Norman Group 1998 with Don Norman. Authored &#x27;Usability Engineering&#x27; (1993) — defined the field. Created the &#x27;10 Heuristics&#x27; for usability evaluation (1994) — still the standard. Pioneered the 5-user usability test. 79 patents.</div>
+<a class="cta" href="/?node=jakobnielsen"><span class="i18n-zh">在关系图谱中查看 Jakob Nielsen →</span><span class="i18n-en">View Jakob Nielsen in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">1993</span> Usability Engineering (book)</li><li><span class="y">1994</span> 10 Usability Heuristics</li><li><span class="y">1998</span> Co-founded NN/g</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/lukewroblewski.html"><b>卢克·罗布莱夫斯基 Luke Wroblewski</b><span>Extended UX usability design tradition</span></a><a class="nbr" href="/p/donnorman.html"><b>唐纳德·诺曼 Don Norman</b><span>1998 联创 Nielsen Norman Group</span></a>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/donnorman.html"><b>唐纳德·诺曼 Don Norman</b><span>1998 联创 Nielsen Norman Group</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

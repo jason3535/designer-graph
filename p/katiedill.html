@@ -54,7 +54,7 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">Stripe 设计负责人 · 前 Airbnb / Lyft 设计负责人</span><span class="i18n-en">Head of Design at Stripe · Ex-Airbnb, Ex-Lyft</span></p>
 <div class="fields"><span class="tag">ux</span></div>
 <div class="bio i18n-zh">2021 年起任 Stripe 设计负责人,此前分别主管 Lyft 体验设计与 Airbnb 设计——连续三家定义了 2010-20 年代设计范式的公司。她提出「MVQP」(最小可行质量产品)来回应 MVP:效用 → 易用 → 美感的三级标准,主张「工艺」不是最后再加的一层奢侈品,而是软件之所以值得信任的原因。《快公司》商业界百位最具创造力人物之一。</div><div class="bio i18n-en">Head of design at Stripe since 2021, previously head of experience design at Lyft and head of design at Airbnb — three consecutive definitive design orgs of the 2010s-20s. She is known for the \&quot;MVQP\&quot; idea (minimum viable quality product) as a rebuttal to MVP: a three-tier bar of Utility → Usability → Beauty, arguing that craft is not a luxury layer added at the end but the thing that makes software trustworthy. One of Fast Company&#x27;s 100 Most Creative People in Business.</div>
-<a class="cta" href="/?node=katiedill"><span class="i18n-zh">在关系图谱中查看 Katie Dill →</span><span class="i18n-en">View Katie Dill in the graph →</span></a>
+<a class="cta" href="/?node=katiedill"><span class="i18n-zh">在关系图谱中查看 Katie Dill →</span><span class="i18n-en">View Katie Dill in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 <a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/katiedill" rel="noopener"><span class="i18n-zh">听 Katie Dill 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
@@ -62,6 +62,10 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

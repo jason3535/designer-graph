@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
-<title>卢克·罗布莱夫斯基 Luke Wroblewski · Google (formerly) | 设计师图谱</title>
-<meta name="description" content="国际公认的数字产品领袖，其作品触达逾 7 亿用户。获伊利诺伊大学艺术史学士与平面设计美术学士。曾任 NCSA 高级界面设计师、eBay 首席 UI 设计师、雅虎首席设计架构师（副总裁）。联合创办 Bagcheck（2011 被 Twitter 收购）与 Polar（2014 被 Google 收购…">
+<title>Luke Wroblewski · Google (formerly) | 设计师图谱</title>
+<meta name="description" content="Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design …">
 <link rel="canonical" href="https://design.jasonlin.tech/p/lukewroblewski.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://design.jasonlin.tech/p/lukewroblewski.html">
-<meta property="og:title" content="卢克·罗布莱夫斯基 Luke Wroblewski · 数字产品领袖 ·《Mobile First》作者">
-<meta property="og:description" content="国际公认的数字产品领袖，其作品触达逾 7 亿用户。获伊利诺伊大学艺术史学士与平面设计美术学士。曾任 NCSA 高级界面设计师、eBay 首席 UI 设计师、雅虎首席设计架构师（副总裁）。联合创办 Bagcheck（2011 被 Twitter 收购）与 Polar（2014 被 Google 收购…">
+<meta property="og:title" content="Luke Wroblewski · Digital product leader,&#x27;Mobile First&#x27; author">
+<meta property="og:description" content="Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design …">
 <meta property="og:site_name" content="设计师图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://design.jasonlin.tech/og/lukewroblewski.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="卢克·罗布莱夫斯基 Luke Wroblewski"><meta name="twitter:description" content="国际公认的数字产品领袖，其作品触达逾 7 亿用户。获伊利诺伊大学艺术史学士与平面设计美术学士。曾任 NCSA 高级界面设计师、eBay 首席 UI 设计师、雅虎首席设计架构师（副总裁）。联合创办 Bagcheck（2011 被 Twitter 收购）与 Polar（2014 被 Google 收购…">
+<meta name="twitter:title" content="Luke Wroblewski"><meta name="twitter:description" content="Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design …">
 <meta name="twitter:image" content="https://design.jasonlin.tech/og/lukewroblewski.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"卢克·罗布莱夫斯基 Luke Wroblewski","alternateName":"Luke Wroblewski","jobTitle":"数字产品领袖 ·《Mobile First》作者","worksFor":{"@type":"Organization","name":"Google (formerly)"},"description":"国际公认的数字产品领袖，其作品触达逾 7 亿用户。获伊利诺伊大学艺术史学士与平面设计美术学士。曾任 NCSA 高级界面设计师、eBay 首席 UI 设计师、雅虎首席设计架构师（副总裁）。联合创办 Bagcheck（2011 被 Twitter 收购）与 Polar（2014 被 Google 收购…","url":"https://design.jasonlin.tech/p/lukewroblewski.html","image":"https://design.jasonlin.tech/og/lukewroblewski.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Luke Wroblewski", "alternateName": "Luke Wroblewski", "jobTitle": "Digital product leader,'Mobile First' author", "worksFor": {"@type": "Organization", "name": "Google (formerly)"}, "description": "Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design ", "url": "https://design.jasonlin.tech/p/lukewroblewski.html", "image": "https://design.jasonlin.tech/og/lukewroblewski.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -46,19 +48,23 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
 <a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">LW</div>
-<h1><span class="i18n-zh">卢克·罗布莱夫斯基 Luke Wroblewski</span><span class="i18n-en">Luke Wroblewski</span></h1>
+<div class="avatar mono" style="background:linear-gradient(145deg,#0a84ffeb,#0a84ff80);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px #0a84ff24">LW</div>
+<h1><span class="i18n-zh">Luke Wroblewski</span><span class="i18n-en">Luke Wroblewski</span></h1>
 <p class="org">Google (formerly)</p>
-<p class="role"><span class="i18n-zh">数字产品领袖 ·《Mobile First》作者</span><span class="i18n-en">Digital product leader,'Mobile First' author</span></p>
+<p class="role"><span class="i18n-zh">Digital product leader,&#x27;Mobile First&#x27; author</span><span class="i18n-en">Digital product leader,&#x27;Mobile First&#x27; author</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio i18n-zh">国际公认的数字产品领袖，其作品触达逾 7 亿用户。获伊利诺伊大学艺术史学士与平面设计美术学士。曾任 NCSA 高级界面设计师、eBay 首席 UI 设计师、雅虎首席设计架构师（副总裁）。联合创办 Bagcheck（2011 被 Twitter 收购）与 Polar（2014 被 Google 收购），在 Google 主导跨产品的产品、UX 与研究工作。在 2011 年同名著作中提出影响深远的「Mobile First」原则。</div><div class="bio i18n-en">Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design from the University of Illinois. Was Senior Interface Designer at NCSA,Lead UI Designer at eBay,and Chief Design Architect (VP) at Yahoo. Co-founded Bagcheck (acquired by Twitter,2011) and Polar (acquired by Google,2014),where he led product,UX and research for Google's cross-product efforts. Coined the influential 'Mobile First' principle in his 2011 book.</div>
-<a class="cta" href="/?node=lukewroblewski"><span class="i18n-zh">在关系图谱中查看 卢克·罗布莱夫斯基 →</span><span class="i18n-en">View Luke Wroblewski in the graph →</span></a>
+<div class="bio i18n-zh">Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design from the University of Illinois. Was Senior Interface Designer at NCSA,Lead UI Designer at eBay,and Chief Design Architect (VP) at Yahoo. Co-founded Bagcheck (acquired by Twitter,2011) and Polar (acquired by Google,2014),where he led product,UX and research for Google&#x27;s cross-product efforts. Coined the influential &#x27;Mobile First&#x27; principle in his 2011 book.</div><div class="bio i18n-en">Internationally recognized digital product leader whose work has reached over 700 million people. Holds a BA in Art History and BFA in Graphic Design from the University of Illinois. Was Senior Interface Designer at NCSA,Lead UI Designer at eBay,and Chief Design Architect (VP) at Yahoo. Co-founded Bagcheck (acquired by Twitter,2011) and Polar (acquired by Google,2014),where he led product,UX and research for Google&#x27;s cross-product efforts. Coined the influential &#x27;Mobile First&#x27; principle in his 2011 book.</div>
+<a class="cta" href="/?node=lukewroblewski"><span class="i18n-zh">在关系图谱中查看 Luke Wroblewski →</span><span class="i18n-en">View Luke Wroblewski in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
-<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2008</span> Web Form Design (book)</li><li><span class="y">2011</span> Mobile First (book)</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/matiasduarte.html"><b>Matias Duarte</b><span>Both led Google product/Android-era design</span></a><a class="nbr" href="/p/jakobnielsen.html"><b>雅各布·尼尔森 Jakob Nielsen</b><span>Extended UX usability design tradition</span></a>
+<h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

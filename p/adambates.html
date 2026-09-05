@@ -54,13 +54,17 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">Nothing 设计总监 · 戴森 14 年设计负责人</span><span class="i18n-en">Design Director of Nothing · 14 Years at Dyson</span></p>
 <div class="fields"><span class="tag">industrial</span><span class="tag">ux</span></div>
 <div class="bio i18n-zh">在戴森任设计负责人 14 年以上,组建了定义其整个产品线设计语言与体验的团队,2022 年被裴宇招入 Nothing 出任设计总监。他塑造了 Nothing 的透明硬件美学,贯穿 Phone (1)/(2)/(3) 与 Ear 系列,以及 Glyph 灯语交互。他公开表示消费电子设计在 iPhone 之后「忘了怎么产生新想法」——整个行业停在黑色矩形的共识里不再探索。</div><div class="bio i18n-en">Spent 14+ years at Dyson as a design lead, building the team that defined the design language and product experience across its portfolio, before Carl Pei recruited him as Nothing&#x27;s design director in 2022. He shaped Nothing&#x27;s transparent-hardware aesthetic across Phone (1)/(2)/(3) and the Ear series, and the Glyph light interface. He has publicly argued that consumer-tech design \&quot;forgot how to have new ideas\&quot; after the iPhone — that the industry settled into a black-rectangle consensus and stopped exploring.</div>
-<a class="cta" href="/?node=adambates"><span class="i18n-zh">在关系图谱中查看 Adam Bates →</span><span class="i18n-en">View Adam Bates in the graph →</span></a>
+<a class="cta" href="/?node=adambates"><span class="i18n-zh">在关系图谱中查看 Adam Bates →</span><span class="i18n-en">View Adam Bates in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/jonyive.html"><b>乔尼·艾维 Jony Ive</b><span>Bates: consumer tech design \&quot;forgot new ideas\&quot; after the iPhone</span></a><a class="nbr" href="/p/dieterrams.html"><b>迪特·拉姆斯 Dieter Rams</b><span>Transparent-hardware minimalism in the Braun lineage</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

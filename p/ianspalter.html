@@ -54,13 +54,17 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <p class="role"><span class="i18n-zh">Instagram 前设计负责人</span><span class="i18n-en">Former Head of Design at Instagram</span></p>
 <div class="fields"><span class="tag">ux</span><span class="tag">graphic</span></div>
 <div class="bio i18n-zh">在 Instagram 文化影响力最盛的时期主管设计,涵盖跨平台应用体验与品牌识别——包括 2016 年那次引发争议的渐变 logo 改版。此前是 YouTube 高级 UX 经理、Foursquare 设计总监,更早在 R/GA 工作四年,负责 Nike+ FuelBand 与耐克跑步/篮球/训练产品线。后来执掌 Instagram 日本。被《快公司》评为美国最具影响力的设计师之一。</div><div class="bio i18n-en">Led design at Instagram through its era of greatest cultural reach, covering cross-platform app experience, brand and identity — including the controversial 2016 gradient logo redesign. Earlier he was senior UX manager at YouTube, design director at Foursquare, and spent four years at R/GA overseeing Nike+ FuelBand and Nike&#x27;s Running/Basketball/Training products. Later ran Instagram Japan. Named one of America&#x27;s most influential designers by Fast Company.</div>
-<a class="cta" href="/?node=ianspalter"><span class="i18n-zh">在关系图谱中查看 Ian Spalter →</span><span class="i18n-en">View Ian Spalter in the graph →</span></a>
+<a class="cta" href="/?node=ianspalter"><span class="i18n-zh">在关系图谱中查看 Ian Spalter →</span><span class="i18n-en">View Ian Spalter in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/katiedill.html"><b>凯蒂·迪尔 Katie Dill</b><span>2010s consumer design leadership — Instagram × Airbnb</span></a><a class="nbr" href="/p/joegebbia.html"><b>Joe Gebbia</b><span>Design-led product culture of the mobile era</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

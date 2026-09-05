@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Tuhin Kumar · Luma AI | 设计师图谱</title>
-<meta name="description" content="图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Ap…">
+<meta name="description" content="图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 20…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/tuhinkumar.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://design.jasonlin.tech/p/tuhinkumar.html">
 <meta property="og:title" content="Tuhin Kumar · 前 Luma AI 设计负责人 · 产品设计师（Apple / Airbnb / Facebook）">
-<meta property="og:description" content="图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Ap…">
+<meta property="og:description" content="图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 20…">
 <meta property="og:site_name" content="设计师图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://design.jasonlin.tech/og/tuhinkumar.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tuhin Kumar"><meta name="twitter:description" content="图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Ap…">
+<meta name="twitter:title" content="Tuhin Kumar"><meta name="twitter:description" content="图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 20…">
 <meta name="twitter:image" content="https://design.jasonlin.tech/og/tuhinkumar.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Tuhin Kumar","jobTitle":"前 Luma AI 设计负责人 · 产品设计师（Apple / Airbnb / Facebook）","worksFor":{"@type":"Organization","name":"Luma AI"},"description":"图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Ap…","url":"https://design.jasonlin.tech/p/tuhinkumar.html","image":"https://design.jasonlin.tech/og/tuhinkumar.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Tuhin Kumar", "alternateName": "Tuhin Kumar", "jobTitle": "前 Luma AI 设计负责人 · 产品设计师（Apple / Airbnb / Facebook）", "worksFor": {"@type": "Organization", "name": "Luma AI"}, "description": "图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 20", "url": "https://design.jasonlin.tech/p/tuhinkumar.html", "image": "https://design.jasonlin.tech/og/tuhinkumar.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -46,19 +48,24 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
 <a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
-<img class="avatar" src="/assets/people/tuhinkumar.jpg" alt="Tuhin Kumar" width="108" height="108" loading="eager">
-<h1>Tuhin Kumar</h1>
+<div class="avatar mono" style="background:linear-gradient(145deg,#0a84ffeb,#0a84ff80);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px #0a84ff24">TK</div>
+<h1><span class="i18n-zh">Tuhin Kumar</span><span class="i18n-en">Tuhin Kumar</span></h1>
 <p class="org">Luma AI</p>
-<p class="role">前 Luma AI 设计负责人 · 产品设计师（Apple / Airbnb / Facebook）</p>
+<p class="role"><span class="i18n-zh">前 Luma AI 设计负责人 · 产品设计师（Apple / Airbnb / Facebook）</span><span class="i18n-en">前 Luma AI 设计负责人 · 产品设计师（Apple / Airbnb / Facebook）</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio">图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 2024 年加入生成式 AI 视频 / 3D 公司 Luma AI 任设计负责人（Head of Design），主导 Dream Machine 等生成式创作产品的设计，探索更空间化、更具表达力的新计算范式。2026 年初他宣布从 Luma AI 离职，进入职业首次「无下一站」的休整期，尚未确定下一份工作。他是从大厂 craft 走向生成式 AI 产品设计的代表人物之一。</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/tuhinkumar/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=tuhinkumar"><span class="i18n-zh">在关系图谱中查看 Tuhin Kumar →</span><span class="i18n-en">View Tuhin Kumar in the graph →</span></a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/tuhinkumar" rel="noopener"><span class="i18n-zh">听他的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+<div class="bio i18n-zh">图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 2024 年加入生成式 AI 视频 / 3D 公司 Luma AI 任设计负责人（Head of Design），主导 Dream Machine 等生成式创作产品的设计，探索更空间化、更具表达力的新计算范式。2026 年初他宣布从 Luma AI 离职，进入职业首次「无下一站」的休整期，尚未确定下一份工作。他是从大厂 craft 走向生成式 AI 产品设计的代表人物之一。</div><div class="bio i18n-en">图欣·库马尔（Tuhin Kumar）是一位深耕十余年的产品设计师。职业早期是 LinkedIn Pulse 的第一位设计师，此后又在初创公司 Clara Labs、Facebook 历练，在 Airbnb 参与打磨全球设计系统，并在 Apple 主导过 macOS 功能设计。约 2023 至 2024 年加入生成式 AI 视频 / 3D 公司 Luma AI 任设计负责人（Head of Design），主导 Dream Machine 等生成式创作产品的设计，探索更空间化、更具表达力的新计算范式。2026 年初他宣布从 Luma AI 离职，进入职业首次「无下一站」的休整期，尚未确定下一份工作。他是从大厂 craft 走向生成式 AI 产品设计的代表人物之一。</div>
+<a class="cta" href="/?node=tuhinkumar"><span class="i18n-zh">在关系图谱中查看 Tuhin Kumar →</span><span class="i18n-en">View Tuhin Kumar in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/tuhinkumar" rel="noopener"><span class="i18n-zh">听 Tuhin Kumar 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2012</span> 任 LinkedIn Pulse 第一位设计师</li><li><span class="y">2016</span> 在 Airbnb 参与打磨全球设计系统</li><li><span class="y">2019</span> 在 Apple 主导 macOS 功能设计</li><li><span class="y">2023</span> 加入 Luma AI 任设计负责人，主导 Dream Machine 等生成式产品</li><li><span class="y">2026</span> 宣布从 Luma AI 离职，进入休整期</li></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/karrisaarinen.html"><b>Karri Saarinen</b><span>同为 Airbnb 出身、深耕设计系统的产品设计师</span></a><a class="nbr" href="/p/ryolu.html"><b>Ryo Lu</b><span>同属 AI native 产品设计代表人物</span></a><a class="nbr" href="/p/raunofreiberg.html"><b>Rauno Freiberg</b><span>同为强调 craft 的 AI 时代产品设计师</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
-<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var nn=en?'zh':'en';document.documentElement.className='lang-'+nn;try{localStorage.setItem('graphLang',nn)}catch(e){}});})();</script>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

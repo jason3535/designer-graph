@@ -1,33 +1,43 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Steve Ruiz · tldraw | 设计师图谱</title>
-<meta name="description" content="Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfec…">
+<meta name="description" content="Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 t…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/steveruiz.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://design.jasonlin.tech/p/steveruiz.html">
-<meta property="og:title" content="Steve Ruiz · tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者"><meta property="og:description" content="Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfec…">
+<meta property="og:title" content="Steve Ruiz · tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者">
+<meta property="og:description" content="Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 t…">
 <meta property="og:site_name" content="设计师图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://design.jasonlin.tech/og/steveruiz.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Steve Ruiz"><meta name="twitter:description" content="Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfec…"><meta name="twitter:image" content="https://design.jasonlin.tech/og/steveruiz.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Steve Ruiz","jobTitle":"tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者","worksFor":{"@type":"Organization","name":"tldraw"},"description":"Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfec…","url":"https://design.jasonlin.tech/p/steveruiz.html","image":"https://design.jasonlin.tech/og/steveruiz.png"}}</script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Steve Ruiz"><meta name="twitter:description" content="Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 t…">
+<meta name="twitter:image" content="https://design.jasonlin.tech/og/steveruiz.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Steve Ruiz", "alternateName": "Steve Ruiz", "jobTitle": "tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者", "worksFor": {"@type": "Organization", "name": "tldraw"}, "description": "Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 t", "url": "https://design.jasonlin.tech/p/steveruiz.html", "image": "https://design.jasonlin.tech/og/steveruiz.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'PingFang SC','SF Pro Text',-apple-system,system-ui,Helvetica,Arial,sans-serif;line-height:1.6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font-family:'PingFang SC','SF Pro Text',-apple-system,system-ui,Helvetica,Arial,sans-serif;line-height:1.6}
 .wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
 .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#86868b;text-decoration:none}
 h1{font-size:40px;margin:22px 0 6px;letter-spacing:-.01em}
-.org{font-size:20px;color:var(--mut);margin:0 0 4px}.role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
+.org{font-size:20px;color:var(--mut);margin:0 0 4px}
+.role{font-size:18px;color:var(--blue);margin:10px 0 0;font-weight:600}
 .fields{margin:18px 0 0}.tag{display:inline-block;font-size:13px;color:var(--mut);border:1px solid #333;border-radius:999px;padding:3px 12px;margin:0 8px 8px 0}
 .bio{font-size:18px;color:#d2d2d7;margin:28px 0;white-space:pre-wrap}
 .avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;display:block;margin:8px 0 4px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
-.avatar.mono{width:108px;height:108px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;margin:8px 0 4px}
-.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC',-apple-system,sans-serif;cursor:pointer;backdrop-filter:blur(12px)}
+.avatar.mono{display:flex;align-items:center;justify-content:center;font:700 42px/1 'SF Pro Display',-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.langtoggle{position:fixed;top:18px;right:20px;z-index:50;min-width:46px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--fg);border:1px solid rgba(255,255,255,.16);font:600 14px/1 'PingFang SC','SF Pro Text',-apple-system,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+.langtoggle:hover{background:rgba(255,255,255,.16)}
 html.lang-zh .i18n-en{display:none}html.lang-en .i18n-zh{display:none}
+@media(max-width:520px){.langtoggle{top:12px;right:12px}}
 h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#86868b;margin:40px 0 14px}
 ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:16px;color:#d2d2d7}
 .y{display:inline-block;min-width:52px;color:#6e6e73;font-variant-numeric:tabular-nums}
+li a,.bio a{color:var(--blue);text-decoration:none}
 .nbr{display:flex;flex-direction:column;padding:12px 14px;background:var(--card);border-radius:12px;margin:0 0 10px;text-decoration:none;color:var(--fg)}
 .nbr b{font-size:16px}.nbr span{font-size:13px;color:var(--mut);margin-top:2px}
 .cta{display:inline-block;margin:30px 12px 0 0;padding:14px 26px;background:var(--blue);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:17px}
@@ -35,20 +45,27 @@ ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #
 .back{display:inline-block;margin-top:36px;color:var(--mut);text-decoration:none;font-size:15px}
 @media(max-width:520px){h1{font-size:32px}.wrap{padding:36px 18px 72px}}
 </style></head><body>
-<button class="langtoggle" id="langtoggle" type="button"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
+<button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
 <a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
-<img class="avatar" src="/assets/people/steveruiz.jpg" alt="Steve Ruiz" width="108" height="108" loading="eager">
-<h1>Steve Ruiz</h1><p class="org">tldraw</p><p class="role">tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者</p>
+<div class="avatar mono" style="background:linear-gradient(145deg,#0a84ffeb,#0a84ff80);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px #0a84ff24">SR</div>
+<h1><span class="i18n-zh">Steve Ruiz</span><span class="i18n-en">Steve Ruiz</span></h1>
+<p class="org">tldraw</p>
+<p class="role"><span class="i18n-zh">tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者</span><span class="i18n-en">tldraw 创始人兼 CEO · 设计工程师 · perfect-freehand 作者</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio">Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 tldraw,把无限画布做成可嵌入的 Web SDK,被 Shopify、Google、ClickUp、Autodesk、Observable 等采用。2024 年他打造的「Make Real」用 GPT-4 Vision 把手绘草图直接变成可运行代码而爆红,此后又推出 tldraw.computer 与「画布上的智能体」实验,持续探索无限画布作为 AI 交互界面的可能。</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/steveruiz/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=steveruiz"><span class="i18n-zh">在关系图谱中查看 Steve Ruiz →</span><span class="i18n-en">View Steve Ruiz in the graph →</span></a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/steveruiz" rel="noopener"><span class="i18n-zh">听他的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+<div class="bio i18n-zh">Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 tldraw,把无限画布做成可嵌入的 Web SDK,被 Shopify、Google、ClickUp、Autodesk、Observable 等采用。2024 年他打造的「Make Real」用 GPT-4 Vision 把手绘草图直接变成可运行代码而爆红,此后又推出 tldraw.computer 与「画布上的智能体」实验,持续探索无限画布作为 AI 交互界面的可能。</div><div class="bio i18n-en">Steve Ruiz 从美术创作起步,经由设计、设计工具,一路钻研「如何在 Web 上做出真正好用的画布」。他曾为 Framer 制作教学内容、在 Play 设计 iOS 端设计工具,并开源了 perfect-freehand、perfect-arrows 等创意工具库。2022 年他在伦敦创办 tldraw,把无限画布做成可嵌入的 Web SDK,被 Shopify、Google、ClickUp、Autodesk、Observable 等采用。2024 年他打造的「Make Real」用 GPT-4 Vision 把手绘草图直接变成可运行代码而爆红,此后又推出 tldraw.computer 与「画布上的智能体」实验,持续探索无限画布作为 AI 交互界面的可能。</div>
+<a class="cta" href="/?node=steveruiz"><span class="i18n-zh">在关系图谱中查看 Steve Ruiz →</span><span class="i18n-en">View Steve Ruiz in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/steveruiz" rel="noopener"><span class="i18n-zh">听 Steve Ruiz 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2021</span> 开源 perfect-freehand 等创意工具库,专注 Web 上的画布绘制</li><li><span class="y">2022</span> 在伦敦创办 tldraw,推出可嵌入的无限画布 Web SDK</li><li><span class="y">2024</span> 发布爆款 demo「Make Real」:用 GPT-4 Vision 把手绘草图变成可运行代码</li><li><span class="y">2024</span> 推出 tldraw.computer AI 工作流应用,探索画布上的多智能体协作</li><li><span class="y">2025</span> 做客 Dive Club,阐述「画布是否是 AI 的未来界面」</li></ul>
 <h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/ammaarreshi.html"><b>Ammaar Reshi</b><span>同为 AI 产品设计/工程领域活跃者</span></a><a class="nbr" href="/p/henrymodisett.html"><b>Henry Modisett</b><span>同属 AI 时代的设计工程方向</span></a><a class="nbr" href="/p/ryolu.html"><b>Ryo Lu</b><span>同为关注 AI 交互界面的设计师</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
-<script>(function(){var b=document.getElementById('langtoggle');b&&b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

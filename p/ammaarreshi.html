@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Ammaar Reshi · Google AI Studio | 设计师图谱</title>
-<meta name="description" content="生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI…">
+<meta name="description" content="生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/ammaarreshi.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://design.jasonlin.tech/p/ammaarreshi.html">
 <meta property="og:title" content="Ammaar Reshi · Google AI Studio 产品与设计负责人 · 前 ElevenLabs 设计负责人">
-<meta property="og:description" content="生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI…">
+<meta property="og:description" content="生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关…">
 <meta property="og:site_name" content="设计师图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://design.jasonlin.tech/og/ammaarreshi.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ammaar Reshi"><meta name="twitter:description" content="生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI…">
+<meta name="twitter:title" content="Ammaar Reshi"><meta name="twitter:description" content="生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关…">
 <meta name="twitter:image" content="https://design.jasonlin.tech/og/ammaarreshi.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Ammaar Reshi","jobTitle":"Google AI Studio 产品与设计负责人 · 前 ElevenLabs 设计负责人","worksFor":{"@type":"Organization","name":"Google AI Studio"},"description":"生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI…","url":"https://design.jasonlin.tech/p/ammaarreshi.html","image":"https://design.jasonlin.tech/og/ammaarreshi.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Ammaar Reshi", "alternateName": "Ammaar Reshi", "jobTitle": "Google AI Studio 产品与设计负责人 · 前 ElevenLabs 设计负责人", "worksFor": {"@type": "Organization", "name": "Google AI Studio"}, "description": "生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关", "url": "https://design.jasonlin.tech/p/ammaarreshi.html", "image": "https://design.jasonlin.tech/og/ammaarreshi.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -46,19 +48,24 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
 <a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
-<img class="avatar" src="/assets/people/ammaarreshi.jpg" alt="Ammaar Reshi" width="108" height="108" loading="eager">
-<h1>Ammaar Reshi</h1>
+<div class="avatar mono" style="background:linear-gradient(145deg,#0a84ffeb,#0a84ff80);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px #0a84ff24">AR</div>
+<h1><span class="i18n-zh">Ammaar Reshi</span><span class="i18n-en">Ammaar Reshi</span></h1>
 <p class="org">Google AI Studio</p>
-<p class="role">Google AI Studio 产品与设计负责人 · 前 ElevenLabs 设计负责人</p>
+<p class="role"><span class="i18n-zh">Google AI Studio 产品与设计负责人 · 前 ElevenLabs 设计负责人</span><span class="i18n-en">Google AI Studio 产品与设计负责人 · 前 ElevenLabs 设计负责人</span></p>
 <div class="fields"><span class="tag">ux</span></div>
-<div class="bio">生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关于 AI 与创作伦理的巨大争议,也让他成为 AI 创意实验的标志人物。此后加入 AI 语音公司 ElevenLabs 任设计负责人,从零搭建设计团队并亲手设计首个 iOS App。现于 Google DeepMind 领导 Google AI Studio(Gemini 开发者平台)的产品与设计,是「设计师 + AI 创作者」这一代的代表人物。</div>
-<!--XLINKS_START--><p class="meta" style="font-size:13px;margin:10px 0">同一人物 · 姊妹站：<a href="https://aipodcast.jasonlin.tech/pp/ammaarreshi/">听 TA 的播客访谈（AI Podcast）</a></p><!--XLINKS_END--><a class="cta" href="/?node=ammaarreshi"><span class="i18n-zh">在关系图谱中查看 Ammaar Reshi →</span><span class="i18n-en">View Ammaar Reshi in the graph →</span></a>
-<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/ammaarreshi" rel="noopener"><span class="i18n-zh">听他的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+<div class="bio i18n-zh">生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关于 AI 与创作伦理的巨大争议,也让他成为 AI 创意实验的标志人物。此后加入 AI 语音公司 ElevenLabs 任设计负责人,从零搭建设计团队并亲手设计首个 iOS App。现于 Google DeepMind 领导 Google AI Studio(Gemini 开发者平台)的产品与设计,是「设计师 + AI 创作者」这一代的代表人物。</div><div class="bio i18n-en">生于巴基斯坦、在英国长大的设计师,伦敦学计算机出身。职业生涯从 Palantir 产品设计师起步,后在金融科技公司 Brex 从 IC 一路做到设计总监。2022 年他用 ChatGPT 与 Midjourney 在一个周末做出最早的 AI 生成童书之一《Alice and Sparkle》,引发关于 AI 与创作伦理的巨大争议,也让他成为 AI 创意实验的标志人物。此后加入 AI 语音公司 ElevenLabs 任设计负责人,从零搭建设计团队并亲手设计首个 iOS App。现于 Google DeepMind 领导 Google AI Studio(Gemini 开发者平台)的产品与设计,是「设计师 + AI 创作者」这一代的代表人物。</div>
+<a class="cta" href="/?node=ammaarreshi"><span class="i18n-zh">在关系图谱中查看 Ammaar Reshi →</span><span class="i18n-en">View Ammaar Reshi in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
+<a class="cta2" href="https://aipodcast.jasonlin.tech/#/person/ammaarreshi" rel="noopener"><span class="i18n-zh">听 Ammaar Reshi 的 AI 播客 →</span><span class="i18n-en">Listen on AI Podcast →</span></a>
+
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2020</span> 加入 Brex,从设计师做到设计总监</li><li><span class="y">2022</span> 用 AI 制作童书《Alice and Sparkle》引发争议</li><li><span class="y">2023</span> 加入 ElevenLabs 任设计负责人,从零搭建设计团队</li><li><span class="y">2024</span> 加入 Google DeepMind 领导 Google AI Studio 产品与设计</li></ul>
-<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/ryolu.html"><b>Ryo Lu</b><span>同为「设计 + AI 创作」新一代代表设计师</span></a>
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2><a class="nbr" href="/p/ryolu.html"><b>Ryo Lu</b><span>同为「设计 + AI 创作」新一代代表设计师</span></a><a class="nbr" href="/p/romantesliuk.html"><b>Roman Tesliuk</b><span>ElevenLabs 设计同事</span></a><a class="nbr" href="/p/jasonyuan.html"><b>Jason Yuan</b><span>同属 AI 原生产品设计圈的设计师同侪</span></a><a class="nbr" href="/p/steveruiz.html"><b>Steve Ruiz</b><span>同为 AI 产品设计/工程领域活跃者</span></a>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
-<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var nn=en?'zh':'en';document.documentElement.className='lang-'+nn;try{localStorage.setItem('graphLang',nn)}catch(e){}});})();</script>
+<script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;

@@ -1,20 +1,22 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<style>:root{color-scheme:dark}html{background:#000}</style>
+<style>/* 纯深色页:钉死 dark 并把背景写在 html 上,否则 iOS Safari 状态栏区域按浅色画,
+   深色页面顶上留一条白边(2026-08-15 实测) */
+:root{color-scheme:dark}html{background:#000}</style>
 <script>try{document.documentElement.className=(localStorage.getItem('graphLang')==='en')?'lang-en':'lang-zh'}catch(e){document.documentElement.className='lang-zh'}</script>
 <title>Dan Cederholm · SimpleBits / Dribbble | 设计师图谱</title>
-<meta name="description" content="美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web De…">
+<meta name="description" content="美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web Des…">
 <link rel="canonical" href="https://design.jasonlin.tech/p/dancederholm.html">
 <meta property="og:type" content="profile"><meta property="og:url" content="https://design.jasonlin.tech/p/dancederholm.html">
 <meta property="og:title" content="Dan Cederholm · Dribbble 联合创始人 + SimpleBits 创办人">
-<meta property="og:description" content="美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web De…">
+<meta property="og:description" content="美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web Des…">
 <meta property="og:site_name" content="设计师图谱"><meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://design.jasonlin.tech/og/dancederholm.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dan Cederholm"><meta name="twitter:description" content="美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web De…">
+<meta name="twitter:title" content="Dan Cederholm"><meta name="twitter:description" content="美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web Des…">
 <meta name="twitter:image" content="https://design.jasonlin.tech/og/dancederholm.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Dan Cederholm","alternateName":"Dan Cederholm","jobTitle":"Dribbble 联合创始人 + SimpleBits 创办人","worksFor":{"@type":"Organization","name":"SimpleBits / Dribbble"},"description":"美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web De…","url":"https://design.jasonlin.tech/p/dancederholm.html","image":"https://design.jasonlin.tech/og/dancederholm.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": "Dan Cederholm", "alternateName": "Dan Cederholm", "jobTitle": "Dribbble 联合创始人 + SimpleBits 创办人", "worksFor": {"@type": "Organization", "name": "SimpleBits / Dribbble"}, "description": "美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web Des", "url": "https://design.jasonlin.tech/p/dancederholm.html", "image": "https://design.jasonlin.tech/og/dancederholm.png"}}</script>
 <style>
 :root{--bg:#000;--card:#1d1d1f;--fg:#f5f5f7;--mut:#a1a1a6;--blue:#2997ff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
@@ -46,19 +48,23 @@ li a,.bio a{color:var(--blue);text-decoration:none}
 <button class="langtoggle" id="langtoggle" type="button" aria-label="切换语言 / Toggle language"><span class="i18n-zh">EN</span><span class="i18n-en">中</span></button>
 <div class="wrap">
 <a class="eyebrow" href="/"><span class="i18n-zh">设计师图谱</span><span class="i18n-en">Designer Graph</span> ↗</a>
-<div class="avatar mono" style="background:linear-gradient(145deg,rgba(10,132,255,.92),rgba(10,132,255,.5));box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px rgba(10,132,255,.14)">DC</div>
+<div class="avatar mono" style="background:linear-gradient(145deg,#0a84ffeb,#0a84ff80);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 7px #0a84ff24">DC</div>
 <h1><span class="i18n-zh">Dan Cederholm</span><span class="i18n-en">Dan Cederholm</span></h1>
 <p class="org">SimpleBits / Dribbble</p>
 <p class="role"><span class="i18n-zh">Dribbble 联合创始人 + SimpleBits 创办人</span><span class="i18n-en">Dribbble 联合创始人 + SimpleBits 创办人</span></p>
 <div class="fields"><span class="tag">ux</span><span class="tag">graphic</span></div>
-<div class="bio i18n-zh">美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web Design、Handcrafted CSS。代表 Web 标准 + Web design 黄金时代的领军人物。</div><div class="bio i18n-en">美国设计师 + 作家。2002 创立 SimpleBits(独立设计博客 + 字体小铺 + 商品店)。2009 与 Rich Thornett 联合创立 Dribbble——全球最大设计师作品分享社区,影响整个一代 web/UI 设计师的「shot」(作品截图)文化。著作:CSS3 For Web Designers(A Book Apart)、Bulletproof Web Design、Handcrafted CSS。客户曾包括 Google、MTV、ESPN、Microsoft 等。也是 Cork'd 葡萄酒社区联创。代表 Web 标准 + Web design 黄金时代的领军人物。</div>
-<a class="cta" href="/?node=dancederholm"><span class="i18n-zh">在关系图谱中查看 Dan Cederholm →</span><span class="i18n-en">View Dan Cederholm in the graph →</span></a>
+<div class="bio i18n-zh">美国设计师 + 作家。2002 创立 SimpleBits。2009 与 Rich Thornett 联创 Dribbble——全球最大设计师作品分享社区，影响整个一代 web/UI 设计师的 shot 文化。著作 CSS3 For Web Designers、Bulletproof Web Design、Handcrafted CSS。代表 Web 标准 + Web design 黄金时代的领军人物。</div><div class="bio i18n-en">美国设计师 + 作家。2002 创立 SimpleBits(独立设计博客 + 字体小铺 + 商品店)。2009 与 Rich Thornett 联合创立 Dribbble——全球最大设计师作品分享社区,影响整个一代 web/UI 设计师的「shot」(作品截图)文化。著作:CSS3 For Web Designers(A Book Apart)、Bulletproof Web Design、Handcrafted CSS。客户曾包括 Google、MTV、ESPN、Microsoft 等。也是 Cork&#x27;d 葡萄酒社区联创。代表 Web 标准 + Web design 黄金时代的领军人物。</div>
+<a class="cta" href="/?node=dancederholm"><span class="i18n-zh">在关系图谱中查看 Dan Cederholm →</span><span class="i18n-en">View Dan Cederholm in the graph →</span></a><button class="cta cta-share" onclick="shareThis(this)"><span class="i18n-zh">分享</span><span class="i18n-en">Share</span></button>
 
 <h2><span class="i18n-zh">时间线</span><span class="i18n-en">Timeline</span></h2><ul><li><span class="y">2002</span> 创立 SimpleBits</li><li><span class="y">2009</span> 联创 Dribbble</li><li><span class="y">2010</span> CSS3 For Web Designers(畅销书)</li></ul>
-
+<h2><span class="i18n-zh">关系网络</span><span class="i18n-en">Connections</span></h2>
 <a class="back" href="/"><span class="i18n-zh">← 返回完整图谱</span><span class="i18n-en">← Back to the graph</span></a>
 </div>
 <script>(function(){var b=document.getElementById('langtoggle');if(!b)return;b.addEventListener('click',function(){var en=document.documentElement.classList.contains('lang-en');var n=en?'zh':'en';document.documentElement.className='lang-'+n;try{localStorage.setItem('graphLang',n)}catch(e){}});})();</script>
+<style>.cta-share{margin-left:8px;background:transparent;color:#0a84ff;border:1px solid rgba(255,255,255,.18);cursor:pointer;font:inherit;font-weight:600}</style>
+<script>function shareThis(b){var u=document.querySelector('link[rel=canonical]').href,t=document.title,d=(document.querySelector('meta[name=description]')||{}).content||'';
+if(navigator.share){navigator.share({title:t,text:d,url:u}).catch(function(){});return;}
+try{navigator.clipboard.writeText(u).then(function(){var o=b.innerHTML;b.textContent='已复制链接 · Copied';setTimeout(function(){b.innerHTML=o},1600)})}catch(e){}}</script>
 <script>(function(){try{
 var UA=navigator.userAgent||'';
 if(/bot|crawl|spider|slurp|headless|lighthouse|bingpreview|facebookexternalhit/i.test(UA))return;
