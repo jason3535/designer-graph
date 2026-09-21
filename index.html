@@ -1051,7 +1051,6 @@ body.no-insights #graph-container {
     <button class="filter-pill" data-filter="branding">Branding</button>
     <button class="filter-pill" data-filter="ux">UX / UI</button>
     <button class="filter-pill" data-filter="typography">Type</button>
-    <button class="filter-pill" data-filter="chinese">Chinese</button>
     <button class="filter-pill" data-filter="architect">Architect</button>
   </div>
 
@@ -1129,7 +1128,7 @@ body.no-insights #graph-container {
 
 <!-- Insights Section (rendered by insights-widget.js) -->
 <section id="insights-section" data-graph="designer"></section>
-<script src="https://hardware.jasonlin.tech/insights-widget.js?v=62" defer></script>
+<script src="https://hardware.jasonlin.tech/insights-widget.js?v=63" defer></script>
 
 <script>
 // ===================================================================
@@ -1238,38 +1237,38 @@ const scholars = [
     bio:"Born 1965 Tokyo. Tama Art University. Joined Hakuhodo 1989, founded Samurai Inc 2000. Defined UNIQLO's global brand identity 2006-present (red square logo, store design, advertising). Designed 7-Eleven Japan rebrand, Honda Stepwgn, Tsutaya T-Card, Rakuten logo, Imabari Towel. Most influential Japanese commercial brand designer. Visiting professor Tama Art University. Author 'Kashiwa Sato's Ultimate Method to Reach the Essentials'.",papers:[{y:"2006",t:"UNIQLO global rebrand"},{y:"2000",t:"Founded Samurai Inc"}]},
 
   // ===== Chinese Designers =====
-  {id:"kantaikeung",name:"Kan Tai-keung",org:"靳叔包装",title:"靳埭强 · 香港平面设计教父",field:["graphic","chinese","branding"],
+  {id:"kantaikeung",name:"Kan Tai-keung",org:"靳叔包装",title:"靳埭强 · 香港平面设计教父",field:["graphic", "branding"],region:"china",
     bio:"Born 1942 广东番禺. 香港浸会学院. 自学成才,为新华、太古、屈臣氏、中国银行设计 logo (1984 中行红五星 logo 沿用至今). 创办「靳埭强设计奖」推动华人设计教育. 受张光宇、王无邪影响,融合中国水墨与现代设计. AGI 会员,香港艺术发展局视觉艺术主席. 著作《设计心法》《关于设计的 110 个故事》. 在中国大陆与靳与刘合作创立 KL&K Design.",papers:[{y:"1984",t:"中国银行 Logo"},{y:"1999",t:"创办靳埭强设计奖"}]},
-  {id:"alanchan",name:"Alan Chan",org:"Alan Chan Design",title:"陈幼坚 · 香港品牌设计代表",field:["graphic","chinese"],
+  {id:"alanchan",name:"Alan Chan",org:"Alan Chan Design",title:"陈幼坚 · 香港品牌设计代表",field:["graphic"],region:"china",
     bio:"Born 1950 Hong Kong. 中学毕业自学,1980 创立 Alan Chan Design Company. 设计 Tsutaya 香港、HSBC、Watson's、Mandarin Oriental、Shanghai Tang 视觉识别. 「东西合璧」最具商业代表性的华人设计师. 600+ 国际奖项. 2002 创办上海 Alan Chan Creations 工作室. 香港艺术中心荣誉院士. 《时代》评选 'Asia's 25 most influential people' 1996.",papers:[{y:"1994",t:"Tsutaya Hong Kong"},{y:"1996",t:"Shanghai Tang Visual Identity"}]},
-  {id:"hejianping",name:"He Jianping",org:"Hesign Berlin/Shanghai",title:"何见平 · 中德双线运营 · 海报艺术家",field:["graphic","chinese"],
+  {id:"hejianping",name:"He Jianping",org:"Hesign Berlin/Shanghai",title:"何见平 · 中德双线运营 · 海报艺术家",field:["graphic"],region:"china",
     bio:"Born 1973 浙江. 杭州中国美术学院 → 柏林艺术大学. 师承 Helmut Schmid. 创办 Hesign 工作室(柏林 2003 / 上海 2004). 全球各大海报双年展常胜军(华沙、布鲁诺、墨西哥金奖等 100+). 创办「Hesign 出版社」、组织「中国海报双年展」. 中国美术学院 + 柏林艺术大学双教职. 著作《设计 + 文化》(德文)、《设计的旅行》",papers:[{y:"2003",t:"创办 Hesign Berlin"},{y:"2010s",t:"100+ 国际海报奖"}]},
-  {id:"hanjiaying",name:"Han Jiaying",org:"Han Jiaying Design",title:"韩家英 · 深圳现代品牌设计代表",field:["graphic","chinese"],
+  {id:"hanjiaying",name:"Han Jiaying",org:"Han Jiaying Design",title:"韩家英 · 深圳现代品牌设计代表",field:["graphic"],region:"china",
     bio:"Born 1961 北京. 西安美术学院. 1990 南下深圳,1993 创办韩家英设计有限公司. 设计万科、招商银行、中国国际海运集装箱、深圳中国设计大展等品牌识别. AGI 会员. 中国最早一批将国际设计语言带入大陆品牌的设计师. 「2008 北京奥运视觉设计」核心成员. 数次代表中国设计参加国际三年展.",papers:[{y:"1993",t:"创办韩家英设计"},{y:"2008",t:"参与北京奥运视觉设计"}]},
-  {id:"heiyiyang",name:"Hei Yiyang",org:"SenseTeam (山河水)",title:"黑一烊 · SenseTeam 创始人",field:["graphic","chinese"],
+  {id:"heiyiyang",name:"Hei Yiyang",org:"SenseTeam (山河水)",title:"黑一烊 · SenseTeam 创始人",field:["graphic"],region:"china",
     bio:"Born 1971 广东惠州. 自学派. 2003 创办深圳「山河水设计 SenseTeam」. 设计华为终端品牌(Mate 系列视觉)、网易云音乐、龙湖地产、Manner 咖啡等. 2010 代表中国登上《Communication Arts》封面. AGI 中国区会员. 「黑色」标签是行业 insider 的共识符号. 多次操刀「字体设计 + 品牌」交叉项目,推动中文字体在新生代中商业化运用.",papers:[{y:"2003",t:"创办 SenseTeam"},{y:"2018",t:"网易云音乐 视觉系统"}]},
-  {id:"zhuzhiwei",name:"Zhu Zhiwei",org:"方正字库",title:"朱志伟 · 中文字库元老 · 兰亭黑/博雅宋设计者",field:["typography","chinese"],
+  {id:"zhuzhiwei",name:"Zhu Zhiwei",org:"方正字库",title:"朱志伟 · 中文字库元老 · 兰亭黑/博雅宋设计者",field:["typography"],region:"china",
     bio:"Born 1956 北京. 北京印刷学院. 1989 加入方正,中国数字字库奠基人之一. 主导设计「方正兰亭黑」「方正博雅宋」「方正悠黑」等中文经典字体. 兰亭黑被苹果选为 Mac OS X 系统简体中文默认字体(2010 年起). 2018 「方正悠黑」入选中国第二届字体设计大奖. 影响整个中文数字阅读时代的视觉基础.",papers:[{y:"2002",t:"方正兰亭黑(后成 macOS 系统字体)"},{y:"2008",t:"方正博雅宋"},{y:"2018",t:"方正悠黑"}]},
-  {id:"zhuyingchun",name:"Zhu Yingchun",org:"南京艺术学院",title:"朱赢椿 · 书籍设计大师",field:["graphic","chinese"],
+  {id:"zhuyingchun",name:"Zhu Yingchun",org:"南京艺术学院",title:"朱赢椿 · 书籍设计大师",field:["graphic"],region:"china",
     bio:"Born 1970 江苏盐城. 南京师范大学美术系. 南京艺术学院教授 + 书衣坊主持人. 设计书籍《不裁》《肥肉》《虫子书》《设计诗》— 累计获德国莱比锡「世界最美的书」金奖、中国「最美的书」十多次. 「实物 + 概念 + 文学」三位一体的书籍设计开创者. 中国最具有「书是物」哲学的设计师. 受日本杉浦康平影响.",papers:[{y:"2007",t:"《不裁》(获德国莱比锡世界最美的书)"},{y:"2009",t:"《设计诗》"}]},
-  {id:"yangmingjie",name:"Yang Mingjie",org:"YANG DESIGN / 羊舍",title:"杨明洁 · 中国工业设计代表 / 羊舍创始人",field:["industrial","chinese"],
+  {id:"yangmingjie",name:"Yang Mingjie",org:"YANG DESIGN / 羊舍",title:"杨明洁 · 中国工业设计代表 / 羊舍创始人",field:["industrial"],region:"china",
     bio:"Born 1971 杭州. 中国美术学院 + 同济大学 + 慕尼黑工业大学 / 西门子研究院. 2005 创办 YANG DESIGN(上海),工业设计 + 产品策略咨询. 2014 推出自主品牌「羊舍 Yang House」家具. 客户:海尔、华为、奔驰、米其林、可口可乐. 出版《设计的醒觉》. 中国大陆最商业成熟的工业设计师之一,国际设计奖项最多的中国设计师.",papers:[{y:"2005",t:"创办 YANG DESIGN"},{y:"2014",t:"创办「羊舍 Yang House」家具品牌"}]},
-  {id:"jiawei",name:"Jia Wei",org:"LKK 洛可可",title:"賈伟 · 洛可可创始人 · 大中型设计公司模式",field:["industrial","chinese"],
+  {id:"jiawei",name:"Jia Wei",org:"LKK 洛可可",title:"賈伟 · 洛可可创始人 · 大中型设计公司模式",field:["industrial"],region:"china",
     bio:"Born 1973 太原. 北京理工大学工业设计. 2004 创办洛可可创新设计集团(LKK),发展为中国规模最大的设计咨询公司之一(800+ 员工 / 全国 8 城市分公司). 客户覆盖海尔、美的、华为、三星、可口可乐 1000+ 品牌. 红点/IF 等国际奖项 100+. 2018 创办「洛客 LKKER」设计众包平台. 推动中国从代工(OEM)转向自主设计(ODM)的代表人物.",papers:[{y:"2004",t:"创办 LKK 洛可可"},{y:"2018",t:"创办洛客平台"}]},
-  {id:"zhouchenchen",name:"Zhou Chenchen",org:"Frank Chou Design Studio",title:"周宸宸 Frank Zhou · 国内当代家具设计代表",field:["industrial","chinese"],
+  {id:"zhouchenchen",name:"Zhou Chenchen",org:"Frank Chou Design Studio",title:"周宸宸 Frank Zhou · 国内当代家具设计代表",field:["industrial"],region:"china",
     bio:"Born 1986 北京. 中央美术学院家具设计 + 米兰理工学院产品设计. 2012 创办 Frank Chou Design Studio. 受日本/北欧家具影响,但探索中国当代产品语境. 设计「Combo」沙发(2017,广州设计周年度家具)、「Cube」椅. 与意大利 Cassina、丹麦 Stellar Works 合作. 代表中国 80/90 后家具设计语言走向国际. 米兰设计周中国设计师常驻代表.",papers:[{y:"2012",t:"创办 Frank Chou Design Studio"},{y:"2017",t:"Combo Sofa(广州设计周年度家具)"}]},
-  {id:"lincunzhen",name:"Lin Cunzhen",org:"中央美术学院",title:"林存真 · 北京冬奥设计总监 + 字体设计",field:["graphic","chinese"],
+  {id:"lincunzhen",name:"Lin Cunzhen",org:"中央美术学院",title:"林存真 · 北京冬奥设计总监 + 字体设计",field:["graphic"],region:"china",
     bio:"Born 1971 山东. 中央美术学院 + 莱比锡视觉艺术学院博士. 中央美术学院设计学院副院长. 2022 北京冬奥会会徽「冬梦」主设计师 + 视觉形象设计总监. 「方正悠黑」字体合作开发. 当代中国具备国际视野且承担国家级视觉项目的代表设计师.",papers:[{y:"2017",t:"北京冬奥会徽「冬梦」"},{y:"2022",t:"北京冬奥视觉形象总设计师"}]},
-  {id:"jianghua",name:"Jiang Hua",org:"中国美术学院",title:"蒋华 · 中国当代字体设计教育者",field:["typography","chinese"],
+  {id:"jianghua",name:"Jiang Hua",org:"中国美术学院",title:"蒋华 · 中国当代字体设计教育者",field:["typography"],region:"china",
     bio:"Born 1971 杭州. 中国美术学院视觉传达硕士. 中国美术学院设计学院教授. 创办「Type is Beautiful」中文字体网志(2007). 著作《这个杀手不太冷:汉字字体设计对话录》. 中国最早一批系统性引入西方字体设计理论的学者,影响新一代华文字体设计者. AGI 会员.",papers:[{y:"2007",t:"创办 Type is Beautiful"},{y:"2018",t:"《汉字字体设计对话录》"}]},
-  {id:"wangmin",name:"Wang Min",org:"中央美术学院",title:"王敏 · 央美设计学院前院长 + 北京奥运",field:["graphic","chinese"],
+  {id:"wangmin",name:"Wang Min",org:"中央美术学院",title:"王敏 · 央美设计学院前院长 + 北京奥运",field:["graphic"],region:"china",
     bio:"Born 1956 北京. 中央工艺美术学院 + 美国耶鲁大学硕士. 1990s 在 Adobe / 苹果 / 微软担任艺术总监. 2002 回国任中央美术学院设计学院院长 (2002-2018). 2008 北京奥运会形象与景观艺术总监. 「奥运同心结」视觉系统主导者. 推动中国设计教育与国际接轨,培养整整一代国内设计领导者.",papers:[{y:"2008",t:"北京奥运形象与景观艺术总监"},{y:"2002",t:"央美设计学院院长"}]},
-  {id:"liude",name:"Liu De",org:"Xiaomi",title:"小米联合创始人 · 工业设计副总裁",field:["industrial","chinese"],bio:"1973 年生。北京理工大学工业设计学士 + 机械设计硕士 + Art Center College of Design 工业设计硕士。2010 年与雷军等八人共同创立小米,长期主管小米硬件工业设计与生态链业务,定义了小米手机/电视/盒子的「极简白」工业设计语言。是中国移动互联网时代第一批将硅谷工业设计教育(Art Center)引入大陆消费电子的领导者。现任小米集团执行董事 + 高级副总裁 + 集团总干部部部长。",papers:[{y:"2010",t:"小米联合创立"},{y:"2013",t:"小米电视设计语言"}]},
-  {id:"liwanqiang",name:"Li Wanqiang",org:"Xiaomi",title:"小米联合创始人 · 前金山 UI 主管 · Mi 品牌",field:["graphic","ux","chinese","branding"],bio:"小米联合创始人之一,前金山软件 UI 主管。2010 年与雷军等创办小米,主导早期小米品牌识别(MI logo)、MIUI 视觉系统、小米营销与品牌内容。是《参与感》一书的作者(2014 年最畅销互联网营销书,核心案例为小米)。后任小米电视部门总经理。中国互联网产品「品牌-视觉-营销」一体化运作的范式开创者。",papers:[{y:"2010",t:"小米联合创立 + MI logo"},{y:"2014",t:"《参与感》(畅销书)"}]},
-  {id:"tangmu",name:"Tang Mu",org:"Ruying Smart",title:"前腾讯 CDC 总经理 → 小米生态链 → 如影智能 CEO",field:["ux","industrial","chinese"],bio:"华南理工大学国际会计学士。第一份工作金山(黎万强是直接 UI 主管)。2003 加入腾讯,组建腾讯用户体验设计中心(CDC),管 300+ 设计师,负责 QQ/QQ 音乐/QQ 游戏等百款产品。早期 QQ 头像出自他手。2013 加入小米任生态链副总裁,主导小米路由器、智能家居产品设计。后离开小米创立北京如影智能科技 CEO。",papers:[{y:"2003",t:"创立腾讯 CDC"},{y:"2013",t:"小米路由器"},{y:"2018",t:"创办如影智能"}]},
-  {id:"yangyan",name:"Yang Yan",org:"Meizu Flyme",title:"魅族 Flyme 副总裁 · Flyme 设计灵魂",field:["ux","graphic","chinese"],bio:"魅族 Flyme OS 视觉与交互设计灵魂人物。2010 年代魅族软硬件团队 10 余人时期就主导 Flyme 早期版本设计。2014 年原 Flyme 负责人马麟离职后接任,带领团队迭代 Flyme 4/5/6/7/8 系列。2017 年组织调整后任 Flyme 事业部独立后升任副总裁。Flyme 在 2013-2018 年间被业内视为中国 Android 定制 ROM 的设计标杆。",papers:[{y:"2014",t:"接任 Flyme 负责人"},{y:"2017",t:"Flyme 事业部副总裁"}]},
-  {id:"luoziyong",name:"Luo Zixiong",org:"独立设计师",title:"前锤子科技设计 → 国内独立设计师代表",field:["ux","graphic","chinese"],bio:"原锤子科技(Smartisan OS)核心 UI 设计师之一,参与早期 Smartisan OS 视觉系统。后离开锤子成为自由设计师,创办 LxU 设计圆桌。在国内设计圈持续输出方法论和职业建议,影响一代中国 80/90 后 UI/产品设计师。",papers:[{y:"2012",t:"Smartisan OS 视觉设计"},{y:"2015",t:"LxU 设计圆桌"}]},
-  {id:"geyanan",name:"Ge Yanan",org:"vivo",title:"vivo OriginOS 设计总监",field:["ux","chinese"],bio:"vivo OriginOS 设计总监,主导 vivo 自研操作系统视觉与交互设计语言(OriginOS 1.0 → 4.0)。OriginOS 2020 发布以「华容网格」打破国内 Android 定制 ROM 同质化布局,被业内视为继 Flyme 之后中国厂商在 UI 设计上的又一次系统级创新。",papers:[{y:"2020",t:"OriginOS 1.0 华容网格"},{y:"2024",t:"OriginOS 4 全场景"}]},
+  {id:"liude",name:"Liu De",org:"Xiaomi",title:"小米联合创始人 · 工业设计副总裁",field:["industrial"],region:"china",bio:"1973 年生。北京理工大学工业设计学士 + 机械设计硕士 + Art Center College of Design 工业设计硕士。2010 年与雷军等八人共同创立小米,长期主管小米硬件工业设计与生态链业务,定义了小米手机/电视/盒子的「极简白」工业设计语言。是中国移动互联网时代第一批将硅谷工业设计教育(Art Center)引入大陆消费电子的领导者。现任小米集团执行董事 + 高级副总裁 + 集团总干部部部长。",papers:[{y:"2010",t:"小米联合创立"},{y:"2013",t:"小米电视设计语言"}]},
+  {id:"liwanqiang",name:"Li Wanqiang",org:"Xiaomi",title:"小米联合创始人 · 前金山 UI 主管 · Mi 品牌",field:["graphic", "ux", "branding"],region:"china",bio:"小米联合创始人之一,前金山软件 UI 主管。2010 年与雷军等创办小米,主导早期小米品牌识别(MI logo)、MIUI 视觉系统、小米营销与品牌内容。是《参与感》一书的作者(2014 年最畅销互联网营销书,核心案例为小米)。后任小米电视部门总经理。中国互联网产品「品牌-视觉-营销」一体化运作的范式开创者。",papers:[{y:"2010",t:"小米联合创立 + MI logo"},{y:"2014",t:"《参与感》(畅销书)"}]},
+  {id:"tangmu",name:"Tang Mu",org:"Ruying Smart",title:"前腾讯 CDC 总经理 → 小米生态链 → 如影智能 CEO",field:["ux", "industrial"],region:"china",bio:"华南理工大学国际会计学士。第一份工作金山(黎万强是直接 UI 主管)。2003 加入腾讯,组建腾讯用户体验设计中心(CDC),管 300+ 设计师,负责 QQ/QQ 音乐/QQ 游戏等百款产品。早期 QQ 头像出自他手。2013 加入小米任生态链副总裁,主导小米路由器、智能家居产品设计。后离开小米创立北京如影智能科技 CEO。",papers:[{y:"2003",t:"创立腾讯 CDC"},{y:"2013",t:"小米路由器"},{y:"2018",t:"创办如影智能"}]},
+  {id:"yangyan",name:"Yang Yan",org:"Meizu Flyme",title:"魅族 Flyme 副总裁 · Flyme 设计灵魂",field:["ux", "graphic"],region:"china",bio:"魅族 Flyme OS 视觉与交互设计灵魂人物。2010 年代魅族软硬件团队 10 余人时期就主导 Flyme 早期版本设计。2014 年原 Flyme 负责人马麟离职后接任,带领团队迭代 Flyme 4/5/6/7/8 系列。2017 年组织调整后任 Flyme 事业部独立后升任副总裁。Flyme 在 2013-2018 年间被业内视为中国 Android 定制 ROM 的设计标杆。",papers:[{y:"2014",t:"接任 Flyme 负责人"},{y:"2017",t:"Flyme 事业部副总裁"}]},
+  {id:"luoziyong",name:"Luo Zixiong",org:"独立设计师",title:"前锤子科技设计 → 国内独立设计师代表",field:["ux", "graphic"],region:"china",bio:"原锤子科技(Smartisan OS)核心 UI 设计师之一,参与早期 Smartisan OS 视觉系统。后离开锤子成为自由设计师,创办 LxU 设计圆桌。在国内设计圈持续输出方法论和职业建议,影响一代中国 80/90 后 UI/产品设计师。",papers:[{y:"2012",t:"Smartisan OS 视觉设计"},{y:"2015",t:"LxU 设计圆桌"}]},
+  {id:"geyanan",name:"Ge Yanan",org:"vivo",title:"vivo OriginOS 设计总监",field:["ux"],region:"china",bio:"vivo OriginOS 设计总监,主导 vivo 自研操作系统视觉与交互设计语言(OriginOS 1.0 → 4.0)。OriginOS 2020 发布以「华容网格」打破国内 Android 定制 ROM 同质化布局,被业内视为继 Flyme 之后中国厂商在 UI 设计上的又一次系统级创新。",papers:[{y:"2020",t:"OriginOS 1.0 华容网格"},{y:"2024",t:"OriginOS 4 全场景"}]},
   {id:"ryolu",name:"Ryo Lu",org:"Cursor",title:"Cursor 设计负责人 · 前 Notion 5 年设计师",field:["ux"],bio:"加拿大华裔设计师。早期在 Asana、Stripe 工作。2019-2025 在 Notion 工作 5 年。2025 年 1 月跳槽至 Cursor 任 Head of Design——AI native coding 代表设计师。他用 Cursor 自己写出 ryOS 个人作品。在 X (@ryolu_) 上是 AI native designer 标志性人物,影响一整批「设计 + 写代码」的新一代 designer。",papers:[{y:"2019",t:"加入 Notion(5 年)"},{y:"2025",t:"加入 Cursor 任设计负责人"}]},
   {id:"ivanzhao",name:"Ivan Zhao",org:"Notion",title:"Notion 联创 + CEO · 设计师创业者代表",field:["ux"],bio:"出生于中国,童年移居加拿大。UBC 认知科学 + 美术辅修。中学时学编程。从小研习中国传统水墨画。早期在教育出版创业 Inkling 任产品设计师。2013 与 Simon Last 联创 Notion。2019-2020 几乎倒闭后凤凰涅槃,2025 估值超千亿美金。代表 designer-founder 路径——Notion 整个产品哲学源自他对「乐高式知识工具」的执念。",papers:[{y:"2013",t:"创办 Notion"},{y:"2024",t:"Notion AI 上线"}]},
   {id:"karrisaarinen",name:"Karri Saarinen",org:"Linear",title:"Linear 联创 + CEO · 设计师血统的项目工具",field:["ux"],bio:"芬兰设计师 + 工程师。早期联创 Kippt(被 Coinbase 收购)。Coinbase 早期设计 + Head of Design。Airbnb Principal Designer + Design Systems Lead。2019 创办 Linear。Linear 以「极致软件 craft」著称,客户包括 OpenAI / Ramp / Vercel。2024 估值 12.5 亿美金。代表「设计师创业者把 craft 信念注入企业级软件」的路径。",papers:[{y:"2019",t:"创办 Linear"},{y:"2024",t:"Linear 12.5 亿美金估值"}]},
@@ -1305,11 +1304,11 @@ const scholars = [
   {id:"davideriksson",name:"David Eriksson",org:"Teenage Engineering",title:"TE 联合创始人",field:["industrial","ux"],bio:"瑞典设计师。2005 与 Jesper Kouthoofd、Jens Rudberg、Erik Lundstedt 在斯德哥尔摩共同创立 Teenage Engineering。TE 以 OP-1 合成器(2011)、Pocket Operator、IKEA Frekvens 联名、Nothing 早期产品 Nothing CMF 合作著称。「玩具感 + 严肃合成器」美学定义了独立硬件 / 音乐设计圈的新方向。",papers:[{y:"2005",t:"联创 Teenage Engineering"},{y:"2011",t:"OP-1 合成器"}]},
 
   // ===== Chinese Designers 扩充 =====
-  {id:"henrysteiner",name:"Henry Steiner",org:"Steiner & Co (HK)",title:"石汉瑞 · 香港平面设计之父 · Paul Rand 学生",field:["graphic","chinese","branding"],bio:"1934 生于维也纳犹太家庭,纳粹兴起后逃往美国。Hunter College + Yale 艺术学院 MFA(师从 Paul Rand)。1961 受邀到香港任《亚洲杂志》设计总监,原计划 9 个月但定居至今。1964 创立 Steiner & Co。设计汇丰银行 HSBC 六边形 logo、渣打银行神话生物钞票、香港赛马会、香港置地、希尔顿香港。被誉为「香港平面设计之父」。AGI 资深会员。把东方符号融入西方现代主义平面设计的开创者。",papers:[{y:"1964",t:"创立 Steiner & Co"},{y:"1983",t:"汇丰银行六边形 logo"},{y:"2003",t:"渣打银行神话钞票系列"}]},
-  {id:"freemanlau",name:"Freeman Lau",org:"KL&K Design",title:"刘小康 · KL&K Design 联创 · 椅子先生",field:["graphic","industrial","chinese"],bio:"1958 生于香港。香港理工大学设计学院。1996 与靳埭强联合创立靳与刘设计 KL&K Design Consultants。「椅子戏」系列以椅子为载体的视觉艺术(2005-)走遍世界博物馆。设计中国人寿、屈臣氏蒸馏水瓶等品牌识别。香港艺术发展局视觉艺术主席多届。深圳市政府文化与设计顾问。「香港 → 中国大陆」设计跨界的代表人物之一。",papers:[{y:"1996",t:"联创 KL&K Design"},{y:"2005",t:"椅子戏系列"}]},
-  {id:"shidayu",name:"Shi Dayu",org:"Clay Architecture (Taiwan)",title:"石大宇 · 台湾设计师 · 竹工艺现代化",field:["industrial","chinese"],bio:"1964 生于纽约,在台湾长大。Parsons School of Design 工业设计 BFA。1995 创立清庭 Clay Architecture(台北)。专注东方材料(尤其竹)的当代设计:「椅琴剑」系列、「云水居」竹凳、「天工开物」家具。Compasso d'Oro 金奖入围。德国 Red Dot 至尊奖、Good Design Award。台湾 + 大陆设计圈代表把东方传统材料语言带入国际工业设计的人物。",papers:[{y:"1995",t:"创立清庭"},{y:"2010",t:"椅琴剑系列"}]},
-  {id:"lizhiqian",name:"Li Zhiqian",org:"3type (三言)",title:"厉致谦 · 3type 创始人 · 字体设计新生代",field:["typography","chinese"],bio:"独立中文字体设计师 + 字体史研究者。Type is Beautiful (TIB) 资深成员/作者。2014 创立上海 3type(三言)字体工作室,出版《西文字体的故事》《字模 1 号:汉字字体设计》等重要中文字体书籍。中国当代「字体研究 + 出版 + 实验」三位一体的代表新生代,推动汉字现代字体设计走向更专业化。",papers:[{y:"2014",t:"创立 3type"},{y:"2018",t:"《字模 1 号》"}]},
-  {id:"yingyonghui",name:"Ying Yonghui",org:"独立设计师 / TIB",title:"应永会 · 古字体研究 + 民国铅字复刻",field:["typography","chinese"],bio:"中国独立中文字体研究者 + 设计师。Type is Beautiful (TIB) 资深成员。专注复刻民国时期金属铅字、古代书法刻本字体,推出「方正民隶系列」「方正大颜楷」等复刻字体。把中国传统印刷文化与现代字库技术结合的独特路线代表。是中国字体研究领域少数能与朱志伟那一代字库元老对话的研究型设计师。",papers:[{y:"2010s",t:"民国铅字复刻系列"},{y:"2018s",t:"方正民隶字体"}]},
+  {id:"henrysteiner",name:"Henry Steiner",org:"Steiner & Co (HK)",title:"石汉瑞 · 香港平面设计之父 · Paul Rand 学生",field:["graphic", "branding"],region:"china",bio:"1934 生于维也纳犹太家庭,纳粹兴起后逃往美国。Hunter College + Yale 艺术学院 MFA(师从 Paul Rand)。1961 受邀到香港任《亚洲杂志》设计总监,原计划 9 个月但定居至今。1964 创立 Steiner & Co。设计汇丰银行 HSBC 六边形 logo、渣打银行神话生物钞票、香港赛马会、香港置地、希尔顿香港。被誉为「香港平面设计之父」。AGI 资深会员。把东方符号融入西方现代主义平面设计的开创者。",papers:[{y:"1964",t:"创立 Steiner & Co"},{y:"1983",t:"汇丰银行六边形 logo"},{y:"2003",t:"渣打银行神话钞票系列"}]},
+  {id:"freemanlau",name:"Freeman Lau",org:"KL&K Design",title:"刘小康 · KL&K Design 联创 · 椅子先生",field:["graphic", "industrial"],region:"china",bio:"1958 生于香港。香港理工大学设计学院。1996 与靳埭强联合创立靳与刘设计 KL&K Design Consultants。「椅子戏」系列以椅子为载体的视觉艺术(2005-)走遍世界博物馆。设计中国人寿、屈臣氏蒸馏水瓶等品牌识别。香港艺术发展局视觉艺术主席多届。深圳市政府文化与设计顾问。「香港 → 中国大陆」设计跨界的代表人物之一。",papers:[{y:"1996",t:"联创 KL&K Design"},{y:"2005",t:"椅子戏系列"}]},
+  {id:"shidayu",name:"Shi Dayu",org:"Clay Architecture (Taiwan)",title:"石大宇 · 台湾设计师 · 竹工艺现代化",field:["industrial"],region:"china",bio:"1964 生于纽约,在台湾长大。Parsons School of Design 工业设计 BFA。1995 创立清庭 Clay Architecture(台北)。专注东方材料(尤其竹)的当代设计:「椅琴剑」系列、「云水居」竹凳、「天工开物」家具。Compasso d'Oro 金奖入围。德国 Red Dot 至尊奖、Good Design Award。台湾 + 大陆设计圈代表把东方传统材料语言带入国际工业设计的人物。",papers:[{y:"1995",t:"创立清庭"},{y:"2010",t:"椅琴剑系列"}]},
+  {id:"lizhiqian",name:"Li Zhiqian",org:"3type (三言)",title:"厉致谦 · 3type 创始人 · 字体设计新生代",field:["typography"],region:"china",bio:"独立中文字体设计师 + 字体史研究者。Type is Beautiful (TIB) 资深成员/作者。2014 创立上海 3type(三言)字体工作室,出版《西文字体的故事》《字模 1 号:汉字字体设计》等重要中文字体书籍。中国当代「字体研究 + 出版 + 实验」三位一体的代表新生代,推动汉字现代字体设计走向更专业化。",papers:[{y:"2014",t:"创立 3type"},{y:"2018",t:"《字模 1 号》"}]},
+  {id:"yingyonghui",name:"Ying Yonghui",org:"独立设计师 / TIB",title:"应永会 · 古字体研究 + 民国铅字复刻",field:["typography"],region:"china",bio:"中国独立中文字体研究者 + 设计师。Type is Beautiful (TIB) 资深成员。专注复刻民国时期金属铅字、古代书法刻本字体,推出「方正民隶系列」「方正大颜楷」等复刻字体。把中国传统印刷文化与现代字库技术结合的独特路线代表。是中国字体研究领域少数能与朱志伟那一代字库元老对话的研究型设计师。",papers:[{y:"2010s",t:"民国铅字复刻系列"},{y:"2018s",t:"方正民隶字体"}]},
   // ===== ARCHITECTS — 经典现代主义 =====
   {id:"lecorbusier",name:"Le Corbusier",org:"独立工作室",title:"柯布西耶 · 现代主义建筑奠基人",field:["architect"],
     bio:"1887 生于瑞士拉绍德封,1965 去世。本名 Charles-Édouard Jeanneret-Gris。20 世纪最具影响力的现代主义建筑师。1923 著作《Towards a New Architecture》(《走向新建筑》)定义了现代主义建筑五原则:架空底层、屋顶花园、自由平面、横向长窗、自由立面。代表作:Villa Savoye(法国 Poissy 1931)、Notre-Dame du Haut(朗香教堂 1955)、Unité d'Habitation(马赛公寓 1952)、Chandigarh(印度规划)。Modulor 人体比例系统创始人。被公认为现代建筑之父。",
@@ -1381,28 +1380,28 @@ const scholars = [
     papers:[{y:"1988",t:"Saint Benedict Chapel 瑞士"},{y:"1996",t:"Therme Vals 瓦尔斯温泉浴场"},{y:"1997",t:"Kunsthaus Bregenz 布雷根茨美术馆"},{y:"2007",t:"Kolumba Museum Köln 科隆"},{y:"2007",t:"Bruder Klaus Field Chapel(德国田野教堂)"}]},
 
   // ===== ARCHITECTS — 中国当代 =====
-  {id:"wangshu",name:"Wang Shu",org:"业余建筑工作室 / 中国美院",title:"王澍 · 中国首位 Pritzker 2012 · 象山校区",field:["architect","chinese"],
+  {id:"wangshu",name:"Wang Shu",org:"业余建筑工作室 / 中国美院",title:"王澍 · 中国首位 Pritzker 2012 · 象山校区",field:["architect"],region:"china",
     bio:"1963 生于乌鲁木齐。东南大学建筑学士 + 同济大学博士。1997 与陆文宇创立「业余建筑工作室」(杭州)。中国美术学院建筑艺术学院院长。Pritzker Prize 2012(首位获奖中国建筑师)。代表作:中国美院象山校区(2007/2013)、宁波博物馆(2008)、宁波美术馆(2005)、富阳博物馆(2016)、文村乡村重建(2016)。象山校区使用 700 万片回收砖瓦,定义中国当代「向传统、向乡土」建筑路径。AIA Gold Medal 2025。",
     papers:[{y:"2002",t:"苏州大学文正学院图书馆"},{y:"2005",t:"宁波美术馆"},{y:"2007",t:"中国美院象山校区一期"},{y:"2008",t:"宁波博物馆"},{y:"2013",t:"中国美院象山校区二期"},{y:"2016",t:"富阳博物馆 + 文村乡村重建"}]},
-  {id:"liujiakun",name:"Liu Jiakun",org:"家琨建筑设计事务所",title:"刘家琨 · Pritzker 2025 · 西村大院",field:["architect","chinese"],
+  {id:"liujiakun",name:"Liu Jiakun",org:"家琨建筑设计事务所",title:"刘家琨 · Pritzker 2025 · 西村大院",field:["architect"],region:"china",
     bio:"1956 生于成都。重庆建筑工程学院(今重庆大学)毕业。1999 创办家琨建筑设计事务所。Pritzker Prize 2025(中国第二位获奖建筑师)。代表作:西村大院(成都 2015)、鹿野苑石刻艺术博物馆(2002)、Novartis 上海办公园区、四川美术学院新校区。「再生砖」项目(2008 汶川地震后,把废墟材料做成强度更高的砖块)。普利兹克评审主席评价:「刘家琨开创了一种新的共生方式,密度不再与开放性对立」。",
     papers:[{y:"1999",t:"罗中立工作室 重庆"},{y:"2002",t:"鹿野苑石刻艺术博物馆 成都"},{y:"2008",t:"再生砖项目(汶川地震后)"},{y:"2013",t:"胡慧珊纪念馆(汶川地震遗址)"},{y:"2015",t:"西村大院 成都"},{y:"2017",t:"Novartis 上海研发园区"},{y:"2024",t:"上海玻璃博物馆扩建"}]},
-  {id:"yunghochang",name:"Yung Ho Chang",org:"非常建筑 / MIT",title:"张永和 · 非常建筑创办人 · 中国实验建筑先驱",field:["architect","chinese"],
+  {id:"yunghochang",name:"Yung Ho Chang",org:"非常建筑 / MIT",title:"张永和 · 非常建筑创办人 · 中国实验建筑先驱",field:["architect"],region:"china",
     bio:"1956 生于北京(梁思成的学生张开济之子)。东南大学 + UC Berkeley 硕士。1993 创办「非常建筑」(Atelier FCJZ),中国大陆第一家私人建筑事务所。2005-2010 任 MIT 建筑系主任(华人首位)。Pritzker 评委(2012-2017)。代表作:山雨村(深圳)、二分宅(2002)、Vanke Center 中心(深圳 2009)、垂直玻璃宅(2013)。被誉为中国当代「实验建筑」运动先驱。Harvard / Princeton / 同济等多所大学客座教授,影响整代中国年轻建筑师。",
     papers:[{y:"1993",t:"创办非常建筑 Atelier FCJZ"},{y:"2002",t:"二分宅 Split House"},{y:"2005",t:"任 MIT 建筑系主任(2005-2010)"},{y:"2009",t:"Vanke Center 万科中心 深圳"},{y:"2013",t:"垂直玻璃宅 Vertical Glass House"},{y:"2010",t:"北京西城法源寺改造"}]},
-  {id:"mayansong",name:"Ma Yansong",org:"MAD Architects",title:"马岩松 · MAD 创办人 · 中国新生代",field:["architect","chinese"],
+  {id:"mayansong",name:"Ma Yansong",org:"MAD Architects",title:"马岩松 · MAD 创办人 · 中国新生代",field:["architect"],region:"china",
     bio:"1975 生于北京。北京建筑工程学院 + Yale Master of Architecture(师从 Zaha Hadid 项目)。曾在 Zaha Hadid Architects 伦敦工作。2004 在北京创办 MAD Architects。代表作:Absolute Towers(加拿大 Mississauga 2012,昵称 Marilyn Monroe Towers)、Harbin Opera House(哈尔滨大剧院 2015)、Lucas Museum of Narrative Art(LA 2025,迪士尼+卢卡斯影业)、Quzhou Sports Park(衢州体育场 2023)、朝阳公园广场(2017)。代表中国建筑师在国际舞台的新生代。",
     papers:[{y:"2012",t:"Absolute Towers 加拿大梦露大厦"},{y:"2015",t:"哈尔滨大剧院"},{y:"2017",t:"朝阳公园广场 北京"},{y:"2019",t:"嘉兴火车站"},{y:"2023",t:"衢州体育场"},{y:"2025",t:"Lucas Museum of Narrative Art LA"}]},
-  {id:"lixinggang",name:"Li Xinggang",org:"中国建筑设计研究院",title:"李兴钢 · 鸟巢中方主设计师",field:["architect","chinese"],
+  {id:"lixinggang",name:"Li Xinggang",org:"中国建筑设计研究院",title:"李兴钢 · 鸟巢中方主设计师",field:["architect"],region:"china",
     bio:"1969 生于河北。天津大学建筑系。中国建筑设计研究院总建筑师 + 李兴钢工作室。北京 2008 奥运会鸟巢国家体育场中方设计主持人(与 Herzog & de Meuron + 艾未未合作)。2022 北京冬奥会延庆赛区国家雪车雪橇中心、国家高山滑雪中心总设计师。代表作:鸟巢(2008)、绩溪博物馆(2014)、瞬时桃花源、北京冬奥延庆赛区(2022)。中国国家级体育建筑代表设计师。",
     papers:[{y:"2008",t:"鸟巢 北京国家体育场(中方主设计)"},{y:"2010",t:"唐山地震遗址纪念公园"},{y:"2014",t:"绩溪博物馆"},{y:"2016",t:"瞬时桃花源"},{y:"2017",t:"元上都遗址博物馆"},{y:"2022",t:"延庆冬奥赛区(雪车雪橇/高山滑雪)"}]},
-  {id:"zhupei",name:"Zhu Pei",org:"朱锫建筑事务所",title:"朱锫 · 当代美术馆建筑代表",field:["architect","chinese"],
+  {id:"zhupei",name:"Zhu Pei",org:"朱锫建筑事务所",title:"朱锫 · 当代美术馆建筑代表",field:["architect"],region:"china",
     bio:"1962 生于北京。清华大学建筑学士 + Berkeley 硕士。曾任 Richard Meier & Partners(纽约)。2005 创办朱锫建筑事务所(北京)。中央美术学院建筑学院院长(2018-)。代表作:OCT 设计博物馆(深圳 2011)、上海喜马拉雅中心(与矶崎新合作)、寿县文化艺术中心(2019)、Jingdezhen Imperial Kiln Museum(景德镇御窑博物馆 2020,获 RIBA International Prize 提名)、岩茶博物馆。把「场所精神」与中国地域文化材料融合的当代代表。",
     papers:[{y:"2011",t:"OCT 设计博物馆 深圳"},{y:"2010",t:"上海喜马拉雅中心(与矶崎新合作)"},{y:"2012",t:"大理杨丽萍剧场"},{y:"2019",t:"寿县文化艺术中心 安徽"},{y:"2020",t:"景德镇御窑博物馆(RIBA International 提名)"}]},
-  {id:"donggong",name:"Dong Gong",org:"直向建筑",title:"董功 · 直向建筑创始人",field:["architect","chinese"],
+  {id:"donggong",name:"Dong Gong",org:"直向建筑",title:"董功 · 直向建筑创始人",field:["architect"],region:"china",
     bio:"1972 生于北京。清华建筑学士 + UIUC 硕士。曾任 Richard Meier & Partners、Steven Holl Architects。2008 创办直向建筑(北京)。代表作:阿那亚海边图书馆(秦皇岛 2015,「孤独的图书馆」网红建筑)、阿那亚海边教堂(2015)、长江美术馆(太原 2019)、宁海十里红妆博物馆(2020)。把简约现代主义与中国当代生活场景结合的代表。AIA 多次国际奖项。",
     papers:[{y:"2008",t:"创办直向建筑"},{y:"2015",t:"阿那亚海边图书馆「孤独的图书馆」"},{y:"2015",t:"阿那亚海边教堂"},{y:"2017",t:"玻璃文化艺术中心"},{y:"2019",t:"长江美术馆 太原"},{y:"2020",t:"宁海十里红妆博物馆"}]},
-  {id:"liuyichun",name:"Liu Yichun",org:"大舍建筑",title:"柳亦春 · 大舍建筑创始人",field:["architect","chinese"],
+  {id:"liuyichun",name:"Liu Yichun",org:"大舍建筑",title:"柳亦春 · 大舍建筑创始人",field:["architect"],region:"china",
     bio:"1969 生于山东。同济大学建筑系。2001 与陈屹峰、庄慎共同创办大舍建筑(上海)。代表作:龙美术馆西岸馆(上海 2014,「伞拱」混凝土结构最具代表性的当代中国美术馆建筑)、Edge of the Universe(青浦图书馆)、艺仓美术馆(2016)、嘉定新城规划展示馆。把工业建筑、混凝土材料、上海地域性融合的代表。多次代表中国参加威尼斯建筑双年展。",
     papers:[{y:"2008",t:"嘉定新城规划展示馆"},{y:"2014",t:"龙美术馆西岸馆 上海"},{y:"2016",t:"艺仓美术馆 上海"},{y:"2017",t:"边园 上海"},{y:"2019",t:"民生码头八万吨筒仓改造 上海"}]},
   // ===== Sony Industrial Design =====
@@ -2160,7 +2159,7 @@ const i18n = {
     filterGraphic: "Graphic",
     filterUX: "UX / UI",
     filterType: "Type",
-    filterChinese: "Chinese",
+    filterBranding: "Branding",
     filterArchitect: "Architects",
     stats: (s, c) => `${s} designers · ${c} connections`,
     legendOrgs: "Studios",
@@ -2192,7 +2191,7 @@ const i18n = {
     filterGraphic: "平面设计",
     filterUX: "交互/UX",
     filterType: "字体设计",
-    filterChinese: "中国",
+    filterBranding: "品牌设计",
     filterArchitect: "建筑师",
     stats: (s, c) => `${s} 位设计师 · ${c} 条关系`,
     legendOrgs: "工作室",
@@ -2531,7 +2530,7 @@ function applyLanguage(lang) {
   document.getElementById("nav-stats").textContent = t.stats(scholars.length, connections.length);
 
   // Filter pills
-  const pillMap = { all: t.filterAll, industrial: t.filterIndustrial, graphic: t.filterGraphic, ux: t.filterUX, typography: t.filterType, chinese: t.filterChinese, architect: t.filterArchitect };
+  const pillMap = { all: t.filterAll, industrial: t.filterIndustrial, graphic: t.filterGraphic, ux: t.filterUX, typography: t.filterType, branding: t.filterBranding, architect: t.filterArchitect };
   document.querySelectorAll(".filter-pill").forEach(btn => {
     btn.textContent = pillMap[btn.dataset.filter] || btn.textContent;
   });
